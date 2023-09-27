@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="listStyles.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto+Condensed:ital,wght@1,700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="/" class="logo" id="logo">
+            <div class="g-circle first"></div>
+            <div class="g-circle second"></div>
+            <div class="g-circle third"></div>
+            <div class="trunk"></div>
+            <div class="branch-1"></div>
+            <div class="branch-2"></div>
+        </a>
+        <div id="menu-button">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <button id="user">
+            <svg xmlns="http://www.w3.org/2000/svg" width="168" height="170" viewBox="0 0 168 170" fill="none">
+                <path d="M84.5 80.5C105.487 80.5 122.5 63.4868 122.5 42.5C122.5 21.5132 105.487 4.5 84.5 4.5C63.5132 4.5 46.5 21.5132 46.5 42.5C46.5 63.4868 63.5132 80.5 84.5 80.5Z" stroke="white" stroke-width="9"/>
+                <path d="M89.3555 95.9121L136.84 112.378C159.95 120.391 155.426 164 131.485 164H36.515C12.5741 164 8.04982 120.391 31.1597 112.378L78.6446 95.9121C82.1518 94.696 85.8483 94.696 89.3555 95.9121Z" stroke="white" stroke-width="9"/>
+            </svg>
+        </button>
+
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="">Item uno</a>
+                </li>
+                <li>
+                    <a href="">Item dos</a>
+                </li>
+                <li>
+                    <a href="">Item tres</a>
+                </li>
+                <li>
+                    <a href="">Item tres</a>
+                </li>
+            </ul>
+            <ul class="user-menu">
+                <li>
+                    <a href="">Mi perfil</a>
+                </li>
+                <li>
+                    <a href="">Historial</a>
+                </li>
+                <li>
+                    <a href="">Cerrar sesion</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="description-section">
+
+        <div id="description-data"></div>
+
+        <div class="form float">
+            <div class="form-message"></div>
+            <form action="">
+                    <h3>Log in to upload or delete albums!</h3>
+                    <div class="field-wrapper">
+                        <input type="text" name="name" id="name">
+                        <label for="name">Band Name</label>
+                    </div>
+                    <div class="field-wrapper">
+                        <input type="text" name="id" id="bId">
+                        <label for="bId">Band ID</label>
+                    </div>
+   
+                    <button type="submit" class="btn primary" id="login">Send</button>
+            </form>
+        </div>
+
+        <a href="#list-section" class="header-arrow">
+            <svg width="26" height="50" viewBox="0 0 26 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.20703 13.5L13.207 1.5L25.207 13.5" stroke="white" stroke-width="2"/>
+                <path d="M13.207 1.5L13.207 49.5" stroke="white" stroke-width="2"/>
+            </svg>
+        </a>
+
+    </section>
+
+    <section id="list-section">
+        <ul>
+            <li class="list-header l4">
+                <ul><h5>Name</h5></ul>
+                <ul><h5>Tracks</h5></ul>
+                <ul><h5>Year</h5></ul>
+                <ul><h5>Actions</h5></ul>
+            </li>
+            <li id="listBody"></li>
+        </ul>
+    </section>
+
+    <footer>
+        
+        <div class="footer-content-wrapper">
+            <ul class="footer-menu">
+                <li>
+                    <a href="">Item uno</a>
+                </li>
+                <li>
+                    <a href="">Item dos</a>
+                </li>
+                <li>
+                    <a href="">Item tres</a>
+                </li>
+                <li>
+                    <a href="">Item cuatro</a>
+                </li>
+            </ul>
+    
+            <a href="#first-section" class="footer-arrow">
+                <svg width="26" height="50" viewBox="0 0 26 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.20703 13.5L13.207 1.5L25.207 13.5" stroke="#000" stroke-width="2"/>
+                    <path d="M13.207 1.5L13.207 49.5" stroke="#000" stroke-width="2"/>
+                </svg>
+            </a>
+    
+            <div class="footer-sm">
+                <a href="" class="fb">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="25px" height="25px"><path d="M 17.722656 10 C 10.560656 10 10 10.560656 10 17.722656 L 10 32.277344 C 10 39.439344 10.560656 40 17.722656 40 L 32.277344 40 C 39.439344 40 40 39.439344 40 32.277344 L 40 17.769531 C 40 10.563531 39.436469 10 32.230469 10 L 17.722656 10 z M 17 11 L 33 11 C 38.565 11 39 11.435 39 17 L 39 33 C 39 38.565 38.565 39 33 39 L 29.712891 39 L 29.712891 29.355469 L 33.453125 29.355469 L 34.013672 24.894531 L 29.714844 24.894531 L 29.714844 21.771484 C 29.714844 20.534484 30.5495 19.900391 31.4375 19.900391 C 32.3255 19.900391 34.164062 19.875 34.164062 19.875 L 34.164062 15.884766 C 34.164062 15.884766 32.528422 15.695312 30.857422 15.695312 C 29.453422 15.695312 27.907922 16.091234 26.669922 17.365234 C 25.410922 18.660234 25.228516 20.57225 25.228516 22.90625 L 25.228516 24.896484 L 21.478516 24.896484 L 21.478516 29.357422 L 25.228516 29.357422 L 25.228516 39 L 17 39 C 11.435 39 11 38.565 11 33 L 11 17 C 11 11.435 11.435 11 17 11 z"/></svg>
+                </a>
+                <a href="" class="ig">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="25px" height="25px"><path d="M 24.849609 10 C 11.077609 10 10 11.077609 10 24.849609 L 10 25.150391 C 10 38.922391 11.077609 40 24.849609 40 L 25.150391 40 C 38.922391 40 40 38.922391 40 25.150391 L 40 24.849609 C 40 11.077609 38.922391 10 25.150391 10 L 24.849609 10 z M 23.751953 11 L 26.248047 11 C 38.074047 11 39 11.925953 39 23.751953 L 39 26.248047 C 39 38.074047 38.074047 39 26.248047 39 L 23.751953 39 C 11.925953 39 11 38.074047 11 26.248047 L 11 23.751953 C 11 11.925953 11.925953 11 23.751953 11 z M 33.496094 15 C 32.668094 15.002 31.998 15.674906 32 16.503906 C 32.002 17.331906 32.674906 18.002 33.503906 18 C 34.331906 17.998 35.002 17.325094 35 16.496094 C 34.998 15.668094 34.325094 14.998 33.496094 15 z M 24.980469 17 C 20.562469 17.011 16.989 20.601531 17 25.019531 C 17.01 29.437531 20.601531 33.011 25.019531 33 C 29.437531 32.99 33.011 29.398469 33 24.980469 C 32.99 20.562469 29.398469 16.989 24.980469 17 z M 24.982422 18 C 28.848422 17.991 31.991 21.116422 32 24.982422 C 32.009 28.848422 28.883578 31.991 25.017578 32 C 21.151578 32.009 18.009 28.883578 18 25.017578 C 17.991 21.151578 21.116422 18.009 24.982422 18 z"/></svg>
+                </a>
+                <a href="" class="tw">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="25px" height="25px"><path d="M44,14.215c-1.045,1.562-2.368,2.935-3.892,4.035c0.015,0.335,0.022,0.671,0.022,1.008c0,10.302-7.839,22.181-22.179,22.181 c-4.403,0-10.141-1.542-11.951-3.502c0.611,0.073,1.232,0.11,1.86,0.11c3.654,0,7.015-1.247,9.682-3.338 c-3.411-0.063-6.29-2.318-7.283-5.415c1.552,0.244,3.521-0.134,3.521-0.134s-6.096-1.046-6.254-7.741 c1.763,1.022,3.531,0.975,3.531,0.975s-3.516-2.164-3.467-6.488c0.029-2.55,1.054-3.921,1.054-3.921 c6.661,8.202,16.069,8.146,16.069,8.146s-0.202-1.165-0.202-1.776c0-4.304,3.49-7.796,7.796-7.796c2.242,0,4.268,0.947,5.69,2.463 c1.777-0.351,3.446-1,4.951-1.893c-0.68,2.723-3.427,4.313-3.427,4.313S41.873,15.182,44,14.215z M10.047,38.908 c14.752,5.627,28.812-4.718,29.083-19.649c0.002-0.127-0.031-0.564-0.021-0.939c0.013-0.461,0.163-0.692,0.487-0.945 c0.324-0.253,0.734-0.551,1.084-0.855c0.117-0.101,0.052-0.292-0.078-0.287c-1.104,0.04-1.883-0.008-2.413-0.033 c-0.326-0.016-0.521-0.459-0.242-0.689c0.497-0.409,1.259-1.006,2.168-1.796c0.128-0.111,0.077-0.234-0.081-0.183 c-0.661,0.211-1.316,0.365-1.773,0.461c-0.374,0.078-0.664,0.03-0.916-0.249c-1.114-1.23-3.016-2.184-5.037-2.184 c-4.475,0-6.795,3.742-6.795,6.796c0,0.587,0.109,1.233,0.209,1.763c0.148,0.786-0.204,1.098-1.015,1.049 c-2.902-0.175-10.162-1.244-15.787-7.352c-1.261,4.22,1.376,6.861,3.052,8.096c0.637,0.47,0.56,1.186-0.416,1.306 c-0.751,0.093-1.722,0.098-2.863-0.221c0.548,3.57,4.494,5.011,6.296,5.53c0.408,0.118,0.639,0.669-0.091,1.11 c-0.627,0.379-1.595,0.745-3.028,0.794c1.392,2.38,4.244,3.004,6.247,3.293c0.887,0.128,1.253,1.004,0.3,1.734 C16.634,36.824,13.685,38.517,10.047,38.908z"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© Lorem ipsum dolor sit amet</p>
+        </div>
+
+    </footer>
+
+    <div id="popup-background">
+        <div id="popup">
+            <div id="showId">Show IDs</div>
+            <div class="form">
+                <form action="">
+                        <h3>Enter the band ID</h3>
+                        <div class="field-wrapper">
+                            <input type="text" name="id" id="bIdL">
+                            <label for="bIdL">Band ID</label>
+                        </div>
+       
+                        <button type="submit" class="btn primary" id="showData">Send</button>
+                </form>
+            </div>
+            <div id="popupError">The band was not found</div>
+        </div>
+    </div>
+    
+    <div id="bandIds">
+        <ul>
+            <li>
+                <h5>Band</h5>
+            </li>
+            <li>
+                <h5>ID</h5>
+            </li>
+        </ul>
+        <ul>
+            <li class="li-2">
+                <ul>
+                    <p>The Beatles</p>
+                </ul>
+                <ul>
+                    <p>3WrFJ7ztbogyGnTHbHJFl2</p>
+                </ul>
+            </li>
+            <li class="li-2">
+                <ul>
+                    <p>Soda Stereo</p>
+                </ul>
+                <ul>
+                    <p>7An4yvF7hDYDolN4m5zKBp</p>
+                </ul>
+            </li>
+            <li class="li-2">
+                <ul>
+                    <p>Gustavo Cerati</p>
+                </ul>
+                <ul>
+                    <p>1QOmebWGB6FdFtW7Bo3F0W</p>
+                </ul>
+            </li>
+            <li class="li-2">
+                <ul>
+                    <p>Arctic Monkeys</p>
+                </ul>
+                <ul>
+                    <p>7Ln80lUS6He07XvHI8qqHH</p>
+                </ul>
+            </li>
+            <li class="li-2">
+                <ul>
+                    <p>Tame Impala</p>
+                </ul>
+                <ul>
+                    <p>5INjqkS1o8h1imAzPqGZBb</p>
+                </ul>
+            </li>
+            <li class="li-2">
+                <ul>
+                    <p>The Strokes</p>
+                </ul>
+                <ul>
+                    <p>0epOFNiUfyON9EYx7Tpr6V</p>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    
+    <script src="./js/getdata.js"></script>
+    <script>
+        const menuBtn = document.getElementById("menu-button");
+        const menu = document.querySelector(".menu");
+        const userBtn = document.getElementById("user");
+        menuBtn.addEventListener("click", () => {
+            menuBtn.classList.toggle("open");
+            menu.classList.toggle("show");
+            userBtn.classList.toggle("hidden");
+        });
+
+
+        const nameField = document.getElementById("name");
+        const idField = document.getElementById("bId");
+        const idLField = document.getElementById("bIdL");
+
+
+        nameField.addEventListener("focus", () => {
+            nameField.parentNode.classList.add("float");
+        });
+        idField.addEventListener("focus", () => {
+            idField.parentNode.classList.add("float");
+        });
+        idLField.addEventListener("focus", () => {
+            idLField.parentNode.classList.add("float");
+        });
+
+
+        nameField.addEventListener("blur", () => {
+            if(nameField.value.length > 0) {
+                nameField.parentNode.classList.add("float");
+            }else{
+                nameField.parentNode.classList.remove("float");
+            }
+        });
+        idField.addEventListener("blur", () => {
+            if(idField.value.length > 0) {
+                idField.parentNode.classList.add("float");
+            }else{
+                idField.parentNode.classList.remove("float");
+            }
+        });
+        idLField.addEventListener("blur", () => {
+            if(idLField.value.length > 0) {
+                idLField.parentNode.classList.add("float");
+            }else{
+                idLField.parentNode.classList.remove("float");
+            }
+        });
+
+
+        const logo = document.getElementById("logo");
+        logo.addEventListener("mouseover", () => {
+            logo.classList.add("mo");
+        });
+        logo.addEventListener("mouseout", () => {
+            logo.classList.remove("mo");
+        });
+
+
+        const cards = document.getElementsByClassName("content-wrapper");
+
+        for(let i=0; i < cards.length; i++) {
+            cards[i].addEventListener("mouseover", () => {
+                cards[i].classList.add("mo");
+            });
+            cards[i].addEventListener("mouseout", () => {
+                cards[i].classList.remove("mo");
+            });
+        }
+
+
+    </script>
+</body>
+</html>
