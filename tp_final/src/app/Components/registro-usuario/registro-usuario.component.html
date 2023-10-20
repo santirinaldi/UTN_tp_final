@@ -7,23 +7,23 @@
         <form target="_blank">
            
                 <div class="field-wrapper">
-                    <input type="text" name="name" id="userName">
+                    <input type="text" name="name" id="userName" [(ngModel)]="userName">
                     <label for="userName">Nombre</label>
                 </div>
                 <div class="field-wrapper">
-                    <input type="text" name="lastname" id="userLastname">
+                    <input type="text" name="lastname" id="userLastname" [(ngModel)]="userLastname">
                     <label for="userLastname">Apellido</label>
                 </div>
                 <div class="field-wrapper">
-                    <input type="email" name="email" id="userEmail">
+                    <input type="email" name="email" id="userEmail" [(ngModel)]="userEmail">
                     <label for="userEmail">Email</label>
                 </div>
                 <div class="field-wrapper">
-                    <input type="text" name="pass" id="userPass">
+                    <input type="text" name="pass" id="userPass" [(ngModel)]="userPass">
                     <label for="userPass">Contraseña</label>
                 </div>
 
-                <button type="submit" class="btn primary">Registrarme</button>
+                <button type="button" class="btn primary" (click)="addUser()">Registrarme</button>
            
         </form>
     </div>
