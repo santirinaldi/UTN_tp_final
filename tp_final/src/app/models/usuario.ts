@@ -4,6 +4,7 @@ export class Usuario {
     lastName: string = "";
     email: string = "";
     passWord: string = "";
+    baja: number = 0;
     listaRutinas: string[] = [];
     listaRecetas: string[] = [];
 }

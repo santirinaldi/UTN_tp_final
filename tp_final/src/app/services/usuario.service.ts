@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Usuario } from '../models/usuario';
+import { Usuario } from '../Models/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +23,10 @@ export class UsuarioService {
     return this.userList.find((user) => {
       user.id = userId;
     });
+  }
+
+  baja(usuario:Usuario) {
+    ///RECIBE USUARIO A ELIMINAR
+    usuario.baja = 1;
   }
 }
