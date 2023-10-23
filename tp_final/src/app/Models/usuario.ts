@@ -1,9 +1,10 @@
 export class Usuario {
-    id: number = 0;
-    name: string = "";
-    lastName: string = "";
-    email: string = "";
-    passWord: string = "";
-    listaRutinas: string[] = [];
-    listaRecetas: string[] = [];
+    Id: Number = 0;
+    userName: String = '';
+    userLastname: String = '';
+    userEmail: String = '';
+    userPass: String = '';
+    Estado: Boolean = true;
+    Rutinas: String[] = [];
+    Recetas: String[] = [];
 }

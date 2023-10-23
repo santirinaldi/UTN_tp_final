@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Usuario } from '../../Models/usuario';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -13,14 +14,16 @@ export class RegistroUsuarioComponent {
   userEmail: string = '';
   userPass: string = '';
 
-  constructor() {}
+  constructor(private usuarioService: UsuarioService) {}
 
   addUser() {
     let user = new Usuario();
-    user.Nombre = this.userName;
-    user.Apellido = this.userLastname;
-    user.Email = this.userEmail;
-    user.Pass = this.userPass;
+    user.userName = this.userName;
+    user.userLastname = this.userLastname;
+    user.userEmail = this.userEmail;
+    user.userPass = this.userPass;
+
+    this.usuarioService.add(user);
   }
 
 }

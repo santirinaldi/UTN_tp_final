@@ -1,27 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Usuario } from '../models/usuario';
+import { Usuario } from '../Models/usuario';
+import { PostJSONService } from './JSON/post-json.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
-  private userList = new Array<Usuario>();
-  private userId = 0;
-  constructor() { }
 
-  add(user:Usuario) {
-    user.id = this.userId;
-    this.userList.push(user);
-    this.userId++;
+  private idUsuario = 0;
+
+  constructor(private jsonservice: PostJSONService) { }
+
+  add(usuario:  Usuario) {
+    usuario.Id = this.idUsuario;
+    this.idUsuario++;
+    this.jsonservice.add(usuario);
   }
-
-  getUsers() {
-    return this.userList;
-  }
-
-  getByID(userId:number) {
-    return this.userList.find((user) => {
-      user.id = userId;
-    });
+  getAll() {
+    //return this.listaUsuarios;
   }
 }
