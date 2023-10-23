@@ -1,0 +1,30 @@
+<section id="user-signup">
+    <div class="data">
+        <h3>Lorem <span class="underline">ipsum dolor</span> sit amet</h3>
+        <p>consectetur adipiscing elit. Nam lectus metus, facilisis eget velit ut, tincidunt blandit felis. Nunc scelerisque pulvinar erat nec commodo. Nam commodo ipsum nec velit pellentesque cursus.</p>
+    </div>
+    <div class="form">
+        <form target="_blank">
+           
+                <div class="field-wrapper">
+                    <input type="text" name="name" id="userName" [(ngModel)]="userName">
+                    <label for="userName">Nombre</label>
+                </div>
+                <div class="field-wrapper">
+                    <input type="text" name="lastname" id="userLastname" [(ngModel)]="userLastname">
+                    <label for="userLastname">Apellido</label>
+                </div>
+                <div class="field-wrapper">
+                    <input type="email" name="email" id="userEmail" [(ngModel)]="userEmail">
+                    <label for="userEmail">Email</label>
+                </div>
+                <div class="field-wrapper">
+                    <input type="text" name="pass" id="userPass" [(ngModel)]="userPass">
+                    <label for="userPass">Contraseña</label>
+                </div>
+
+                <button type="button" class="btn primary" (click)="addUser()">Registrarme</button>
+           
+        </form>
+    </div>
+</section>

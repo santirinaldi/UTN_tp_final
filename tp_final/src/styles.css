@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+
+html {
+    font-size: 16px;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+}
+
+h1 {
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+p, span, div, a, input {
+    font-family: 'Quicksand', sans-serif;
+}
+
+form input {
+    font-family: 'Quicksand', sans-serif;
+    width: 100%;
+    padding: 1rem 3rem 1rem 1rem;
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+}
+
+.field-wrapper {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.field-wrapper label {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #fff;
+    font-size: 0.75rem;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: #000;
+    border-left: 5px solid #000;
+    border-right: 5px solid #000;
+    transition: .5s ease-in-out;
+}
