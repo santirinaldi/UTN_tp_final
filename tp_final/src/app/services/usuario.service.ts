@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from '../Models/usuario';
+import { PostJSONService } from './JSON/post-json.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { Usuario } from '../Models/usuario';
 export class UsuarioService {
   private userList = new Array<Usuario>();
   private userId = 0;
-  constructor() { }
+  constructor(private jsonService: PostJSONService) { }
 
   add(user:Usuario) {
     user.id = this.userId;

@@ -17,10 +17,10 @@ export class RegistroUsuarioComponent {
 
   addUser() {
     let user = new Usuario();
-    user.Nombre = this.userName;
-    user.Apellido = this.userLastname;
-    user.Email = this.userEmail;
-    user.Pass = this.userPass;
+    user.name = this.userName;
+    user.lastName = this.userLastname;
+    user.email = this.userEmail;
+    user.passWord = this.userPass;
   }
 
 }
