@@ -1,10 +1,10 @@
 export class Usuario {
-    Id: Number = 0;
-    userName: String = '';
-    userLastname: String = '';
-    userEmail: String = '';
-    userPass: String = '';
-    Estado: Boolean = true;
-    Rutinas: String[] = [];
-    Recetas: String[] = [];
+    id: number = 0;
+    name: string = "";
+    lastName: string = "";
+    email: string = "";
+    passWord: string = "";
+    baja: number = 0;
+    listaRutinas: string[] = [];
+    listaRecetas: string[] = [];
 }
