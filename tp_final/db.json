@@ -1,0 +1,14 @@
+{
+  "users": [
+      {
+          "Id": 1,
+          "userName": "Santiago",
+          "userLastname": "Rinaldi",
+          "userEmail": "santiago@mail.com",
+          "userPass": "1234",
+          "Estado": true,
+          "Rutinas": [],
+          "Recetas": []
+      }
+  ]
+}

@@ -29,10 +29,25 @@ export class PostJSONService {
     this.usersList.push(this.user);
     ///escribir el json
 
-    let blob = new Blob([JSON.stringify(this.usersList)], { type: 'application/json' });
-    FileSaver.saveAs(blob, 'test.json');
+    fetch("http://localhost:3000/users",
+    {
+        method: "POST",
+        /*headers: {
+          'Content-Type': 'application/json',
+        },*/
+        headers: new Headers({'content-type': 'application/json',Accept: 'application/json',}),
+        
+        body: JSON.stringify({"Id": 1,
+        "userName": "Santiago2",
+        "userLastname": "Rinaldi2",
+        "userEmail": "santiago2@mail.com",
+        "userPass": "1234",
+        "Estado": true,
+        "Rutinas": [],
+        "Recetas": []})
+    });
 
-    console.log("USER LIST: ", this.usersList);
+
   }
   
 }
