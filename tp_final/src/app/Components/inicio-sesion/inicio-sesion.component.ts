@@ -8,8 +8,6 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./inicio-sesion.component.css']
 })
 export class InicioSesionComponent {
-  userName: string = '';
-  userLastname: string = '';
   userEmail: string = '';
   userPass: string = '';
 
@@ -20,18 +18,19 @@ export class InicioSesionComponent {
     user.email = this.userEmail;
     user.passWord = this.userPass;
 
-    let userID = this.buscarUsuario(user);
-    console.log(userID);
+    console.log(this.servicioUsuario.getUsers());
+    //let userID = this.buscarUsuario(user);
   }
 
-  buscarUsuario(userBuscado:Usuario) {
-    let userList = this.servicioUsuario.getUsers();
+  // buscarUsuario(userBuscado:Usuario) {
+    
+  //   let userList = this.servicioUsuario.getUsers();
 
-    const user = userList.find((user) => {
-      user.email === userBuscado.email && user.passWord === userBuscado.passWord
-    });
+  //   const user = userList.find((user) => {
+  //     user.email === userBuscado.email && user.passWord === userBuscado.passWord
+  //   });
 
-    return user?.id;
-  }
+  //   return user?.id;
+  // }
 
 }

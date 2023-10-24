@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from '../../Models/usuario';
 
 @Component({
@@ -13,7 +14,7 @@ export class RegistroUsuarioComponent {
   userEmail: string = '';
   userPass: string = '';
 
-  constructor() {}
+  constructor(private servicioUsuario: UsuarioService) {}
 
   addUser() {
     let user = new Usuario();
@@ -21,6 +22,7 @@ export class RegistroUsuarioComponent {
     user.lastName = this.userLastname;
     user.email = this.userEmail;
     user.passWord = this.userPass;
+    this.servicioUsuario.add(user);
   }
 
 }

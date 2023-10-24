@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Agustin",
+      "lastname": "Muñoz",
+      "email": "appollonioagustin@gmail.com",
+      "passWord": "12345",
+      "baja": 0,
+      "listaRutinas": [
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis.",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit."
+      ],
+      "listaRecetas": [
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis.",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "asdbasd",
+      "lastname": "sidbalsd",
+      "email": "appollonioagustin@dsd4.com",
+      "pass": "sagdblisd",
+      "estado": 0,
+      "rutinas": [],
+      "recetas": []
+    }
+  ]
+}
