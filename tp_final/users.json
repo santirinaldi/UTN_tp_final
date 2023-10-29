@@ -3,15 +3,14 @@
     {
       "id": 1,
       "name": "Agustin",
-      "lastname": "Muñoz",
       "email": "appollonioagustin@gmail.com",
-      "passWord": "12345",
-      "baja": 0,
-      "listaRutinas": [
+      "pass": "12345",
+      "baja": 1,
+      "rutinas": [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis.",
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit."
       ],
-      "listaRecetas": [
+      "recetas": [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis.",
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit."
       ]
@@ -22,7 +21,7 @@
       "lastname": "sidbalsd",
       "email": "appollonioagustin@dsd4.com",
       "pass": "sagdblisd",
-      "estado": 0,
+      "baja": 0,
       "rutinas": [],
       "recetas": []
     }
