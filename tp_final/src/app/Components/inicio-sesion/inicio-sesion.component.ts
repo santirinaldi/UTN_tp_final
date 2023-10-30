@@ -1,6 +1,7 @@
 import { Component,ViewChild,ElementRef } from '@angular/core';
 import { Usuario } from 'src/app/Models/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -12,7 +13,8 @@ export class InicioSesionComponent {
   userPass: string = '';
   @ViewChild('loginresult')loginResult!:ElementRef;
 
-  constructor(private servicioUsuario: UsuarioService) {}
+  constructor(private servicioUsuario: UsuarioService,
+    private router: Router ){}
 
   verifyUser() {
     let user = new Usuario();
@@ -49,5 +51,11 @@ export class InicioSesionComponent {
 
   onLogout (): void{
     this.servicioUsuario.logOut();
+  }
+
+  ngOnInit(): void {
+    if(this.servicioUsuario.verifyLogged()){
+      this.router.navigate(['inicio']);
+    }
   }
 }
