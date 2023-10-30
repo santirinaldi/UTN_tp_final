@@ -28,10 +28,8 @@ export class InicioSesionComponent {
       h5.textContent = "Logeado exitosamente!";
       //const text = document.createTextNode("Logeado exitosamente!");
       this.loginResult.nativeElement.appendChild(h5);
-
     }
-    else { console.log("No encontrado", userID) 
-    }
+    else { console.log("No encontrado", userID); }
   }
 
   buscarUsuario(userBuscado:Usuario) {

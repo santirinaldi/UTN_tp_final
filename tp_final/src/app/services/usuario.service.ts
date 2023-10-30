@@ -12,24 +12,20 @@ export class UsuarioService{
   constructor(private jsonService: JSONService) {
       this.pedidoAPI();
   }
-  
 
-  /*cargarUserList() {
-    this.jsonService.getAll().subscribe((data: Usuario) => {
-      this.userList.push(data);
-    });
-  }*/
-
-  
   pedidoAPI() {
      this.jsonService.getAll()
      .then((response) => response.json())
      .then((json) => {
-       this.userList = json;
+       json.forEach((item:Usuario) => {
+        if(item.baja != 1) {
+          this.userList.push(item);
+        }
+       })
      })
    .catch (error =>
      console.log(error))
-  }
+    }
 
   add(user:Usuario) {
     user.id = this.userId;
@@ -38,18 +34,22 @@ export class UsuarioService{
     this.jsonService.add(user);
   }
 
+  baja(usuario:Usuario) {
+    ///RECIBE USUARIO A ELIMINAR
+    usuario.baja = 1;
+    this.jsonService.putUser(usuario);
+  }
+
   getUsers() {
     return this.userList;
   }
 
-  getByID(userId:number) {
-    return this.userList.find((user) => {
-      user.id = userId;
-    });
+  getUser(id:number) {
+    return this.userList.find((user) => user.id === id);
   }
 
-  baja(usuario:Usuario) {
-    ///RECIBE USUARIO A ELIMINAR
-    usuario.baja = 1;
+  checkLoggedIn() {
+    const log = localStorage.getItem("userLoggedin");
+    return log;
   }
 }

@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Agustin",
+      "email": "appollonioagustin@gmail.com",
+      "pass": "12345",
+      "baja": 1,
+      "rutinas": [
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis.",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit."
+      ],
+      "recetas": [
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis.",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "asdbasd",
+      "lastname": "sidbalsd",
+      "email": "appollonioagustin@dsd4.com",
+      "pass": "sagdblisd",
+      "baja": 0,
+      "rutinas": [],
+      "recetas": []
+    },
+    {
+      "id": 3,
+      "name": "santi",
+      "lastname": "test",
+      "email": "santiago@test.com",
+      "pass": "12345",
+      "estado": 0,
+      "rutinas": [],
+      "recetas": []
+    }
+  ]
+}

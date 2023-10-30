@@ -1,0 +1,57 @@
+<section id="user-signup">
+    <div class="data">
+        <h3>Lorem <span class="underline">ipsum dolor</span> sit amet</h3>
+        <p>consectetur adipiscing elit. Nam lectus metus, facilisis eget velit ut, tincidunt blandit felis. Nunc scelerisque pulvinar erat nec commodo. Nam commodo ipsum nec velit pellentesque cursus.</p>
+    </div>
+    <div class="form">
+        <form target="_blank">
+           
+                <div class="field-wrapper">
+                    <select name="objetives" id="objetives" multiple [(ngModel)]="objetives" >
+                        <option value="perder peso">Perder peso</option>
+                        <option value="ganar musculatura">Ganar musculatura</option>
+                        <option value="mejorar resistencia">Mejorar resistencia</option>
+                        <option value="ganar flexibilidad">Ganar flexibilidad</option>
+                        <option value="mejorar equilibrio y coordinacion">Mejorar equilibrio y coordinación</option>
+                    </select>
+                    <label for="objetives">Objetivos</label>
+                </div>
+                <div class="field-wrapper">
+                    <select name="physicalCondition" id="physicalCondition" [(ngModel)]="physicalCondition" >
+                        <option value="principiante">Principiante</option>
+                        <option value="intermedio">Intermedio</option>
+                        <option value="avanzado">Avanzado</option>
+                    </select>
+                    <label for="physicalCondition">Nivel de condición física actual</label>
+                </div>
+                <div class="field-wrapper">
+                    <select name="availableDays" id="availableDays" [(ngModel)]="availableDays" >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                    </select>
+                    <label for="availableDays">Disponibilidad de días por semana</label>
+                </div>
+                <div class="field-wrapper">
+                    <select name="equipment" id="equipment" [(ngModel)]="equipment" >
+                        <option value="tengo acceso a un gimnasio con equipamiento">Tengo acceso a un gimnasio con equipamiento</option>
+                        <option value="tengo equipamiento en mi casa">Tengo equipamiento en mi casa</option>
+                        <option value="no cuento con equipamiento">No cuento con equipamiento</option>
+                    </select>
+                    <label for="equipment">Equipamiento</label>
+                </div>
+
+                <div class="field-wrapper">
+                    <input type="text" name="preferences" id="preferences" [(ngModel)]="preferences">
+                    <label for="preferences">Preferencias y limitaciones</label>
+                </div>
+
+                <button type="button" class="btn primary" (click)="createMessage()">Registrarme</button>
+           
+        </form>
+    </div>
+</section>

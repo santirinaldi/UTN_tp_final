@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Usuario } from 'src/app/Models/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -10,6 +11,17 @@ export class BorrarUsuarioComponent {
   constructor(private servicioUsuario: UsuarioService) { }
   ///Input me tiene que llegar algun dato de algun componente
   borrarUsuario() {
-    ///this.servicioUsuario.baja(usuario) Necesito el usuario
+    const log = this.servicioUsuario.checkLoggedIn();
+    if(log !== null) {
+      const user = this.servicioUsuario.getUser(Number(log));
+      if(user) {
+        this.servicioUsuario.baja(user);
+        localStorage.removeItem(log);
+        console.log("Eliminando..");
+      }
+    }
+    else {
+      ///No se tiene que ver el boton
+    }
   }
 }
