@@ -1,6 +1,7 @@
 import { Injectable,OnInit } from '@angular/core';
 import { Usuario } from '../Models/usuario';
 import { JSONService } from './JSON/json.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class UsuarioService{
   private userList = new Array<Usuario>();
   private userId = 0;
 
-  constructor(private jsonService: JSONService) {
+  constructor(private jsonService: JSONService, private router: Router) {
       this.pedidoAPI();
   }
 
@@ -51,5 +52,10 @@ export class UsuarioService{
   checkLoggedIn() {
     const log = localStorage.getItem("userLoggedin");
     return log;
+  }
+
+  logOut (){
+    localStorage.removeItem("userLoggedin");
+    this.router.navigate(['app-inicio-sesion'])
   }
 }
