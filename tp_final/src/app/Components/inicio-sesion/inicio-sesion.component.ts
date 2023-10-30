@@ -1,20 +1,21 @@
 import { Component,ViewChild,ElementRef } from '@angular/core';
 import { Usuario } from 'src/app/Models/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-inicio-sesion',
   templateUrl: './inicio-sesion.component.html',
-  styleUrls: ['./inicio-sesion.component.css']
+  styleUrls: ['./inicio-sesion.component.css'],
+  /*imports: [RouterModule]*/
 })
 export class InicioSesionComponent {
   userEmail: string = '';
   userPass: string = '';
   @ViewChild('loginresult')loginResult!:ElementRef;
 
-  constructor(private servicioUsuario: UsuarioService,
-    private router: Router ){}
+  constructor(private servicioUsuario: UsuarioService){}
+    //private router: RouterModule// quiero llevarlo a inicio
 
   verifyUser() {
     let user = new Usuario();
@@ -55,7 +56,7 @@ export class InicioSesionComponent {
 
   ngOnInit(): void {
     if(this.servicioUsuario.verifyLogged()){
-      this.router.navigate(['inicio']);
+      //this.router.navigate(['inicio']);//quiero llevarlo a inicio
     }
   }
 }
