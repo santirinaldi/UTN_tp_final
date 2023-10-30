@@ -8,6 +8,7 @@ import { BorrarUsuarioComponent } from './Components/borrar-usuario/borrar-usuar
 import { InicioSesionComponent } from './Components/inicio-sesion/inicio-sesion.component';
 import { FormsModule } from '@angular/forms';
 import { AgregarRutinaComponent } from './Components/agregar-rutina/agregar-rutina.component';
+import { ConsultarRecetaComponent } from './Components/consultar-receta/consultar-receta.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { AgregarRutinaComponent } from './Components/agregar-rutina/agregar-ruti
     BorrarUsuarioComponent,
     InicioSesionComponent,
     AgregarRutinaComponent,
+    ConsultarRecetaComponent,
     
   ],
   imports: [

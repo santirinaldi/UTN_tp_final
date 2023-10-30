@@ -1,0 +1,49 @@
+<section id="user-signup">
+    <div class="data">
+        <h3>Lorem <span class="underline">ipsum dolor</span> sit amet</h3>
+        <p>consectetur adipiscing elit. Nam lectus metus, facilisis eget velit ut, tincidunt blandit felis. Nunc
+            scelerisque pulvinar erat nec commodo. Nam commodo ipsum nec velit pellentesque cursus.</p>
+    </div>
+    <div class="form">
+        <form target="_blank">
+
+            <div class="field-wrapper">
+                <select name="food" id="food" multiple [(ngModel)]="food">
+                    <option value="desayuno">Desayuno</option>
+                    <option value="almuerzo">Almuerzo</option>
+                    <option value="merienda">Merienda</option>
+                    <option value="cena">Cena</option>
+                </select>
+                <label for="food">Tipo de comida</label>
+            </div>
+            <div class="field-wrapper">
+                <input type="number" name="maxCalories" id="maxCalories" [(ngModel)]="maxCalories">
+                <label for="maxCalories">Calorias maximas</label>
+            </div>
+            <div class="field-wrapper">
+                <select name="objetives" id="objetives" multiple [(ngModel)]="objetives">
+                    <option value="perder peso">Perder peso</option>
+                    <option value="ganar musculatura">Ganar musculatura</option>
+                    <option value="mejorar resistencia">Mejorar resistencia</option>
+                    <option value="ganar flexibilidad">Ganar flexibilidad</option>
+                    <option value="mejorar equilibrio y coordinacion">Mejorar equilibrio y coordinación</option>
+                </select>
+                <label for="objetives">Objetivos</label>
+            </div>
+            <div class="field-wrapper">
+                <select name="foodLimits" id="foodLimits" multiple [(ngModel)]="foodLimits">
+                    <option value="celiaco">Celiaco</option>
+                    <option value="lactosa">Intolerante a la lactosa</option>
+                    <option value="diabetico">Diabetico</option>
+                    <option value="hipertenso">Hipertenso</option>
+                    <option value="vegetariano">Vegetariano</option>
+                    <option value="vegano">Vegano</option>
+                    <option value="Otros">Otros</option>
+                </select>
+                <label for="foodLimits">Limitaciones</label>
+            </div>
+            <button type="button" class="btn primary" (click)="createMessage()">Consultar</button>
+
+        </form>
+    </div>
+</section>
