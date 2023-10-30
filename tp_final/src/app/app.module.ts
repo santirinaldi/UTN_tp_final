@@ -7,6 +7,7 @@ import { RegistroUsuarioComponent } from './Components/registro-usuario/registro
 import { BorrarUsuarioComponent } from './Components/borrar-usuario/borrar-usuario.component';
 import { InicioSesionComponent } from './Components/inicio-sesion/inicio-sesion.component';
 import { FormsModule } from '@angular/forms';
+import { AgregarRutinaComponent } from './Components/agregar-rutina/agregar-rutina.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { FormsModule } from '@angular/forms';
     RegistroUsuarioComponent,
     BorrarUsuarioComponent,
     InicioSesionComponent,
+    AgregarRutinaComponent,
     
   ],
   imports: [

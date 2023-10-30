@@ -25,6 +25,16 @@
       "estado": 0,
       "rutinas": [],
       "recetas": []
+    },
+    {
+      "id": 3,
+      "name": "santi",
+      "lastname": "test",
+      "email": "santiago@test.com",
+      "pass": "12345",
+      "estado": 0,
+      "rutinas": [],
+      "recetas": []
     }
   ]
 }

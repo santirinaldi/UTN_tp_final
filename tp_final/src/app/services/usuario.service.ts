@@ -12,7 +12,6 @@ export class UsuarioService{
   constructor(private jsonService: JSONService) {
       this.pedidoAPI();
   }
-  
 
   /*cargarUserList() {
     this.jsonService.getAll().subscribe((data: Usuario) => {
@@ -29,7 +28,7 @@ export class UsuarioService{
      })
    .catch (error =>
      console.log(error))
-  }
+    }
 
   add(user:Usuario) {
     user.id = this.userId;
@@ -38,12 +37,14 @@ export class UsuarioService{
     this.jsonService.add(user);
   }
 
-  constructor(private jsonservice: PostJSONService) { }
+  getUsers() {
+    return this.userList;
+  }
 
-  add(usuario:  Usuario) {
-    usuario.Id = this.idUsuario;
-    this.idUsuario++;
-    this.jsonservice.add(usuario);
+  getByID(userId:number) {
+    return this.userList.find((user) => {
+      user.id = userId;
+    });
   }
 
   baja(usuario:Usuario) {
