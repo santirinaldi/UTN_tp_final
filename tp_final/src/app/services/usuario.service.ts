@@ -56,7 +56,7 @@ export class UsuarioService{
 
   logOut (){
     localStorage.removeItem("userLoggedin");//ver, uso userId o userLoggegin?
-    this.router.navigate(['app-inicio-sesion'])//llevar a pantalla inicio, revisar
+    this.router.navigate(['user-signup'])//llevar a pantalla de inicio de sesion, revisar
   }
 
   verifyLogged(): boolean{
