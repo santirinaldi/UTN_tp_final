@@ -25,7 +25,17 @@ export class JSONService {
       baja: usuario.baja,
       rutinas: usuario.listaRutinas,
       recetas: usuario.listaRecetas
-    };
+    };}
+
+    modify(usuario:  Usuario) {
+
+      this.user = {
+        name: usuario.name,
+        lastname: usuario.lastName,
+        email: usuario.email,
+        pass: usuario.passWord,
+        baja: usuario.baja,
+      };
 
     fetch("http://localhost:3000/users",
     {

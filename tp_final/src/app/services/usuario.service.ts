@@ -35,6 +35,12 @@ export class UsuarioService{
     this.jsonService.add(user);
   }
 
+  modify(user:Usuario) {
+    user.id = this.userId;
+    this.userList.push(user);
+    this.jsonService.modify(user);
+  }
+
   baja(usuario:Usuario) {
     ///RECIBE USUARIO A ELIMINAR
     usuario.baja = 1;
@@ -55,8 +61,8 @@ export class UsuarioService{
   }
 
   logOut (){
-    localStorage.removeItem("userLoggedin");//ver, uso userId o userLoggegin?
-    this.router.navigate(['user-signup'])//llevar a pantalla de inicio de sesion, revisar
+    localStorage.removeItem("userLoggedin");
+    this.router.navigate(['inicioSesion'])
   }
 
   verifyLogged(): boolean{

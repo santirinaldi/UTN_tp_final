@@ -6,7 +6,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 @Component({
   selector: 'app-inicio-sesion',
   templateUrl: './inicio-sesion.component.html',
-  styleUrls: ['./inicio-sesion.component.css'],
+  styleUrls: ['./inicio-sesion.component.css']
  
 })
 export class InicioSesionComponent {
