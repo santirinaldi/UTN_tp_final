@@ -7,7 +7,7 @@ import { RegistroUsuarioComponent } from './Components/registro-usuario/registro
 import { BorrarUsuarioComponent } from './Components/borrar-usuario/borrar-usuario.component';
 import { InicioSesionComponent } from './Components/inicio-sesion/inicio-sesion.component';
 import { FormsModule } from '@angular/forms';
-import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
+/*import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';*/
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.componen
     RegistroUsuarioComponent,
     BorrarUsuarioComponent,
     InicioSesionComponent,
-    EditarUsuarioComponent,
+    /*EditarUsuarioComponent,*/
     
   ],
   imports: [
