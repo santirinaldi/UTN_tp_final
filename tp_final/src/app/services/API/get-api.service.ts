@@ -9,7 +9,7 @@ export class GetAPIService {
 
   private endpoint = "https://chatgpt-api8.p.rapidapi.com/";
 
-  private apiKey = "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";
+  private apiKey = "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";
 
   constructor() { }
 
@@ -30,35 +30,52 @@ export class GetAPIService {
       ]
     }));
 
-    /*const hs = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'X-RapidAPI-Key': '0d721e434fmsh928652331228961p11fcb7jsnaa6c4fed3597',
-      'X-RapidAPI-Host': 'chatgpt-api8.p.rapidapi.com'
-    });*/
-
-    const url = 'https://chatgpt.p.rapidapi.com/api/chat/completions';
+    //const url = '	https://api.openai.com/v1/chat/completions';
+    const url = 'https://simple-chatgpt-api.p.rapidapi.com/ask';
     const options = {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'X-RapidAPI-Key': '0d721e434fmsh928652331228961p11fcb7jsnaa6c4fed3597',
-        'X-RapidAPI-Host': 'chatgpt-api8.p.rapidapi.com'
+        'X-RapidAPI-Key': 'ad44ee4ad8msh759cec7c25fc2cap1368b5jsn3d6d200336c1',
+        'X-RapidAPI-Host': 'simple-chatgpt-api.p.rapidapi.com'
+        //'Authorization': `Bearer ${this.apiKey}`,
       },
-      //body: JSON.stringify(by)
-      body: JSON.stringify({
-        model: 'gpt-3.5-turbo',
+      
+      /*body: JSON.stringify({
+        //model: 'gpt-3.5-turbo',
         messages: [
           {
             role: 'user',
-            content: message
+            content: 'hola'
           }
         ]
+      })*/
+
+      body: JSON.stringify({
+        question: message
       })
+
+      /*body: JSON.stringify({
+        model: 'gpt-3.5-turbo',
+        prompt: message,
+        max_tokens: 10, // Ajusta este valor según tus necesidades
+      }),*/
         
     };
 
-    return fetch(this.endpoint, options);
-    
+    fetch(url, options)
+    .then((response) => response.json())
+    .then((data) => {
+      // Maneja la respuesta aquí
+      //const answer = data.choices[0].message.content;
+      console.log('Respuesta de ChatGPT: ', data);
+    })
+    .catch((error) => {
+      console.error('Error al realizar la solicitud a la API: ', error);
+    });
+
+    return null;
+
   };
     
 }

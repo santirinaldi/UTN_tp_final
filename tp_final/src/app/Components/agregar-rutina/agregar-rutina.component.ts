@@ -32,9 +32,17 @@ export class AgregarRutinaComponent {
       }
     });
 
-    const message = `
-      Quiero una rutina de ejercicio para cumplir con los siguientes objetivos: ${objetivesString}. Mi condicion fisica es ${this.physicalCondition}. Para realizar la rutina tengo ${this.availableDays} dias disponibles por semana. Para realizar la rutina ${this.equipment}. ${this.preferences}
-    `;
+    const message = `Quiero una rutina de ejercicio con estas caracteristicas: objetivos: ${objetivesString}. Mi condicion fisica: ${this.physicalCondition}. Dias disponibles por semana: ${this.availableDays}. Limitaciones ${this.equipment}. ${this.preferences}`;
+
+    console.log("BODY: ", JSON.stringify({
+      model: 'gpt-3.5-turbo',
+      messages: [
+        {
+          role: 'user',
+          content: message
+        }
+      ]
+    }));
 
     this.pedidoAPI(message);
 
@@ -47,7 +55,9 @@ export class AgregarRutinaComponent {
       .catch (error => 
         console.log("ERROR: ", error));  */
 
+        this.apiservice.apiRequest(message);
 
+/*
         try {
           const response = await this.apiservice.apiRequest(message);
           const result = await response.text();
@@ -55,7 +65,7 @@ export class AgregarRutinaComponent {
           console.log("RESULT: ", result);
         } catch (error) {
           console.error("ERROR: ", error);
-        }
+        }*/
   }
 
 }
