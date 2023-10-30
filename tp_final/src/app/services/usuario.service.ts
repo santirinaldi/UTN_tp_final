@@ -55,7 +55,12 @@ export class UsuarioService{
   }
 
   logOut (){
-    localStorage.removeItem("userLoggedin");
-    this.router.navigate(['app-inicio-sesion'])
+    localStorage.removeItem("userLoggedin");//ver, uso userId o userLoggegin?
+    this.router.navigate(['app-inicio-sesion'])//llevar a pantalla inicio, revisar
+  }
+
+  verifyLogged(): boolean{
+    const token= localStorage.getItem("userLoggegin");
+    return token ? true : false;
   }
 }

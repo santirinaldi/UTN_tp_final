@@ -47,4 +47,7 @@ export class InicioSesionComponent {
     return userID;
   }
 
+  onLogout (): void{
+    this.servicioUsuario.logOut();
+  }
 }
