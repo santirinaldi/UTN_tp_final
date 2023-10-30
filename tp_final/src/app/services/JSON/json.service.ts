@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class JSONService {
 
-  private apiURL = "http://localhost:3000";
+  private apiURL = "http://localhost:3000/users";
   private user: Object = {};
   private usersList: Object[] = [];
 
@@ -22,7 +22,7 @@ export class JSONService {
       lastname: usuario.lastName,
       email: usuario.email,
       pass: usuario.passWord,
-      estado: usuario.baja,
+      baja: usuario.baja,
       rutinas: usuario.listaRutinas,
       recetas: usuario.listaRecetas
     };
@@ -39,30 +39,31 @@ export class JSONService {
 
   }
 
-  // async getAll(): Array<Object> {
-
-  //   const allUsers = fetch('http://localhost:3000/users')
-  //   .then((response) => response.json())
-  //   .then((json) => 
-  //     console.log("JSON: ", json)
-  //   );
-
-  //   return allUsers;
-
-  // }
-
   getAll(): Promise<any> { /// EJEMPLO GET
     return fetch('http://localhost:3000/users'); /// RETORNA UNA PROMESA A CAPTURAR EN EL COMPONENTE QUE LO REQUIERA
   }
 
-  // add(user: Usuario) {
-  //   return this.http.post(this.apiURL + '/users', user);
-  // }
-
-  // getAll(){
-  //   ///FUNCION QUE RETORNA LOS DATOS DEL JSON-SERVER
-  //    return this.http.get<Usuario>(this.apiURL + '/users');
-  // }
-
+  putUser(usuario:Usuario) {
+      const user = {
+        id: usuario.id,
+        name: usuario.name,
+        lastname: usuario.lastName,
+        email: usuario.email,
+        pass: usuario.passWord,
+        baja: usuario.baja,
+        rutinas: usuario.listaRutinas,
+        recetas: usuario.listaRecetas
+      };
   
+      fetch(`http://localhost:3000/users/${user.id}`,
+      {
+          method: "PUT",
+          /*headers: {
+            'Content-Type': 'application/json',
+          },*/
+          headers: new Headers({'content-type': 'application/json',Accept: 'application/json',}),
+          body: JSON.stringify(user)
+      });
+  }
+ 
 }
