@@ -16,13 +16,30 @@ export class EditarUsuarioComponent {
 
 constructor(private servicioUsuario: UsuarioService) {}
 
-  addUser() {
-    let user = new Usuario();
-    user.name = this.userName;
+  /*modificarUsuario() {
+    let userId = this.buscarUsuario(userId);
+    userId.name = this.userName;
     user.lastName = this.userLastname;
     user.email = this.userEmail;
     user.passWord = this.userPass;
-    this.servicioUsuario.add(user);
+    this.servicioUsuario.modify(user);
+  }*/
+
+  /*<button type="button" class="btn primary" (click)="modificarUsuario()">Modificar</button>*/
+
+  buscarUsuario(userBuscado:Usuario) {
+    
+    let userList = this.servicioUsuario.getUsers();
+    let userID = -1;
+    console.log(userList);
+
+    userList.forEach((user) => {
+      if(user.passWord === userBuscado.passWord && user.email === userBuscado.email) {
+        userID = user.id;
+      }
+    });
+
+    return userID;
   }
 
 }
