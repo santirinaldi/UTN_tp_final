@@ -16,14 +16,16 @@ export class EditarUsuarioComponent {
 
 constructor(private servicioUsuario: UsuarioService) {}
 
-  /*modificarUsuario() {
+/*modificarUsuario() {
     let userId = this.buscarUsuario(userId);
     userId.name = this.userName;
     user.lastName = this.userLastname;
     user.email = this.userEmail;
     user.passWord = this.userPass;
-    this.servicioUsuario.modify(user);
-  }*/
+    this.servicioUsuario.(user);
+  }
+
+  usar getUser y putUser*/
 
   /*<button type="button" class="btn primary" (click)="modificarUsuario()">Modificar</button>*/
 

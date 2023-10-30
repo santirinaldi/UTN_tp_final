@@ -35,20 +35,6 @@ export class UsuarioService{
     this.jsonService.add(user);
   }
 
-  modify(user:Usuario) {
-    user.id = this.userId;
-    this.userList.push(user);
-    this.jsonService.modify(user);
-  }
-
- /* updateUser(user: any) {
-    // Supongamos que el servicio tiene un método para actualizar usuarios
-    this.jsonService.updateUser(user.id, this.updatedUser).subscribe(response => {
-      // Realiza alguna acción después de la actualización, como recargar la lista de usuarios
-      this.jsonService.getUsers().subscribe(data => {
-        this.users = data;
-      });})}*/
-
   baja(usuario:Usuario) {
     ///RECIBE USUARIO A ELIMINAR
     usuario.baja = 1;
