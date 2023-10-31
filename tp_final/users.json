@@ -22,6 +22,66 @@
       "email": "agustin@gmail.com",
       "pass": "123",
       "baja": 0
+    },
+    {
+      "id": 3,
+      "name": "Santiago",
+      "lastname": "Rinaldi",
+      "email": "santiago@test.com",
+      "pass": "12345678",
+      "baja": 0,
+      "rutinas": [],
+      "recetas": []
+    },
+    {
+      "id": 4,
+      "name": "Josefina",
+      "lastname": "Fructuoso",
+      "email": "josefina@mail.com",
+      "pass": "1234",
+      "baja": 0,
+      "rutinas": [],
+      "recetas": []
+    },
+    {
+      "id": 5,
+      "name": "test",
+      "lastname": "test",
+      "email": "test@mail.com",
+      "pass": "test",
+      "baja": 0,
+      "rutinas": [],
+      "recetas": []
+    },
+    {
+      "id": 6,
+      "name": "asd",
+      "lastname": "asd",
+      "email": "asd@asd.com",
+      "pass": "qwe",
+      "baja": 0,
+      "rutinas": [],
+      "recetas": []
+    },
+    {
+      "id": 7,
+      "name": "qwe",
+      "lastname": "qwe",
+      "email": "qwe@qw.com",
+      "pass": "qwe",
+      "baja": 0,
+      "rutinas": [],
+      "recetas": []
+    },
+    {
+      "id": 8,
+      "name": "jose",
+      "lastname": "fruc",
+      "email": "jose@mail.com",
+      "pass": "1234",
+      "baja": 0,
+      "rutinas": [],
+      "recetas": []
     }
   ]
 }
