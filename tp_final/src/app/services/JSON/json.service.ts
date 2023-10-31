@@ -25,7 +25,19 @@ export class JSONService {
       baja: usuario.baja,
       rutinas: usuario.listaRutinas,
       recetas: usuario.listaRecetas
-    };}
+    };
+
+    fetch("http://localhost:3000/users",
+    {
+        method: "POST",
+        /*headers: {
+          'Content-Type': 'application/json',
+        },*/
+        headers: new Headers({'content-type': 'application/json',Accept: 'application/json',}),
+        body: JSON.stringify(this.user)
+    });
+  
+  }
 
     
 
