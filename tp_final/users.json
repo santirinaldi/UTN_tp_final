@@ -5,7 +5,7 @@
       "name": "Agustin",
       "email": "appollonioagustin@gmail.com",
       "passWord": "12345",
-      "baja": 1,
+      "baja": 0,
       "rutinas": [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis.",
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit."

@@ -18,7 +18,7 @@ export class EditarUsuarioComponent {
 constructor(private servicioUsuario: UsuarioService, private servicioJson: JSONService) {}
 
 
-  /*<button type="button" class="btn primary" (click)="modificarUsuario()">Modificar</button>*/
+
 
   editarUsuario() {
     const log = this.servicioUsuario.checkLoggedIn();
