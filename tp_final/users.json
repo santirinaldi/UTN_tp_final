@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Agustin",
       "email": "appollonioagustin@gmail.com",
-      "pass": "12345",
+      "passWord": "12345",
       "baja": 1,
       "rutinas": [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis.",
@@ -20,7 +20,7 @@
       "name": "asdbasd",
       "lastname": "sidbalsd",
       "email": "appollonioagustin@dsd4.com",
-      "pass": "sagdblisd",
+      "passWord": "sagdblisd",
       "baja": 0,
       "rutinas": [],
       "recetas": []

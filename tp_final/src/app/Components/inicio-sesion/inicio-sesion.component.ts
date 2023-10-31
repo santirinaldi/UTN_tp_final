@@ -50,13 +50,5 @@ export class InicioSesionComponent {
     return userID;
   }
 
-  onLogout (): void{
-    this.servicioUsuario.logOut();
-  }
 
-  ngOnInit(): void {
-    if(this.servicioUsuario.verifyLogged()){
-      //this.router.navigate(['inicio']);//quiero llevarlo a inicio
-    }
-  }
 }

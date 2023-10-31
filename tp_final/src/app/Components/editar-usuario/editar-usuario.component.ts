@@ -1,5 +1,6 @@
 import { Component,ViewChild,ElementRef } from '@angular/core';
 import { Usuario } from 'src/app/Models/usuario';
+import { JSONService } from 'src/app/services/JSON/json.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -14,34 +15,23 @@ export class EditarUsuarioComponent {
   userPass: string = '';
 
 
-constructor(private servicioUsuario: UsuarioService) {}
+constructor(private servicioUsuario: UsuarioService, private servicioJson: JSONService) {}
 
-/*modificarUsuario() {
-    let userId = this.buscarUsuario(userId);
-    userId.name = this.userName;
-    user.lastName = this.userLastname;
-    user.email = this.userEmail;
-    user.passWord = this.userPass;
-    this.servicioUsuario.(user);
-  }
-
-  usar getUser y putUser*/
 
   /*<button type="button" class="btn primary" (click)="modificarUsuario()">Modificar</button>*/
 
-  buscarUsuario(userBuscado:Usuario) {
-    
-    let userList = this.servicioUsuario.getUsers();
-    let userID = -1;
-    console.log(userList);
-
-    userList.forEach((user) => {
-      if(user.passWord === userBuscado.passWord && user.email === userBuscado.email) {
-        userID = user.id;
+  editarUsuario() {
+    const log = this.servicioUsuario.checkLoggedIn();
+    if(log !== null) {
+      const user = this.servicioUsuario.getUser(Number(log));
+      if(user) {
+        user.name=this.userName;
+        user.lastName=this.userLastname;
+        user.email=this.userEmail;
+        user.passWord=this.userPass;
+        this.servicioJson.putUser(user);
+         console.log("Actualizando..");
       }
-    });
+    }
 
-    return userID;
-  }
-
-}
+}}
