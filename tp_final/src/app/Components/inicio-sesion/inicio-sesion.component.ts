@@ -14,6 +14,8 @@ export class InicioSesionComponent {
   userPass: string = '';
   @ViewChild('loginresult')loginResult!:ElementRef;
 
+  router: any;
+
   constructor(private servicioUsuario: UsuarioService){}
 
 
@@ -31,8 +33,16 @@ export class InicioSesionComponent {
       h5.textContent = "Logeado exitosamente!";
       //const text = document.createTextNode("Logeado exitosamente!");
       this.loginResult.nativeElement.appendChild(h5);
+
+      this.router.navigate(['editarUsuario']);
     }
-    else { console.log("No encontrado", userID); }
+    else { 
+      const h5 = document.createElement("h5");
+      h5.textContent = "Error!";
+      //const text = document.createTextNode("Logeado exitosamente!");
+      this.loginResult.nativeElement.appendChild(h5);
+      console.log("No encontrado", userID);
+    }
   }
 
   buscarUsuario(userBuscado:Usuario) {

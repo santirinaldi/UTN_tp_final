@@ -9,6 +9,8 @@ import { Usuario } from '../../Models/usuario';
 })
 export class RegistroUsuarioComponent {
 
+  router: any;
+
   userName: string = '';
   userLastname: string = '';
   userEmail: string = '';
@@ -23,6 +25,8 @@ export class RegistroUsuarioComponent {
     user.email = this.userEmail;
     user.passWord = this.userPass;
     this.servicioUsuario.add(user);
+
+    this.router.navigate(['inicioSesion']);
   }
 
 }

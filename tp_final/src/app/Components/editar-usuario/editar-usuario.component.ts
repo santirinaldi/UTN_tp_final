@@ -9,10 +9,13 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./editar-usuario.component.css']
 })
 export class EditarUsuarioComponent {
+  
+  user = this.servicioUsuario.getUser(Number(this.servicioUsuario.checkLoggedIn()));
   userName: string = '';
   userLastname: string = '';
   userEmail: string = '';
   userPass: string = '';
+  router: any;
 
 
 constructor(private servicioUsuario: UsuarioService, private servicioJson: JSONService) {}
@@ -25,12 +28,22 @@ constructor(private servicioUsuario: UsuarioService, private servicioJson: JSONS
     if(log !== null) {
       const user = this.servicioUsuario.getUser(Number(log));
       if(user) {
-        user.name=this.userName;
-        user.lastName=this.userLastname;
-        user.email=this.userEmail;
-        user.passWord=this.userPass;
+        if(this.userName.length > 0 ) {
+          user.name=this.userName;
+        }
+        if(this.userLastname.length > 0 ) {
+          user.lastName=this.userLastname;
+        }
+        if(this.userEmail.length > 0 ) {
+          user.email=this.userEmail;
+        }
+        if(this.userPass.length > 0 ) {
+          user.passWord=this.userPass;
+        }
+        
         this.servicioJson.putUser(user);
          console.log("Actualizando..");
+         this.router.navigate(['inicio']);
       }
     }
 

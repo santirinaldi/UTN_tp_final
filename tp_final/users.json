@@ -17,13 +17,11 @@
     },
     {
       "id": 2,
-      "name": "asdbasd",
-      "lastname": "sidbalsd",
-      "email": "appollonioagustin@dsd4.com",
-      "passWord": "sagdblisd",
-      "baja": 0,
-      "rutinas": [],
-      "recetas": []
+      "name": "santiago",
+      "lastname": "rinaldi",
+      "email": "agustin@gmail.com",
+      "pass": "123",
+      "baja": 0
     }
   ]
 }
