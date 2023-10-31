@@ -23,6 +23,15 @@
       "baja": 1,
       "listaRutinas": [],
       "listaRecetas": []
+    },
+    {
+      "id": 3,
+      "name": "Pepa",
+      "email": "pepe@gmail.com",
+      "passWord": "1234",
+      "baja": 1,
+      "listaRutinas": [],
+      "listaRecetas": []
     }
   ]
 }
