@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild,ElementRef } from '@angular/core';
 import { GetAPIService } from 'src/app/services/API/get-api.service';
 
 import { Rutina } from 'src/app/Models/rutina';
@@ -17,11 +17,13 @@ export class AgregarRutinaComponent {
   availableDays: string = "";
   equipment: Array<string> = [];
   preferences: string = "";
+  @ViewChild('routinemessage')routineMessage!:ElementRef;
 
   constructor(private apiservice: GetAPIService) {
   }
 
   createMessage() {
+
     let objetivesString = "";
 
     this.objetives.forEach((item, index) => {
@@ -33,39 +35,29 @@ export class AgregarRutinaComponent {
     });
 
     const message = `Quiero una rutina de ejercicio con estas caracteristicas: objetivos: ${objetivesString}. Mi condicion fisica: ${this.physicalCondition}. Dias disponibles por semana: ${this.availableDays}. Limitaciones ${this.equipment}. ${this.preferences}`;
+    const apiRes = this.pedidoAPI(message);
 
-    console.log("BODY: ", JSON.stringify({
-      model: 'gpt-3.5-turbo',
-      messages: [
-        {
-          role: 'user',
-          content: message
-        }
-      ]
-    }));
+    console.log("APIRES: ", apiRes);
 
-    this.pedidoAPI(message);
 
   }
 
-  async pedidoAPI(message: string) {
-    /*await this.apiservice.apiRequest(message)
-      .then((response) => 
-        console.log("RESPONSE: ", response))
-      .catch (error => 
-        console.log("ERROR: ", error));  */
+  pedidoAPI(message: string) {
 
-        this.apiservice.apiRequest(message);
-
-/*
-        try {
-          const response = await this.apiservice.apiRequest(message);
-          const result = await response.text();
-          console.log("RESPONSE: ", response);
-          console.log("RESULT: ", result);
-        } catch (error) {
-          console.error("ERROR: ", error);
-        }*/
+    const apiRes = this.apiservice.apiRequest(message);
+    apiRes.then((response) => response.json())
+    .then((data) => {
+      // Maneja la respuesta aquí
+      //const answer = data.choices[0].message.content;
+      console.log('Respuesta de ChatGPT: ', data);
+      const p = document.createElement("p");
+      p.textContent = data.answer;
+      this.routineMessage.nativeElement.appendChild(p);
+    })
+    .catch((error) => {
+      console.error('Error al realizar la solicitud a la API: ', error);
+      return null;
+    });
   }
 
 }
