@@ -9,6 +9,7 @@ import { InicioComponent } from './Components/inicio/inicio.component';
 
 
 const routes: Routes = [
+  
   { path: 'inicioSesion', component: InicioSesionComponent },
   { path: 'cierreSesion', component: CierreSesionComponent },
   { path: 'editarUsuario', component: EditarUsuarioComponent },

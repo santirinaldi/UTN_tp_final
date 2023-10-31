@@ -21,10 +21,10 @@ export class JSONService {
       name: usuario.name,
       lastname: usuario.lastName,
       email: usuario.email,
-      pass: usuario.passWord,
+      passWord: usuario.passWord,
       baja: usuario.baja,
-      rutinas: usuario.listaRutinas,
-      recetas: usuario.listaRecetas
+      listaRutinas: usuario.listaRutinas,
+      listaRecetas: usuario.listaRecetas
     };
 
     fetch("http://localhost:3000/users",
@@ -51,10 +51,10 @@ export class JSONService {
         name: usuario.name,
         lastname: usuario.lastName,
         email: usuario.email,
-        pass: usuario.passWord,
+        passWord: usuario.passWord,
         baja: usuario.baja,
-        rutinas: usuario.listaRutinas,
-        recetas: usuario.listaRecetas
+        listaRutinas: usuario.listaRutinas,
+        listaRecetas: usuario.listaRecetas
       };
   
       fetch(`http://localhost:3000/users/${user.id}`,

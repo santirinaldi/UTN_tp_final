@@ -1,7 +1,7 @@
 import { Component,ViewChild,ElementRef } from '@angular/core';
 import { Usuario } from 'src/app/Models/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class InicioSesionComponent {
   userPass: string = '';
   @ViewChild('loginresult')loginResult!:ElementRef;
 
-  constructor(private servicioUsuario: UsuarioService, private route: ActivatedRoute){}
+  constructor(private servicioUsuario: UsuarioService, private route: Router){}
 
 
   verifyUser() {
@@ -33,7 +33,7 @@ export class InicioSesionComponent {
       //const text = document.createTextNode("Logeado exitosamente!");
       this.loginResult.nativeElement.appendChild(h5);
 
-      //this.router.navigate(['editarUsuario']);
+      this.route.navigate(['editarUsuario']);
     }
     else { 
       const h5 = document.createElement("h5");

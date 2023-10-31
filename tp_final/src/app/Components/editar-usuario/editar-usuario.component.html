@@ -1,4 +1,5 @@
 <section id="editar-usuario">
+    <div #modifyResult></div>
     <div class="form">
         <form target="_blank">
            
@@ -20,7 +21,9 @@
                 </div>
                 <button type="button" class="btn primary" (click)="editarUsuario()">Modificar</button>
         </form>
+
+        <app-cierre-sesion></app-cierre-sesion>
+        <app-borrar-usuario></app-borrar-usuario>
+
     </div>
 </section>
-<app-cierre-sesion></app-cierre-sesion>
-<app-borrar-usuario></app-borrar-usuario>

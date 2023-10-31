@@ -3,6 +3,7 @@ import { Usuario } from 'src/app/Models/usuario';
 import { JSONService } from 'src/app/services/JSON/json.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
+
 @Component({
   selector: 'app-editar-usuario',
   templateUrl: './editar-usuario.component.html',
@@ -15,7 +16,8 @@ export class EditarUsuarioComponent {
   userLastname: string = '';
   userEmail: string = '';
   userPass: string = '';
-  router: any;
+
+  @ViewChild('modifyResult')modifyResult!:ElementRef;
 
 
 constructor(private servicioUsuario: UsuarioService, private servicioJson: JSONService) {}
@@ -27,6 +29,7 @@ constructor(private servicioUsuario: UsuarioService, private servicioJson: JSONS
     const log = this.servicioUsuario.checkLoggedIn();
     if(log !== null) {
       const user = this.servicioUsuario.getUser(Number(log));
+      console.log(user);
       if(user) {
         if(this.userName.length > 0 ) {
           user.name=this.userName;
@@ -42,8 +45,12 @@ constructor(private servicioUsuario: UsuarioService, private servicioJson: JSONS
         }
         
         this.servicioJson.putUser(user);
-         console.log("Actualizando..");
-         this.router.navigate(['inicio']);
+          console.log("Actualizando..");
+          //this.router.navigate(['inicio']);
+          const h5 = document.createElement("h5");
+          h5.textContent = "editado exitosamente!";
+          //const text = document.createTextNode("Logeado exitosamente!");
+          this.modifyResult.nativeElement.appendChild(h5);
       }
     }
 
