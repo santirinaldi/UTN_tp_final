@@ -21,10 +21,10 @@ export class JSONService {
       name: usuario.name,
       lastname: usuario.lastName,
       email: usuario.email,
-      pass: usuario.passWord,
+      passWord: usuario.passWord,
       baja: usuario.baja,
-      rutinas: usuario.listaRutinas,
-      recetas: usuario.listaRecetas
+      listaRutinas: usuario.listaRutinas,
+      listaRecetas: usuario.listaRecetas
     };
 
     fetch("http://localhost:3000/users",
@@ -36,8 +36,10 @@ export class JSONService {
         headers: new Headers({'content-type': 'application/json',Accept: 'application/json',}),
         body: JSON.stringify(this.user)
     });
-
+  
   }
+
+    
 
   getAll(): Promise<any> { /// EJEMPLO GET
     return fetch('http://localhost:3000/users'); /// RETORNA UNA PROMESA A CAPTURAR EN EL COMPONENTE QUE LO REQUIERA
@@ -49,10 +51,10 @@ export class JSONService {
         name: usuario.name,
         lastname: usuario.lastName,
         email: usuario.email,
-        pass: usuario.passWord,
+        passWord: usuario.passWord,
         baja: usuario.baja,
-        rutinas: usuario.listaRutinas,
-        recetas: usuario.listaRecetas
+        listaRutinas: usuario.listaRutinas,
+        listaRecetas: usuario.listaRecetas
       };
   
       fetch(`http://localhost:3000/users/${user.id}`,

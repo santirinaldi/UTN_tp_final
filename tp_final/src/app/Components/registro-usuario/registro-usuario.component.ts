@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Usuario } from '../../Models/usuario';
+import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -9,12 +10,14 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class RegistroUsuarioComponent {
 
+
+
   userName: string = '';
   userLastname: string = '';
   userEmail: string = '';
   userPass: string = '';
 
-  constructor(private servicioUsuario: UsuarioService) {}
+  constructor(private servicioUsuario: UsuarioService, private router: Router) {}
 
   addUser() {
     let user = new Usuario();
@@ -23,6 +26,8 @@ export class RegistroUsuarioComponent {
     user.email = this.userEmail;
     user.passWord = this.userPass;
     this.servicioUsuario.add(user);
+
+    this.router.navigate(['/inicioSesion']);
   }
 
 }

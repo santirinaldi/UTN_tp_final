@@ -16,8 +16,8 @@ export class BorrarUsuarioComponent {
       const user = this.servicioUsuario.getUser(Number(log));
       if(user) {
         this.servicioUsuario.baja(user);
-        localStorage.removeItem(log);
         console.log("Eliminando..");
+        this.servicioUsuario.logOut();
       }
     }
     else {
