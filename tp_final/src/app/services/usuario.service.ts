@@ -44,12 +44,18 @@ export class UsuarioService{
     return this.userList;
   }
 
-  getUser(id:number) {
-    return this.userList.find((user) => user.id === id);
+  getUser(id:number):Usuario {
+    let user = new Usuario();
+    const aux = this.userList.find((user) => user.id === id);
+    if(aux !== undefined) {
+      user = aux;
+    }
+    return user;
   }
 
   checkLoggedIn() {
     const log = localStorage.getItem("userLoggedin");
     return log;
   }
+
 }

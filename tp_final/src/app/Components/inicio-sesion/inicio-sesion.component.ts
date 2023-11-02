@@ -22,7 +22,8 @@ export class InicioSesionComponent {
     
     
     let userID = this.buscarUsuario(user);
-    if(userID != -1) {
+    console.log(userID);
+    if(userID !== -1) {
       localStorage.setItem("userLoggedin", `${userID}`);
       const h5 = document.createElement("h5");
       h5.textContent = "Logeado exitosamente!";
@@ -35,11 +36,13 @@ export class InicioSesionComponent {
   buscarUsuario(userBuscado:Usuario) {
     
     let userList = this.servicioUsuario.getUsers();
-    let userID = -1;
     console.log(userList);
+    let userID = -1;
 
     userList.forEach((user) => {
-      if(user.passWord === userBuscado.passWord && user.email === userBuscado.email) {
+      console.log(user.passWord);
+      if(user.passWord == userBuscado.passWord && user.email == userBuscado.email) {
+        console.log("encontro");
         userID = user.id;
       }
     });

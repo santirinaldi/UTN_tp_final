@@ -1,11 +1,11 @@
-#user-signup {
+#user-logIn {
     position: relative;
     height: 100vh;
     width: 100%;
     display: flex;
 }
 
-#user-signup>.data {
+#user-logIn>.data {
     height: 100%;
     width: 50%;
     display: flex;
@@ -15,7 +15,7 @@
 }
 
 
-#user-signup h3 {
+#user-logIn h3 {
     font-size: 2.5rem;
     line-height: 110%;
     font-style: italic;
@@ -31,7 +31,7 @@
 }
 
 
-#user-signup>.form {
+#user-logIn>.form {
     height: 100%;
     width: 50%;
     background-color: #000;
