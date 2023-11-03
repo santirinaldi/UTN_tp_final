@@ -38,6 +38,7 @@ export class UsuarioService{
     ///RECIBE USUARIO A ELIMINAR
     usuario.baja = 1;
     this.jsonService.putUser(usuario);
+    localStorage.removeItem("userLoggedin");
   }
 
   getUsers() {

@@ -26,10 +26,9 @@
     {
       "id": 2,
       "name": "Santiago",
-      "lastname": "Rinaldi",
       "email": "test@gmail.com",
       "passWord": "12345",
-      "baja": 0,
+      "baja": 1,
       "bibliotecaRutinas": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
@@ -38,7 +37,9 @@
       "bibliotecaRecetas": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
-        "listaRecetas": []
+        "listaRecetas": [
+          "testtesttesttesttesttest"
+        ]
       }
     }
   ]
