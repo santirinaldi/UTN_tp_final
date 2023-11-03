@@ -49,7 +49,7 @@ export class ConsultarRecetaComponent {
 
   agregarReceta(log:number) {
       const user: Usuario = this.servicioUsuario.getUser(log);
-      user.listaRecetas.push(this.apiResponse);
+      user.bibliotecaRecetas.listaRecetas.push(this.apiResponse);
       this.servicioJson.putUser(user);
   }
 
