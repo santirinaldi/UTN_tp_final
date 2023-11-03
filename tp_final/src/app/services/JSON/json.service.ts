@@ -39,7 +39,9 @@ export class JSONService {
   
   }
 
-    
+  getById(id: string | null) {
+    return fetch('http://localhost:3000/users');
+  }
 
   getAll(): Promise<any> { /// EJEMPLO GET
     return fetch('http://localhost:3000/users'); /// RETORNA UNA PROMESA A CAPTURAR EN EL COMPONENTE QUE LO REQUIERA
