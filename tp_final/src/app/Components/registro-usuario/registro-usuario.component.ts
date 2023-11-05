@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from '../../Models/usuario';
 import { Router } from '@angular/router';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-registro-usuario',

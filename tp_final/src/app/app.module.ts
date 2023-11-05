@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { EditarUsuarioComponent } from './Components/editar-usuario/editar-usuario.component';
 import { CierreSesionComponent } from './Components/cierre-sesion/cierre-sesion.component';
 import { InicioComponent } from './Components/inicio/inicio.component';
+import { AgregarRutinaComponent } from './Components/agregar-rutina/agregar-rutina.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { InicioComponent } from './Components/inicio/inicio.component';
     InicioSesionComponent,
     EditarUsuarioComponent,
     CierreSesionComponent,
-    InicioComponent
+    InicioComponent,
+    AgregarRutinaComponent
     
   ],
   imports: [

@@ -48,8 +48,6 @@ export class InicioSesionComponent {
     
     let userList = this.servicioUsuario.getUsers();
     let userID = -1;
-    console.log(userList);
-
     userList.forEach((user) => {
       if(user.passWord === userBuscado.passWord && user.email === userBuscado.email) {
         userID = user.id;

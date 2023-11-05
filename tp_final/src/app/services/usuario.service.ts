@@ -26,7 +26,7 @@ export class UsuarioService{
      })
    .catch (error =>
      console.log(error))
-  }
+    }
 
   add(user:Usuario) {
     user.id = this.userId;
@@ -46,6 +46,9 @@ export class UsuarioService{
   }
 
   getUser(id:number) {
+    console.log("qwe: ", id);
+    console.log("zxc: ", this.userList);
+
     return this.userList.find((user) => user.id === id);
   }
 
