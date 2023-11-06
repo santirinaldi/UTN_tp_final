@@ -42,7 +42,6 @@ export class JSONService {
   }
 
   putUser(usuario: Usuario) {
-
     return this.http.put(`http://localhost:3000/users/${usuario.id}`,usuario);
   }
 

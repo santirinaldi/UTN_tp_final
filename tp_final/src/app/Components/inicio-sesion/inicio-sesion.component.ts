@@ -22,7 +22,7 @@ export class InicioSesionComponent implements OnInit{
 
   getUsers() {
     this.jsonService.getAll().subscribe((data: any) => {
-      this.userList = data;
+      this.userList = data.filter((item:any) => item.baja !== 1);
     });
   }
 

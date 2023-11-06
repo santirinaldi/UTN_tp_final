@@ -40,7 +40,9 @@ export class UsuarioService {
   baja(usuario: Usuario) {
     ///RECIBE USUARIO A ELIMINAR
     usuario.baja = 1;
-    this.jsonService.putUser(usuario);
+    this.jsonService.putUser(usuario).subscribe((response) => {
+      console.log(response);
+    });
   }
 
   getUser(id:number, userList: Array<Usuario>):Usuario {
@@ -49,7 +51,7 @@ export class UsuarioService {
     if(aux !== undefined) {
       user = aux;
     }
-    console.log(user);
+    //console.log(user);
     return user;
   }
 

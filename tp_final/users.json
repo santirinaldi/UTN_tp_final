@@ -6,7 +6,7 @@
       "lastName": "Muñoz",
       "email": "appollonioagustin@gmail.com",
       "passWord": "123",
-      "baja": 0,
+      "baja": 1,
       "bibliotecaRutina": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
