@@ -32,7 +32,10 @@ export class UsuarioService {
     // user.id = this.userId;
     // this.userList.push(user);
     // this.userId++;
-    this.jsonService.add(user);
+    this.jsonService.add(user).subscribe((response) => {
+      console.log(response);
+      this.router.navigate(['/inicioSesion']);
+    });
   }
 
   baja(usuario: Usuario) {

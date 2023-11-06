@@ -37,7 +37,7 @@ export class RegistroUsuarioComponent implements OnInit {
     user.passWord = this.userPass;
     this.servicioUsuario.add(user);
 
-    this.router.navigate(['/inicioSesion']);
+    
   }
 
 }
