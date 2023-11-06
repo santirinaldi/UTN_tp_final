@@ -1,4 +1,4 @@
-import { Component,ViewChild,ElementRef } from '@angular/core';
+import { Component,ViewChild,ElementRef,OnInit } from '@angular/core';
 import { Usuario } from 'src/app/Models/usuario';
 import { JSONService } from 'src/app/services/JSON/json.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
@@ -9,26 +9,28 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   templateUrl: './editar-usuario.component.html',
   styleUrls: ['./editar-usuario.component.css']
 })
-export class EditarUsuarioComponent {
+export class EditarUsuarioComponent implements OnInit {
   
-  user = this.servicioUsuario.getUser(Number(this.servicioUsuario.checkLoggedIn()));
   userName: string = '';
   userLastname: string = '';
   userEmail: string = '';
   userPass: string = '';
+  userList: Usuario[] = [];
 
   @ViewChild('modifyResult')modifyResult!:ElementRef;
 
 
-constructor(private servicioUsuario: UsuarioService, private servicioJson: JSONService) {}
+  constructor(private servicioUsuario: UsuarioService, private servicioJson: JSONService) {}
 
-
-
+  ngOnInit() {
+    this.servicioUsuario.getUsers(this.userList);
+  }
+  
 
   editarUsuario() {
     const log = this.servicioUsuario.checkLoggedIn();
     if(log !== null) {
-      const user = this.servicioUsuario.getUser(Number(log));
+      const user = this.servicioUsuario.getUser(Number(log), this.userList);
       console.log(user);
       if(user) {
         if(this.userName.length > 0 ) {
