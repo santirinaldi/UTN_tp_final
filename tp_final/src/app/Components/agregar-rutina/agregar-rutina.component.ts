@@ -104,7 +104,7 @@ export class AgregarRutinaComponent {
   }
 
   openLoginModal() {
-
+    console.log("");
   }
 
   pedidoAPI(message: string) {
