@@ -20,10 +20,16 @@ export class EditarUsuarioComponent implements OnInit {
   @ViewChild('modifyResult')modifyResult!:ElementRef;
 
 
-  constructor(private servicioUsuario: UsuarioService, private servicioJson: JSONService) {}
+  constructor(private servicioUsuario: UsuarioService, private jsonService: JSONService) {}
 
-  ngOnInit() {
-    this.servicioUsuario.getUsers(this.userList);
+  ngOnInit(): void {
+    this.getUsers();
+  }
+
+  getUsers() {
+    this.jsonService.getAll().subscribe((data: any) => {
+      this.userList = data;
+    });
   }
   
 
@@ -46,7 +52,7 @@ export class EditarUsuarioComponent implements OnInit {
           user.passWord=this.userPass;
         }
         
-        this.servicioJson.putUser(user);
+        this.jsonService.putUser(user);
           console.log("Actualizando..");
           //this.router.navigate(['inicio']);
           const h5 = document.createElement("h5");

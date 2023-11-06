@@ -20,15 +20,17 @@ export class ConsultarRecetaComponent implements OnInit {
   maxCalories: number = 0;
   userList: Usuario[] = [];
 
+  constructor(private servicioUsuario: UsuarioService, private jsonService: JSONService, private apiservice: GetAPIService) {}
+
   ngOnInit(): void {
-    this.servicioUsuario.getUsers(this.userList);
+    this.getUsers();
   }
 
-  constructor(
-    private apiservice: GetAPIService,
-    private servicioUsuario: UsuarioService,
-    private servicioJson: JSONService
-  ) { }
+  getUsers() {
+    this.jsonService.getAll().subscribe((data: any) => {
+      this.userList = data;
+    });
+  }
 
   createMessage() {
     const log = this.servicioUsuario.checkLoggedIn();
@@ -59,7 +61,7 @@ export class ConsultarRecetaComponent implements OnInit {
       lista.nombre = "Mi receta";
       lista.texto = this.apiResponse;
       user.bibliotecaRecetas.listaRecetas.push(lista);
-      this.servicioJson.putUser(user);
+      this.jsonService.putUser(user);
   }
 
   createView(log:number) {

@@ -41,12 +41,6 @@ export class UsuarioService {
     this.jsonService.putUser(usuario);
   }
 
-  getUsers(lista: Array<Usuario>) {
-    this.jsonService.getAll().subscribe((data: any) => {
-      lista = data;
-    });
-  }
-
   getUser(id:number, userList: Array<Usuario>):Usuario {
     let user = new Usuario();
     const aux = userList.find((user) => user.id === id);

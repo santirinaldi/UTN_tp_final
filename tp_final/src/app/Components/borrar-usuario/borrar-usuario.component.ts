@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { Usuario } from 'src/app/Models/usuario';
+import { JSONService } from 'src/app/services/JSON/json.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -11,13 +12,18 @@ export class BorrarUsuarioComponent {
 
   userList: Usuario[] = [];
 
-  constructor(private servicioUsuario: UsuarioService) { }
-  ///Input me tiene que llegar algun dato de algun componente
+  constructor(private servicioUsuario: UsuarioService, private jsonService: JSONService) {}
 
   ngOnInit(): void {
-    this.servicioUsuario.getUsers(this.userList);
+    this.getUsers();
   }
 
+  getUsers() {
+    this.jsonService.getAll().subscribe((data: any) => {
+      this.userList = data;
+    });
+  }
+  
   borrarUsuario() {
     const log = this.servicioUsuario.checkLoggedIn();
     if(log !== null) {

@@ -26,13 +26,19 @@ export class AgregarRutinaComponent implements OnInit {
   preferences: string = "";
   @ViewChild('routinemessage')routineMessage!:ElementRef;
 
-  constructor(private apiservice: GetAPIService, private servicioUsuario: UsuarioService, private servicioJson: JSONService) {
+  constructor(private apiservice: GetAPIService, private servicioUsuario: UsuarioService, private jsonService: JSONService) {
   }
+
 
   ngOnInit(): void {
-    this.servicioUsuario.getUsers(this.userList);
+    this.getUsers();
   }
 
+  getUsers() {
+    this.jsonService.getAll().subscribe((data: any) => {
+      this.userList = data;
+    });
+  }
   createMessage() {
 
     let objetivesString = "";
@@ -109,7 +115,7 @@ export class AgregarRutinaComponent implements OnInit {
       lista.nombre = "Mi rutina";
       lista.texto = this.apiResponse;
       ubid.bibliotecaRutinas.listaRutinas.push(lista);
-      this.servicioJson.putUser(ubid);
+      this.jsonService.putUser(ubid);
     }
 
   }

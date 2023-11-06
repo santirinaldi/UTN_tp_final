@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef,OnInit } from '@angular/core';
 import { Usuario } from 'src/app/Models/usuario';
+import { JSONService } from 'src/app/services/JSON/json.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -13,11 +14,18 @@ export class InicioSesionComponent implements OnInit{
   userList: Usuario[] = [];
   @ViewChild('loginresult') loginResult!: ElementRef;
 
-  constructor(private servicioUsuario: UsuarioService) {}
+  constructor(private servicioUsuario: UsuarioService, private jsonService: JSONService) {}
 
   ngOnInit(): void {
-    this.servicioUsuario.getUsers(this.userList);
+    this.getUsers();
   }
+
+  getUsers() {
+    this.jsonService.getAll().subscribe((data: any) => {
+      this.userList = data;
+    });
+  }
+
   verifyUser() {
     console.log(this.userList);
     let user = new Usuario();
