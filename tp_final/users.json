@@ -3,10 +3,11 @@
     {
       "id": 1,
       "name": "Agustin",
+      "lastName": "Muñoz",
       "email": "appollonioagustin@gmail.com",
-      "passWord": "12345",
+      "passWord": "123",
       "baja": 0,
-      "bibliotecaRutinas": {
+      "bibliotecaRutina": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
         "listaRutinas": [
@@ -16,7 +17,7 @@
           }
         ]
       },
-      "bibliotecaRecetas": {
+      "bibliotecaReceta": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
         "listaRecetas": [
@@ -29,30 +30,20 @@
     },
     {
       "id": 2,
-      "name": "test1",
-      "lastname": "test1",
-      "email": "test1@gmail.com",
-      "passWord": "123",
+      "name": "test",
+      "lastName": "test",
+      "email": "test",
+      "passWord": "12345",
       "baja": 0,
       "bibliotecaRutina": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
-        "listaRutinas": [
-          {
-            "nombre": "Nombre",
-            "texto": "Receta"
-          }
-        ]
+        "listaRutinas": []
       },
       "bibliotecaReceta": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
-        "listaRecetas": [
-          {
-            "nombre": "Nombre",
-            "texto": "Receta"
-          }
-        ]
+        "listaRecetas": []
       }
     }
   ]

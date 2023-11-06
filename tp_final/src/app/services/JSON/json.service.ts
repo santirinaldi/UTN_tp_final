@@ -30,7 +30,7 @@ export class JSONService {
     this.user = {
       id: usuario.id,
       name: usuario.name,
-      lastname: usuario.lastName,
+      lastName: usuario.lastName,
       email: usuario.email,
       passWord: usuario.passWord,
       baja: usuario.baja,
@@ -42,18 +42,8 @@ export class JSONService {
   }
 
   putUser(usuario: Usuario) {
-    const user = {
-      id: usuario.id,
-      name: usuario.name,
-      lastname: usuario.lastName,
-      email: usuario.email,
-      passWord: usuario.passWord,
-      baja: usuario.baja,
-      bibliotecaRutina: usuario.bibliotecaRutinas,
-      bibliotecaReceta: usuario.bibliotecaRecetas
-    };
 
-    return this.http.put(`http://localhost:3000/users/${user.id}`,user);
+    return this.http.put(`http://localhost:3000/users/${usuario.id}`,usuario);
   }
 
   // add(usuario:  Usuario) {

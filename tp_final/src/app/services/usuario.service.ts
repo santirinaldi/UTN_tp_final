@@ -34,7 +34,6 @@ export class UsuarioService {
     // this.userId++;
     this.jsonService.add(user).subscribe((response) => {
       console.log(response);
-      this.router.navigate(['/inicioSesion']);
     });
   }
 

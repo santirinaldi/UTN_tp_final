@@ -37,7 +37,7 @@ export class EditarUsuarioComponent implements OnInit {
     const log = this.servicioUsuario.checkLoggedIn();
     if(log !== null) {
       const user = this.servicioUsuario.getUser(Number(log), this.userList);
-      console.log(user);
+      console.log("user encontrado",user);
       if(user) {
         if(this.userName.length > 0 ) {
           user.name=this.userName;
@@ -52,7 +52,10 @@ export class EditarUsuarioComponent implements OnInit {
           user.passWord=this.userPass;
         }
         
-        this.jsonService.putUser(user);
+        this.jsonService.putUser(user).subscribe((response) => {
+          //que pase algo o no
+          console.log("respuesta: ",response);
+        });
           console.log("Actualizando..");
           //this.router.navigate(['inicio']);
           const h5 = document.createElement("h5");
