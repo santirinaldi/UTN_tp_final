@@ -23,8 +23,8 @@ export class JSONService {
       email: usuario.email,
       passWord: usuario.passWord,
       baja: usuario.baja,
-      listaRutinas: usuario.listaRutinas,
-      listaRecetas: usuario.listaRecetas
+      bibliotecaRutina: usuario.bibliotecaRutinas,
+      bibliotecaReceta: usuario.bibliotecaRecetas
     };
 
     fetch("http://localhost:3000/users",
@@ -55,8 +55,8 @@ export class JSONService {
         email: usuario.email,
         passWord: usuario.passWord,
         baja: usuario.baja,
-        listaRutinas: usuario.listaRutinas,
-        listaRecetas: usuario.listaRecetas
+        bibliotecaRutina: usuario.bibliotecaRutinas,
+        bibliotecaReceta: usuario.bibliotecaRecetas
       };
   
       fetch(`http://localhost:3000/users/${user.id}`,

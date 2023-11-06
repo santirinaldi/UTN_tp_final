@@ -10,6 +10,8 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class BorrarUsuarioComponent {
   constructor(private servicioUsuario: UsuarioService) { }
   ///Input me tiene que llegar algun dato de algun componente
+
+
   borrarUsuario() {
     const log = this.servicioUsuario.checkLoggedIn();
     if(log !== null) {
