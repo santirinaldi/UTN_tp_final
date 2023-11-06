@@ -9,37 +9,38 @@
       "bibliotecaRutinas": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
-        "listaRutinas": [
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis.",
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit."
-        ]
+        "listaRutinas":[  {
+          "nombre": "Mi rutina",
+          "texto": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
+        }
+      ]
       },
       "bibliotecaRecetas": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
-        "listaRecetas": [
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis.",
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit."
-        ]
+        "listaRecetas": [  {
+          "nombre": "Mi receta",
+          "texto": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
+        }
+      ]
       }
     },
     {
       "id": 2,
-      "name": "Santiago",
-      "email": "test@gmail.com",
-      "passWord": "12345",
-      "baja": 1,
-      "bibliotecaRutinas": {
+      "name": "test1",
+      "lastname": "test1",
+      "email": "test1@gmail.com",
+      "passWord": "123456",
+      "baja": 0,
+      "bibliotecaRutina": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
         "listaRutinas": []
       },
-      "bibliotecaRecetas": {
+      "bibliotecaReceta": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
-        "listaRecetas": [
-          "testtesttesttesttesttest"
-        ]
+        "listaRecetas": []
       }
     }
   ]

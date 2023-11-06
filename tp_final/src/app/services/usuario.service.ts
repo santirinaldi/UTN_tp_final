@@ -45,11 +45,15 @@ export class UsuarioService{
     return this.userList;
   }
 
-  getUser(id:number) {
-    console.log("qwe: ", id);
-    console.log("zxc: ", this.userList);
-
-    return this.userList.find((user) => user.id === id);
+  getUser(id:number):Usuario {
+    console.log(id);
+    let user = new Usuario();
+    const aux = this.userList.find((user) => user.id === id);
+    if(aux !== undefined) {
+      user = aux;
+    }
+    console.log(user);
+    return user;
   }
 
   checkLoggedIn() {

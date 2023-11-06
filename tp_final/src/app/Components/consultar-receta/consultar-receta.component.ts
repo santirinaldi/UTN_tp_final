@@ -3,6 +3,7 @@ import { GetAPIService } from 'src/app/services/API/get-api.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from 'src/app/Models/usuario';
 import { JSONService } from 'src/app/services/JSON/json.service';
+import { Lista } from 'src/app/Models/lista';
 
 @Component({
   selector: 'app-consultar-receta',
@@ -49,7 +50,10 @@ export class ConsultarRecetaComponent {
 
   agregarReceta(log:number) {
       const user: Usuario = this.servicioUsuario.getUser(log);
-      user.bibliotecaRecetas.listaRecetas.push(this.apiResponse);
+      let lista = new Lista();
+      lista.nombre = "Mi receta";
+      lista.texto = this.apiResponse;
+      user.bibliotecaRecetas.listaRecetas.push(lista);
       this.servicioJson.putUser(user);
   }
 

@@ -1,4 +1,4 @@
 export class Lista {
-    nombre: String='';
-    texto: String='';
+    nombre: string="";
+    texto: string="";
 }

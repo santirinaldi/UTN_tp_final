@@ -6,6 +6,8 @@ import { Rutina } from 'src/app/Models/rutina';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { JSONService } from 'src/app/services/JSON/json.service';
 
+import { Lista } from 'src/app/Models/lista';
+
 @Component({
   selector: 'app-agregar-rutina',
   templateUrl: './agregar-rutina.component.html',
@@ -97,7 +99,10 @@ export class AgregarRutinaComponent {
     let ubid = this.servicioUsuario.getUser(Number(id));
 
     if(ubid) {
-      ubid.bibliotecaRutinas.listaRutinas.push(message);
+      let lista = new Lista();
+      lista.nombre = "Mi rutina";
+      lista.texto = this.apiResponse;
+      ubid.bibliotecaRutinas.listaRutinas.push(lista);
       this.servicioJson.putUser(ubid);
     }
 
