@@ -32,35 +32,27 @@
       "name": "test1",
       "lastname": "test1",
       "email": "test1@gmail.com",
-      "passWord": "123456",
-      "baja": 0,
-      "bibliotecaRutina": {
-        "nombre": "Mi lista",
-        "descripcion": "Mi descripcion",
-        "listaRutinas": []
-      },
-      "bibliotecaReceta": {
-        "nombre": "Mi lista",
-        "descripcion": "Mi descripcion",
-        "listaRecetas": []
-      }
-    },
-    {
-      "id": 3,
-      "name": "test2",
-      "lastname": "test2",
-      "email": "test2@gmail.com",
       "passWord": "123",
       "baja": 0,
       "bibliotecaRutina": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
-        "listaRutinas": []
+        "listaRutinas": [
+          {
+            "nombre": "Nombre",
+            "texto": "Receta"
+          }
+        ]
       },
       "bibliotecaReceta": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
-        "listaRecetas": []
+        "listaRecetas": [
+          {
+            "nombre": "Nombre",
+            "texto": "Receta"
+          }
+        ]
       }
     }
   ]
