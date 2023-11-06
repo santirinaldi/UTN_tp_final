@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef,OnInit } from '@angular/core';
 import { GetAPIService } from 'src/app/services/API/get-api.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from 'src/app/Models/usuario';
@@ -10,7 +10,7 @@ import { Lista } from 'src/app/Models/lista';
   templateUrl: './consultar-receta.component.html',
   styleUrls: ['./consultar-receta.component.css'],
 })
-export class ConsultarRecetaComponent {
+export class ConsultarRecetaComponent implements OnInit {
   apiResponse: string = 'testtesttesttesttesttest';
   @ViewChild('result') result!: ElementRef;
 
@@ -18,6 +18,11 @@ export class ConsultarRecetaComponent {
   objetives: Array<string> = [];
   foodLimits: Array<string> = [];
   maxCalories: number = 0;
+  userList: Usuario[] = [];
+
+  ngOnInit(): void {
+    this.servicioUsuario.getUsers(this.userList);
+  }
 
   constructor(
     private apiservice: GetAPIService,
@@ -49,7 +54,7 @@ export class ConsultarRecetaComponent {
   }
 
   agregarReceta(log:number) {
-      const user: Usuario = this.servicioUsuario.getUser(log);
+      const user: Usuario = this.servicioUsuario.getUser(log, this.userList);
       let lista = new Lista();
       lista.nombre = "Mi receta";
       lista.texto = this.apiResponse;
