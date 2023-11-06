@@ -97,7 +97,7 @@ export class AgregarRutinaComponent {
     let ubid = this.servicioUsuario.getUser(Number(id));
 
     if(ubid) {
-      ubid.listaRutinas.push(message);
+      ubid.bibliotecaRutinas.listaRutinas.push(message);
       this.servicioJson.putUser(ubid);
     }
 

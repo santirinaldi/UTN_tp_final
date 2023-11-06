@@ -14,6 +14,8 @@ import { EditarUsuarioComponent } from './Components/editar-usuario/editar-usuar
 import { CierreSesionComponent } from './Components/cierre-sesion/cierre-sesion.component';
 import { InicioComponent } from './Components/inicio/inicio.component';
 import { AgregarRutinaComponent } from './Components/agregar-rutina/agregar-rutina.component';
+import { BibliotecaRutinasComponent } from './Components/biblioteca-rutinas/biblioteca-rutinas.component';
+import { BibliotecaRecetasComponent } from './Components/biblioteca-recetas/biblioteca-recetas.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { AgregarRutinaComponent } from './Components/agregar-rutina/agregar-ruti
     EditarUsuarioComponent,
     CierreSesionComponent,
     InicioComponent,
-    AgregarRutinaComponent
+    AgregarRutinaComponent,
+    BibliotecaRutinasComponent,
+    BibliotecaRecetasComponent
     
   ],
   imports: [
