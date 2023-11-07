@@ -12,6 +12,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
 }
 
 #get-routine>.data p {
@@ -159,4 +160,47 @@
 
 .data p {
     font-size: 14px;
+}
+
+.popup-login {
+    display: none;
+}
+
+.popup-login .form {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 1;
+}
+
+.login-result {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #406b89;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    transition: .35s ease-in-out;
+}
+
+.query-result {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #406b89;
+    visibility: hidden;
+    transition: .35s ease-in-out;
 }
