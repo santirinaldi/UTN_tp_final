@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Usuario } from 'src/app/Models/usuario';
+import { JSONService } from 'src/app/services/JSON/json.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -8,14 +10,31 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./borrar-usuario.component.css']
 })
 export class BorrarUsuarioComponent {
-  constructor(private servicioUsuario: UsuarioService) { }
-  ///Input me tiene que llegar algun dato de algun componente
 
+  userList: Usuario[] = [];
+  suscription = new Subscription();
 
+  constructor(private servicioUsuario: UsuarioService, private jsonService: JSONService) {}
+
+  ngOnInit(): void {
+    this.getUsers();
+    
+    this.suscription = this.jsonService.refresh$.subscribe(() => {
+      this.getUsers();
+    });
+  }
+
+  getUsers() {
+    this.jsonService.getAll().subscribe((data: Usuario[]) => {
+      this.userList = data.filter((item:Usuario) => item.baja !== 1);
+      console.log(this.userList);
+    });
+  }
+  
   borrarUsuario() {
     const log = this.servicioUsuario.checkLoggedIn();
     if(log !== null) {
-      const user = this.servicioUsuario.getUser(Number(log));
+      const user = this.servicioUsuario.getUser(Number(log),this.userList);
       if(user) {
         this.servicioUsuario.baja(user);
         console.log("Eliminando..");
