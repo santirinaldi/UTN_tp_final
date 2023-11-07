@@ -27,24 +27,6 @@
           }
         ]
       }
-    },
-    {
-      "id": 2,
-      "name": "test",
-      "lastName": "test",
-      "email": "test",
-      "passWord": "12345",
-      "baja": 0,
-      "bibliotecaRutina": {
-        "nombre": "Mi lista",
-        "descripcion": "Mi descripcion",
-        "listaRutinas": []
-      },
-      "bibliotecaReceta": {
-        "nombre": "Mi lista",
-        "descripcion": "Mi descripcion",
-        "listaRecetas": []
-      }
     }
   ]
 }
