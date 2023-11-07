@@ -6,7 +6,7 @@
       "lastName": "Muñoz",
       "email": "appollonioagustin@gmail.com",
       "passWord": "123",
-      "baja": 1,
+      "baja": 0,
       "bibliotecaRutina": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
@@ -35,6 +35,24 @@
       "email": "test",
       "passWord": "12345",
       "baja": 0,
+      "bibliotecaRutina": {
+        "nombre": "Mi lista",
+        "descripcion": "Mi descripcion",
+        "listaRutinas": []
+      },
+      "bibliotecaReceta": {
+        "nombre": "Mi lista",
+        "descripcion": "Mi descripcion",
+        "listaRecetas": []
+      }
+    },
+    {
+      "id": 3,
+      "name": "test3",
+      "lastName": "test3",
+      "email": "test3@gmail.com",
+      "passWord": "123456",
+      "baja": 1,
       "bibliotecaRutina": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
