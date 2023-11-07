@@ -68,15 +68,17 @@ export class UsuarioService {
     return user;
   }
 
-  getUser3(id:number):Observable<Usuario> {
-    let user = new Usuario();
-    const aux =  this.userList?.find((user: { id: number; }) => user.id === id);
-    if(aux !== undefined) {
-      user = aux;
-    }
-    return of(user);
-  }
 
+  // getUser3(id: number): Observable<Usuario> {
+  //   let user = new Usuario();
+  //   if (this.userList) {
+  //     const aux = this.userList.find((user: Usuario) => user.id === id);
+  //     if (aux !== undefined) {
+  //       user = aux;
+  //     }
+  //   }
+  //   return of(user);
+  // }
 
   checkLoggedIn() {
     const log = localStorage.getItem('userLoggedin');

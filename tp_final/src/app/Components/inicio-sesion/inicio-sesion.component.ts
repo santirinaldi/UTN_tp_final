@@ -1,8 +1,8 @@
 import { Component, ViewChild, ElementRef,OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Usuario } from 'src/app/Models/usuario';
 import { JSONService } from 'src/app/services/JSON/json.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { Router } from '@angular/router';
 
 
 @Component({
