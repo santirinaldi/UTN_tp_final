@@ -1,1 +1,10 @@
-<p>biblioteca-rutinas works!</p>
+<div>
+    <div class="popup-item" #popupItem></div>
+    <h1>Rutinas</h1>
+    <ul #lista>
+        <li *ngFor="let rutina of user.bibliotecaRutinas.listaRutinas">
+            {{rutina.nombre}}
+        </li>
+
+    </ul>
+</div>
