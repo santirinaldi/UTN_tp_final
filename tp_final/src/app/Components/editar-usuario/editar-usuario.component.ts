@@ -1,4 +1,4 @@
-import { Component,ViewChild,ElementRef } from '@angular/core';
+import { Component,ViewChild,ElementRef,OnInit } from '@angular/core';
 import { Usuario } from 'src/app/Models/usuario';
 import { JSONService } from 'src/app/services/JSON/json.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
@@ -9,27 +9,35 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   templateUrl: './editar-usuario.component.html',
   styleUrls: ['./editar-usuario.component.css']
 })
-export class EditarUsuarioComponent {
+export class EditarUsuarioComponent implements OnInit {
   
-  user = this.servicioUsuario.getUser(Number(this.servicioUsuario.checkLoggedIn()));
   userName: string = '';
   userLastname: string = '';
   userEmail: string = '';
   userPass: string = '';
+  userList: Usuario[] = [];
 
   @ViewChild('modifyResult')modifyResult!:ElementRef;
 
 
-constructor(private servicioUsuario: UsuarioService, private servicioJson: JSONService) {}
+  constructor(private servicioUsuario: UsuarioService, private jsonService: JSONService) {}
 
+  ngOnInit(): void {
+    this.getUsers();
+  }
 
-
+  getUsers() {
+    this.jsonService.getAll().subscribe((data: any) => {
+      this.userList = data;
+    });
+  }
+  
 
   editarUsuario() {
     const log = this.servicioUsuario.checkLoggedIn();
     if(log !== null) {
-      const user = this.servicioUsuario.getUser(Number(log));
-      console.log(user);
+      const user = this.servicioUsuario.getUser(Number(log), this.userList);
+      console.log("user encontrado",user);
       if(user) {
         if(this.userName.length > 0 ) {
           user.name=this.userName;
@@ -44,7 +52,10 @@ constructor(private servicioUsuario: UsuarioService, private servicioJson: JSONS
           user.passWord=this.userPass;
         }
         
-        this.servicioJson.putUser(user);
+        this.jsonService.putUser(user).subscribe((response) => {
+          //que pase algo o no
+          console.log("respuesta: ",response);
+        });
           console.log("Actualizando..");
           //this.router.navigate(['inicio']);
           const h5 = document.createElement("h5");

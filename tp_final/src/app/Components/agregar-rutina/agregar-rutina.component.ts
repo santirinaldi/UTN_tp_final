@@ -1,4 +1,4 @@
-import { Component,ViewChild,ElementRef } from '@angular/core';
+import { Component,ViewChild,ElementRef,OnInit } from '@angular/core';
 import { GetAPIService } from 'src/app/services/API/get-api.service';
 
 import { Rutina } from 'src/app/Models/rutina';
@@ -8,15 +8,17 @@ import { JSONService } from 'src/app/services/JSON/json.service';
 
 import { Lista } from 'src/app/Models/lista';
 
+import { Usuario } from 'src/app/Models/usuario';
+
 @Component({
   selector: 'app-agregar-rutina',
   templateUrl: './agregar-rutina.component.html',
   styleUrls: ['./agregar-rutina.component.css']
 })
-export class AgregarRutinaComponent {
+export class AgregarRutinaComponent implements OnInit {
 
   private apiResponse: string = "";
-
+  userList: Usuario[] = [];
   objetives: Array<string> = [];
   physicalCondition: string = "";
   availableDays: string = "";
@@ -24,9 +26,19 @@ export class AgregarRutinaComponent {
   preferences: string = "";
   @ViewChild('routinemessage')routineMessage!:ElementRef;
 
-  constructor(private apiservice: GetAPIService, private servicioUsuario: UsuarioService, private servicioJson: JSONService) {
+  constructor(private apiservice: GetAPIService, private servicioUsuario: UsuarioService, private jsonService: JSONService) {
   }
 
+
+  ngOnInit(): void {
+    this.getUsers();
+  }
+
+  getUsers() {
+    this.jsonService.getAll().subscribe((data: any) => {
+      this.userList = data;
+    });
+  }
   createMessage() {
 
     let objetivesString = "";
@@ -96,14 +108,14 @@ export class AgregarRutinaComponent {
   addRoutineOnLibrary(message: string, id: string) {
     //this.servicioJson.putUser();
 
-    let ubid = this.servicioUsuario.getUser(Number(id));
+    let ubid = this.servicioUsuario.getUser(Number(id),this.userList);
 
     if(ubid) {
       let lista = new Lista();
       lista.nombre = "Mi rutina";
       lista.texto = this.apiResponse;
       ubid.bibliotecaRutinas.listaRutinas.push(lista);
-      this.servicioJson.putUser(ubid);
+      this.jsonService.putUser(ubid);
     }
 
   }

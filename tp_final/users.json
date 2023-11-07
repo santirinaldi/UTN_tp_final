@@ -3,34 +3,37 @@
     {
       "id": 1,
       "name": "Agustin",
+      "lastName": "Muñoz",
       "email": "appollonioagustin@gmail.com",
-      "passWord": "12345",
-      "baja": 0,
-      "bibliotecaRutinas": {
+      "passWord": "123",
+      "baja": 1,
+      "bibliotecaRutina": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
-        "listaRutinas":[  {
-          "nombre": "Mi rutina",
-          "texto": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
-        }
-      ]
+        "listaRutinas": [
+          {
+            "nombre": "Mi rutina",
+            "texto": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
+          }
+        ]
       },
-      "bibliotecaRecetas": {
+      "bibliotecaReceta": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
-        "listaRecetas": [  {
-          "nombre": "Mi receta",
-          "texto": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
-        }
-      ]
+        "listaRecetas": [
+          {
+            "nombre": "Mi receta",
+            "texto": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
+          }
+        ]
       }
     },
     {
       "id": 2,
-      "name": "test1",
-      "lastname": "test1",
-      "email": "test1@gmail.com",
-      "passWord": "123456",
+      "name": "test",
+      "lastName": "test",
+      "email": "test",
+      "passWord": "12345",
       "baja": 0,
       "bibliotecaRutina": {
         "nombre": "Mi lista",
