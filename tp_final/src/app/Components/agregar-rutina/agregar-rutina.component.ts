@@ -75,7 +75,7 @@ export class AgregarRutinaComponent implements OnInit {
 
     this.routineMessage.nativeElement.style.display = "flex";
 
-    this.routineText = 'Rutina de ejemplo 2';
+    this.routineText = 'Rutina de ejemplo 4';
 
     const p = document.createElement("p");
     const btn = document.createElement("button");
@@ -132,10 +132,12 @@ export class AgregarRutinaComponent implements OnInit {
 
     let ubid = this.servicioUsuario.getUser(Number(id),this.userList);
 
+    console.log("uL: ", this.userList);
+
     if(ubid) {
       console.log("ubid: ", ubid);
-      ubid.bibliotecaRutinas.listaRutinas.push(message);
-      this.servicioJson.putUser(ubid);
+      ubid.bibliotecaRutinas.listaRutinas.push({nombre: "Mi rutina", texto: message});
+      this.jsonService.putUserFetch(ubid);
 
       /*
       agus:
@@ -190,11 +192,12 @@ export class AgregarRutinaComponent implements OnInit {
 
   login() {
 
-    let userList = this.servicioUsuario.getUsers();
+    //let userList = this.jsonService.getAll();
     let userID = -1;
     let lrMsg = document.createElement("h4");
 
-    userList.forEach((user) => {
+    this.userList.forEach((user) => {
+      console.log("US: ", this.userList);
       if(user.email == this.userEmail && user.passWord == this.userPass) {
         console.log("encontro");
         userID = user.id;
