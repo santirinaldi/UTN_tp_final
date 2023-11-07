@@ -2,31 +2,28 @@ import { Injectable, OnInit } from '@angular/core';
 import { Usuario } from '../Models/usuario';
 import { JSONService } from './JSON/json.service';
 import { Router } from '@angular/router';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsuarioService {
-  // private userList = new Array<Usuario>();
+  //private userList = new Array<Usuario>();
   // private userId = 0;
+  private userList : any;
 
   constructor(private jsonService: JSONService, private router: Router) {
     //this.pedidoAPI();
   }
 
-  // pedidoAPI() {
-  //    this.jsonService.getAll()
-  //    .then((response) => response.json())
-  //    .then((json) => {
-  //      json.forEach((item:Usuario) => {
-  //       if(item.baja != 1) {
-  //         this.userList.push(item);
-  //       }
-  //      })
-  //    })
-  //  .catch (error =>
-  //    console.log(error))
-  //   }
+  pedidoAPI() {
+     this.jsonService.getAll().subscribe((data)=>{
+      console.log(data);
+      //this.userList = data
+      return data;
+    })
+
+    }
 
   add(user: Usuario) {
     // user.id = this.userId;
@@ -45,6 +42,11 @@ export class UsuarioService {
     });
   }
 
+  getUsers() {
+    return this.userList;
+
+  }
+
   getUser(id:number, userList: Array<Usuario>):Usuario {
     let user = new Usuario();
     const aux = userList.find((user) => user.id === id);
@@ -53,6 +55,16 @@ export class UsuarioService {
     }
     //console.log(user);
     return user;
+  }
+
+  getUser2(id:number, userList: Array<Usuario>):Observable<Usuario> {
+    let user = new Usuario();
+    const aux = userList.find((user: { id: number; }) => user.id === id);
+    if(aux !== undefined) {
+      user = aux;
+    }
+    //console.log(user);
+    return of(user);
   }
 
   checkLoggedIn() {

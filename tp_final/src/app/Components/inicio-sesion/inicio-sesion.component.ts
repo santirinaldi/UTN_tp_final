@@ -3,6 +3,7 @@ import { Usuario } from 'src/app/Models/usuario';
 import { JSONService } from 'src/app/services/JSON/json.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
+
 @Component({
   selector: 'app-inicio-sesion',
   templateUrl: './inicio-sesion.component.html',
@@ -12,6 +13,7 @@ export class InicioSesionComponent implements OnInit{
   userEmail: string = '';
   userPass: string = '';
   userList: Usuario[] = [];
+  router: any;
   @ViewChild('loginresult') loginResult!: ElementRef;
 
   constructor(private servicioUsuario: UsuarioService, private jsonService: JSONService) {}
@@ -40,6 +42,7 @@ export class InicioSesionComponent implements OnInit{
       h5.textContent = 'Logeado exitosamente!';
       //const text = document.createTextNode("Logeado exitosamente!");
       this.loginResult.nativeElement.appendChild(h5);
+      this.router.navigate(['bibliotecaRecetas']);
       //this.refresh();
     } else {
       console.log('No encontrado', userID);
