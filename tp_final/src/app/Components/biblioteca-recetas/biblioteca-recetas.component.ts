@@ -20,14 +20,6 @@ export class BibliotecaRecetasComponent implements OnInit {
   //const user: Usuario ; 
   ngOnInit(): void {
     const log = this.servicioUsuario.checkLoggedIn();
-
-    //const user: Usuario ; 
-    /*const userList;
-    this.servicioUsuario.pedidoAPI().subscribe(
-      (data: any) => {
-        this.userList = data;
-      }
-    );*/
     this.servicioUsuario.getUser2(1).subscribe((usuario: Usuario)=>{
       console.log(usuario);
       this.user=usuario
