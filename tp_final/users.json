@@ -7,7 +7,7 @@
       "email": "appollonioagustin@gmail.com",
       "passWord": "123",
       "baja": 0,
-      "bibliotecaRutina": {
+      "bibliotecaRutinas": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
         "listaRutinas": [
@@ -17,7 +17,7 @@
           }
         ]
       },
-      "bibliotecaReceta": {
+      "bibliotecaRecetas": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
         "listaRecetas": [
@@ -35,7 +35,7 @@
       "email": "jose@gmail.com",
       "passWord": "1234",
       "baja": 0,
-      "bibliotecaRutina": {
+      "bibliotecaRutinas": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
         "listaRutinas": [
@@ -45,7 +45,7 @@
           }
         ]
       },
-      "bibliotecaReceta": {
+      "bibliotecaRecetas": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
         "listaRecetas": [          {
