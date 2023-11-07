@@ -73,6 +73,8 @@ export class AgregarRutinaComponent implements OnInit {
 
     //test
 
+    this.routineMessage.nativeElement.style.display = "flex";
+
     this.routineText = 'Rutina de ejemplo 2';
 
     const p = document.createElement("p");
@@ -147,22 +149,36 @@ export class AgregarRutinaComponent implements OnInit {
       */
 
       let qrh4 = document.createElement("h4");
+      qrh4.style.color = "#fff";
       qrh4.innerHTML = "Rutina cargada correctamente";
       this.queryResult.nativeElement.appendChild(qrh4);
       this.queryResult.nativeElement.style.visibility = "visible";
       this.popupLogin.nativeElement.style.display = "none";
       setTimeout(() => {
         this.routineMessage.nativeElement.style.display = "none";
+        this.queryResult.nativeElement.style.visibility = "hidden";
+        this.queryResult.nativeElement.removeChild(qrh4);
+        let rp = document.querySelector(".data p");
+        let rb = document.querySelector(".data button");
+        this.routineMessage.nativeElement.removeChild(rp);
+        this.routineMessage.nativeElement.removeChild(rb);
       }, 2000);
 
     }else{
       let qrh4 = document.createElement("h4");
-      qrh4.innerHTML = "Rutina cargada correctamente";
+      qrh4.style.color = "#fff";
+      qrh4.innerHTML = "Error al cargar la rutina a la biblioteca!";
       this.queryResult.nativeElement.appendChild(qrh4);
       this.queryResult.nativeElement.style.visibility = "visible";
       this.popupLogin.nativeElement.style.display = "none";
       setTimeout(() => {
         this.routineMessage.nativeElement.style.display = "none";
+        this.queryResult.nativeElement.style.visibility = "hidden";
+        this.queryResult.nativeElement.removeChild(qrh4);
+        let rp = document.querySelector(".data p");
+        let rb = document.querySelector(".data button");
+        this.routineMessage.nativeElement.removeChild(rp);
+        this.routineMessage.nativeElement.removeChild(rb);
       }, 2000);
     }
 
