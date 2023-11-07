@@ -2,7 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { Usuario } from '../Models/usuario';
 import { JSONService } from './JSON/json.service';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable, map, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,12 +10,11 @@ import { Observable, of } from 'rxjs';
 export class UsuarioService {
   //private userList = new Array<Usuario>();
   // private userId = 0;
-  private userList : any;
+  private userList: any;
 
   constructor(private jsonService: JSONService, private router: Router) {
     this.pedidoAPI();
   }
-
   private pedidoAPI() {
     this.jsonService.getAll().subscribe({
       next: (data) => {
@@ -26,6 +25,16 @@ export class UsuarioService {
       }
     });
   }
+
+  getUser2(id: number): Observable<Usuario> {
+    let user = new Usuario();
+    const aux = this.userList.find((user: Usuario) => user.id === id);
+    if (aux !== undefined) {
+      user = aux;
+    }
+    return of(user);
+  }
+
 
   add(user: Usuario) {
     // user.id = this.userId;
@@ -59,15 +68,6 @@ export class UsuarioService {
     return user;
   }
 
-  getUser2(id: number): Observable<Usuario> {
-    let user = new Usuario();
-    const aux = this.userList.find((user: Usuario) => user.id === id);
-    if (aux !== undefined) {
-      user = aux;
-    }
-    return of(user);
-  }
-
   getUser3(id:number):Observable<Usuario> {
     let user = new Usuario();
     const aux =  this.userList?.find((user: { id: number; }) => user.id === id);
@@ -76,6 +76,7 @@ export class UsuarioService {
     }
     return of(user);
   }
+
 
   checkLoggedIn() {
     const log = localStorage.getItem('userLoggedin');
