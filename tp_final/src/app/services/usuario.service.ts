@@ -13,17 +13,19 @@ export class UsuarioService {
   private userList : any;
 
   constructor(private jsonService: JSONService, private router: Router) {
-    //this.pedidoAPI();
+    this.pedidoAPI();
   }
 
-  pedidoAPI() {
-     this.jsonService.getAll().subscribe((data)=>{
-      console.log(data);
-      //this.userList = data
-      return data;
-    })
-
-    }
+  private pedidoAPI() {
+    this.jsonService.getAll().subscribe({
+      next: (data) => {
+        this.userList = data;
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
+  }
 
   add(user: Usuario) {
     // user.id = this.userId;
@@ -57,13 +59,21 @@ export class UsuarioService {
     return user;
   }
 
-  getUser2(id:number, userList: Array<Usuario>):Observable<Usuario> {
+  getUser2(id: number): Observable<Usuario> {
     let user = new Usuario();
-    const aux = userList.find((user: { id: number; }) => user.id === id);
+    const aux = this.userList.find((user: Usuario) => user.id === id);
+    if (aux !== undefined) {
+      user = aux;
+    }
+    return of(user);
+  }
+
+  getUser3(id:number):Observable<Usuario> {
+    let user = new Usuario();
+    const aux =  this.userList?.find((user: { id: number; }) => user.id === id);
     if(aux !== undefined) {
       user = aux;
     }
-    //console.log(user);
     return of(user);
   }
 

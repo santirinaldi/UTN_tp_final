@@ -5,7 +5,7 @@ import { CierreSesionComponent } from './Components/cierre-sesion/cierre-sesion.
 import { EditarUsuarioComponent } from './Components/editar-usuario/editar-usuario.component';
 import { RegistroUsuarioComponent } from './Components/registro-usuario/registro-usuario.component';
 import { InicioComponent } from './Components/inicio/inicio.component';
-import { BibliotecaRecetas } from './Models/biblioteca-recetas';
+import { BibliotecaRecetasComponent } from './Components/biblioteca-recetas/biblioteca-recetas.component';
 
 
 
@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'editarUsuario', component: EditarUsuarioComponent },
   { path: 'registroUsuario', component: RegistroUsuarioComponent },
   { path: 'inicio', component: InicioComponent },
-  {path: 'bibliotecaRecetas', component: BibliotecaRecetas}
+  {path: 'bibliotecaRecetas', component: BibliotecaRecetasComponent}
 ];
 
 @NgModule({

@@ -22,11 +22,18 @@ export class BibliotecaRecetasComponent implements OnInit {
     const log = this.servicioUsuario.checkLoggedIn();
 
     //const user: Usuario ; 
-    const userList = this.servicioUsuario.pedidoAPI();
-    this.servicioUsuario.getUser2(1, userList).subscribe((usuario: Usuario)=>{
+    /*const userList;
+    this.servicioUsuario.pedidoAPI().subscribe(
+      (data: any) => {
+        this.userList = data;
+      }
+    );*/
+    this.servicioUsuario.getUser2(1).subscribe((usuario: Usuario)=>{
       console.log(usuario);
-      console.log(userList);
-      this.user=usuario});
+      this.user=usuario
+      console.log(this.user);
+      
+    });
   } 
 
   
