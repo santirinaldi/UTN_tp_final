@@ -1,6 +1,9 @@
 <div>
     <div class="popup-item" #popupItem></div>
     <ul #lista>
-        <li><p>dsdasdasd</p></li>
+        <li *ngFor="let receta of user.bibliotecaRecetas.listaRecetas">
+            {{receta.nombre}}
+        </li>
+
     </ul>
 </div>
