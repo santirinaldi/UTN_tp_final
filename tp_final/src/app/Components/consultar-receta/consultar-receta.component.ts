@@ -4,6 +4,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from 'src/app/Models/usuario';
 import { JSONService } from 'src/app/services/JSON/json.service';
 import { Lista } from 'src/app/Models/lista';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-consultar-receta',
@@ -19,16 +20,22 @@ export class ConsultarRecetaComponent implements OnInit {
   foodLimits: Array<string> = [];
   maxCalories: number = 0;
   userList: Usuario[] = [];
+  suscription = new Subscription();
 
   constructor(private servicioUsuario: UsuarioService, private jsonService: JSONService, private apiservice: GetAPIService) {}
 
   ngOnInit(): void {
     this.getUsers();
+
+    this.suscription = this.jsonService.refresh$.subscribe(() => {
+      this.getUsers();
+    });
   }
 
   getUsers() {
-    this.jsonService.getAll().subscribe((data: any) => {
-      this.userList = data;
+    this.jsonService.getAll().subscribe((data: Usuario[]) => {
+      this.userList = data.filter((item:Usuario) => item.baja !== 1);
+      console.log(this.userList);
     });
   }
 
@@ -39,21 +46,23 @@ export class ConsultarRecetaComponent implements OnInit {
       const message = ` Quiero una receta con estas caracteristicas: Tipo de comida: ${this.food.toString()} . Objetivos: ${this.objetives.toString()}. Calorias Maximas: ${this.maxCalories
         }. Limitaciones: ${this.foodLimits.toString()}.`;
       console.log(message);
-      //this.pedidoAPI(message);
+      this.apiservice._apiRequest(message).subscribe((response) => {
+        console.log(response);
+      });
       this.createView(Number(log));
     }
   }
 
-  pedidoAPI(message: string) {
-    this.apiservice
-      .apiRequest(message)
-      .then((response) => response.json())
-      .then((json) => {
-        //this.apiResponse = json.answer;
-        console.log(this.apiResponse);
-      })
-      .catch((error) => console.log(error));
-  }
+  // pedidoAPI(message: string) {
+  //   this.apiservice
+  //     .apiRequest(message)
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       //this.apiResponse = json.answer;
+  //       console.log(this.apiResponse);
+  //     })
+  //     .catch((error) => console.log(error));
+  // }
 
   agregarReceta(log:number) {
       const user: Usuario = this.servicioUsuario.getUser(log, this.userList);

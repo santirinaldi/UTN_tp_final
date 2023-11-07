@@ -1,4 +1,5 @@
 import { Component, ViewChild, ElementRef,OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Usuario } from 'src/app/Models/usuario';
 import { JSONService } from 'src/app/services/JSON/json.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
@@ -12,17 +13,23 @@ export class InicioSesionComponent implements OnInit{
   userEmail: string = '';
   userPass: string = '';
   userList: Usuario[] = [];
+  suscription = new Subscription();
   @ViewChild('loginresult') loginResult!: ElementRef;
 
   constructor(private servicioUsuario: UsuarioService, private jsonService: JSONService) {}
 
   ngOnInit(): void {
     this.getUsers();
+
+    this.suscription = this.jsonService.refresh$.subscribe(() => {
+      this.getUsers();
+    });
   }
 
   getUsers() {
-    this.jsonService.getAll().subscribe((data: any) => {
-      this.userList = data.filter((item:any) => item.baja !== 1);
+    this.jsonService.getAll().subscribe((data: Usuario[]) => {
+      this.userList = data.filter((item:Usuario) => item.baja !== 1);
+      console.log(this.userList);
     });
   }
 

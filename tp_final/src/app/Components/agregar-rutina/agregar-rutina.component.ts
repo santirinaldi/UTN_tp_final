@@ -9,6 +9,7 @@ import { JSONService } from 'src/app/services/JSON/json.service';
 import { Lista } from 'src/app/Models/lista';
 
 import { Usuario } from 'src/app/Models/usuario';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-agregar-rutina',
@@ -18,6 +19,7 @@ import { Usuario } from 'src/app/Models/usuario';
 export class AgregarRutinaComponent implements OnInit {
 
   private apiResponse: string = "";
+  suscription = new Subscription();
   userList: Usuario[] = [];
   objetives: Array<string> = [];
   physicalCondition: string = "";
@@ -32,13 +34,19 @@ export class AgregarRutinaComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
+
+    this.suscription = this.jsonService.refresh$.subscribe(() => {
+      this.getUsers();
+    });
   }
 
   getUsers() {
-    this.jsonService.getAll().subscribe((data: any) => {
-      this.userList = data;
+    this.jsonService.getAll().subscribe((data: Usuario[]) => {
+      this.userList = data.filter((item:Usuario) => item.baja !== 1);
+      console.log(this.userList);
     });
   }
+  
   createMessage() {
 
     let objetivesString = "";

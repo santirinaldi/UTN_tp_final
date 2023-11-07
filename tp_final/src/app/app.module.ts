@@ -16,6 +16,7 @@ import { InicioComponent } from './Components/inicio/inicio.component';
 import { AgregarRutinaComponent } from './Components/agregar-rutina/agregar-rutina.component';
 import { BibliotecaRutinasComponent } from './Components/biblioteca-rutinas/biblioteca-rutinas.component';
 import { BibliotecaRecetasComponent } from './Components/biblioteca-recetas/biblioteca-recetas.component';
+import { ConsultarRecetaComponent } from './Components/consultar-receta/consultar-receta.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,8 @@ import { BibliotecaRecetasComponent } from './Components/biblioteca-recetas/bibl
     InicioComponent,
     AgregarRutinaComponent,
     BibliotecaRutinasComponent,
-    BibliotecaRecetasComponent
-    
+    BibliotecaRecetasComponent,
+    ConsultarRecetaComponent
   ],
   imports: [
     BrowserModule,
