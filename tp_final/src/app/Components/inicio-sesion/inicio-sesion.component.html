@@ -7,12 +7,12 @@
         <form target="_blank">
 
             <div class="field-wrapper">
-                <input type="email" name="email" id="userEmail" [(ngModel)]="userEmail">
+                <input type="email" name="email" id="userEmail" [(ngModel)]="userEmail" required="">
                 <label for="userEmail">Email</label>
             </div>
 
             <div class="field-wrapper">
-                <input type="text" name="pass" id="userPass" [(ngModel)]="userPass">
+                <input type="password" name="pass" id="userPass" [(ngModel)]="userPass" required="">
                 <label for="userPass">Contraseña</label>
             </div>
 
