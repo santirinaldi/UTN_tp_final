@@ -12,14 +12,6 @@
         "listaRutinas": [
           {
             "nombre": "Mi rutina",
-            "texto": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
-          },
-          {
-            "nombre": "Mi rutina",
-            "texto": "Rutina de ejemplo 4"
-          },
-          {
-            "nombre": "Mi rutina",
             "texto": "Rutina de ejemplo 4"
           }
         ]
@@ -60,12 +52,12 @@
       "email": "test3@gmail.com",
       "passWord": "123456",
       "baja": 1,
-      "bibliotecaRutina": {
+      "bibliotecaRutinas": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
         "listaRutinas": []
       },
-      "bibliotecaReceta": {
+      "bibliotecaRecetas": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
         "listaRecetas": []

@@ -5,17 +5,16 @@ import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class JSONService {
-
-  private apiURL = "http://localhost:3000/users";
+  private apiURL = 'http://localhost:3000/users';
   private user: Object = {};
   private usersList: Object[] = [];
 
   private _refresh$ = new Subject<void>();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   get refresh$() {
     return this._refresh$;
@@ -25,8 +24,7 @@ export class JSONService {
     return this.http.get<Usuario[]>(this.apiURL);
   }
 
-  add(usuario: Usuario):Observable<any> {
-
+  add(usuario: Usuario): Observable<any> {
     this.user = {
       id: usuario.id,
       name: usuario.name,
@@ -34,29 +32,29 @@ export class JSONService {
       email: usuario.email,
       passWord: usuario.passWord,
       baja: usuario.baja,
-      bibliotecaRutina: usuario.bibliotecaRutinas,
-      bibliotecaReceta: usuario.bibliotecaRecetas
+      bibliotecaRutinas: usuario.bibliotecaRutinas,
+      bibliotecaRecetas: usuario.bibliotecaRecetas,
     };
 
-    return this.http.post(this.apiURL, this.user)
-    .pipe(
+    return this.http.post<Usuario>(this.apiURL, this.user).pipe(
       tap(() => {
         this.refresh$.next();
       })
-    )
+    );
   }
 
-  putUser(usuario: Usuario):Observable<any> {
-    console.log("entro");
-    return this.http.put(`http://localhost:3000/users/${usuario.id}`,usuario)
-    .pipe(
-      tap(() => {
-        this.refresh$.next();
-      })
-    )
+  putUser(usuario: Usuario): Observable<any> {
+    console.log('entro');
+    return this.http
+      .put<Usuario>(`http://localhost:3000/users/${usuario.id}`, usuario)
+      .pipe(
+        tap(() => {
+          this.refresh$.next();
+        })
+      );
   }
 
-  putUserFetch(usuario:Usuario) {
+  putUserFetch(usuario: Usuario) {
     const user = {
       id: usuario.id,
       name: usuario.name,
@@ -65,17 +63,18 @@ export class JSONService {
       passWord: usuario.passWord,
       baja: usuario.baja,
       bibliotecaRutinas: usuario.bibliotecaRutinas,
-      bibliotecaRecetas: usuario.bibliotecaRecetas
+      bibliotecaRecetas: usuario.bibliotecaRecetas,
     };
 
-    fetch(`http://localhost:3000/users/${user.id}`,
-    {
-        method: "PUT",
-        headers: new Headers({'content-type': 'application/json',Accept: 'application/json',}),
-        body: JSON.stringify(user)
+    fetch(`http://localhost:3000/users/${user.id}`, {
+      method: 'PUT',
+      headers: new Headers({
+        'content-type': 'application/json',
+        Accept: 'application/json',
+      }),
+      body: JSON.stringify(user),
     });
-}
-
+  }
 
   /*
     getAll(): Promise<any> { /// EJEMPLO GET
@@ -84,5 +83,4 @@ export class JSONService {
 
   
   */
-
 }

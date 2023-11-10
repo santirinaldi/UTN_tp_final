@@ -140,7 +140,7 @@ export class AgregarRutinaComponent implements OnInit {
 
       let lista = new Lista();
       lista.nombre = 'Mi rutina';
-      lista.texto = this.apiResponse;
+      lista.texto = message;
       ubid.bibliotecaRutinas.listaRutinas.push(lista);
       this.jsonService.putUser(ubid).subscribe((response) => {
         console.log(response);
