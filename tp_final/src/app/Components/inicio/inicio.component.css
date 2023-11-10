@@ -1,0 +1,48 @@
+.header {
+    position: relative;
+    height: calc(100vh - 5rem);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.header>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+.header>.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #406b89;
+    /*opacity: 0.5;*/
+}
+
+
+.header>h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+    position: relative;
+    color: #fff;
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+
+.header-arrow {
+    position: absolute;
+    transform: rotate(180deg);
+    bottom: 1rem;
+    cursor: pointer;
+}

@@ -47,6 +47,7 @@ export class JSONService {
   }
 
   putUser(usuario: Usuario):Observable<any> {
+    console.log("entro");
     return this.http.put(`http://localhost:3000/users/${usuario.id}`,usuario)
     .pipe(
       tap(() => {
@@ -54,4 +55,34 @@ export class JSONService {
       })
     )
   }
+
+  putUserFetch(usuario:Usuario) {
+    const user = {
+      id: usuario.id,
+      name: usuario.name,
+      lastname: usuario.lastName,
+      email: usuario.email,
+      passWord: usuario.passWord,
+      baja: usuario.baja,
+      bibliotecaRutinas: usuario.bibliotecaRutinas,
+      bibliotecaRecetas: usuario.bibliotecaRecetas
+    };
+
+    fetch(`http://localhost:3000/users/${user.id}`,
+    {
+        method: "PUT",
+        headers: new Headers({'content-type': 'application/json',Accept: 'application/json',}),
+        body: JSON.stringify(user)
+    });
+}
+
+
+  /*
+    getAll(): Promise<any> { /// EJEMPLO GET
+    return fetch('http://localhost:3000/users'); /// RETORNA UNA PROMESA A CAPTURAR EN EL COMPONENTE QUE LO REQUIERA
+  }
+
+  
+  */
+
 }
