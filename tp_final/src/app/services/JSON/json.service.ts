@@ -74,7 +74,7 @@ export class JSONService {
         headers: new Headers({'content-type': 'application/json',Accept: 'application/json',}),
         body: JSON.stringify(user)
     });
-}
+  }
 
 
   /*

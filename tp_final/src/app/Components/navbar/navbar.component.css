@@ -73,6 +73,11 @@ button.hidden {
     visibility: hidden;
 }
 
+a.hidden {
+    opacity: 0!important;
+    visibility: hidden;
+}
+
 #user svg {
     height: 100%;
     width: 100%;
