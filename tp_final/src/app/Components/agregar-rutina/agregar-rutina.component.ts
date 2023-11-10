@@ -55,17 +55,11 @@ export class AgregarRutinaComponent implements OnInit {
   }
 
   createMessage() {
-    let objetivesString = '';
-
-    this.objetives.forEach((item, index) => {
-      if (index != this.objetives.length - 1) {
-        objetivesString = objetivesString + item + ', ';
-      } else {
-        objetivesString = objetivesString + item;
-      }
-    });
-
-    const message = `Quiero una rutina de ejercicio con estas caracteristicas: objetivos: ${objetivesString}. Mi condicion fisica: ${this.physicalCondition}. Dias disponibles por semana: ${this.availableDays}. Limitaciones ${this.equipment}. ${this.preferences}`;
+    const message = `Quiero una rutina de ejercicio con estas caracteristicas: objetivos: ${this.objetives.toString()}. Mi condicion fisica: ${
+      this.physicalCondition
+    }. Dias disponibles por semana: ${this.availableDays}. Limitaciones ${
+      this.equipment
+    }. ${this.preferences}`;
     //const apiRes = this.pedidoAPI(message);
 
     //console.log("APIRES: ", apiRes);

@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef,OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Usuario } from 'src/app/Models/usuario';
 import { JSONService } from 'src/app/services/JSON/json.service';
@@ -9,14 +9,17 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   templateUrl: './inicio-sesion.component.html',
   styleUrls: ['./inicio-sesion.component.css'],
 })
-export class InicioSesionComponent implements OnInit{
+export class InicioSesionComponent implements OnInit {
   userEmail: string = '';
   userPass: string = '';
   userList: Usuario[] = [];
   suscription = new Subscription();
   @ViewChild('loginresult') loginResult!: ElementRef;
 
-  constructor(private servicioUsuario: UsuarioService, private jsonService: JSONService) {}
+  constructor(
+    private servicioUsuario: UsuarioService,
+    private jsonService: JSONService
+  ) {}
 
   ngOnInit(): void {
     this.getUsers();
@@ -28,7 +31,7 @@ export class InicioSesionComponent implements OnInit{
 
   getUsers() {
     this.jsonService.getAll().subscribe((data: Usuario[]) => {
-      this.userList = data.filter((item:Usuario) => item.baja !== 1);
+      this.userList = data.filter((item: Usuario) => item.baja !== 1);
       console.log(this.userList);
     });
   }

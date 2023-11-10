@@ -1,24 +1,28 @@
 <section id="user-logIn">
     <div class="data">
-        <h3>Inicio <span class="underline">Ses</span>ion</h3>
+        <h3> Inicio <span class="underline">Ses</span>ion</h3>
+
     </div>
     <div class="form">
         <form target="_blank">
 
-                <div class="field-wrapper">
-                    <input type="email" name="email" id="userEmail" [(ngModel)]="userEmail">
-                    <label for="userEmail">Email</label>
-                </div>
+            <div class="field-wrapper">
+                <input type="email" name="email" id="userEmail" [(ngModel)]="userEmail">
+                <label for="userEmail">Email</label>
+            </div>
 
-                <div class="field-wrapper">
-                    <input type="text" name="pass" id="userPass" [(ngModel)]="userPass">
-                    <label for="userPass">Contraseña</label>
-                </div>
+            <div class="field-wrapper">
+                <input type="text" name="pass" id="userPass" [(ngModel)]="userPass">
+                <label for="userPass">Contraseña</label>
+            </div>
 
-                <button type="button" class="btn primary" (click)="verifyUser()">Iniciar Sesion</button>
-                
+            <button type="button" class="btn primary" (click)="verifyUser()">Iniciar Sesion</button>
+            <div class="loginresult" #loginresult>
+                <h5></h5>
+            </div>
         </form>
+
     </div>
 
-    <div #loginresult></div>
+
 </section>
