@@ -1,5 +1,5 @@
 <nav class="navbar">
-    <a href="/" class="logo" id="logo">
+    <a routerLink="/inicio" class="logo" id="logo">
         <div class="g-circle first"></div>
         <div class="g-circle second"></div>
         <div class="g-circle third"></div>
@@ -34,22 +34,19 @@
         </ul>
         <ul class="user-menu">
             <li *ngIf="isLogged">
-                <a href="">Mi perfil</a>
+                <a routerLink="">Mi perfil</a>
             </li>
             <li *ngIf="isLogged">
-                <a href="">Mis rutinas</a>
+                <a routerLink="">Mis rutinas</a>
             </li>
             <li *ngIf="isLogged">
-                <a href="">Mis recetas</a>
-            </li>
-            <li *ngIf="isLogged">
-                <a href="">Cerrar sesion</a>
+                <a routerLink="">Mis recetas</a>
             </li>
             <li *ngIf="!isLogged">
-                <a href="">Iniciar sesion</a>
+                <a routerLink="/inicio-sesion">Iniciar sesion</a>
             </li>
             <li *ngIf="!isLogged">
-                <a href="">Registrarme</a>
+                <a routerLink="/registro-usuario">Registrarme</a>
             </li>
         </ul>
     </div>

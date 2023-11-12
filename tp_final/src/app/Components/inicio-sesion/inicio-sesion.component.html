@@ -4,25 +4,31 @@
 
     </div>
     <div class="form">
-        <form target="_blank">
+        <form target="_blank" [formGroup]="loginForm">
 
             <div class="field-wrapper">
-                <input type="email" name="email" id="userEmail" [(ngModel)]="userEmail" required="">
+                <input type="email" name="email" id="userEmail" formControlName="email">
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                    <div *ngIf="email.errors?.['required']">El email es obligatorio.</div>
+                    <div *ngIf="email.errors?.['email']">
+                        El email ingresado es invalido.
+                    </div>
+                </div>
                 <label for="userEmail">Email</label>
             </div>
 
             <div class="field-wrapper">
-                <input type="password" name="pass" id="userPass" [(ngModel)]="userPass" required="">
+                <input type="password" name="pass" id="userPass" formControlName="password">
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                    <div *ngIf="password.errors?.['required']">La contraseña es obligatoria.</div>
+                </div>
                 <label for="userPass">Contraseña</label>
             </div>
 
-            <button type="button" class="btn primary" (click)="verifyUser()">Iniciar Sesion</button>
-            <div class="loginresult" #loginresult>
-                <h5></h5>
-            </div>
+            <button type="button" class="btn primary" (click)="login()">Iniciar Sesion</button>
+
         </form>
-
+        <div class="loginresult" #loginresult>
+        </div>
     </div>
-
-
 </section>

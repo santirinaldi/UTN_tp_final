@@ -1,8 +1,10 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Usuario } from 'src/app/Models/usuario';
 import { JSONService } from 'src/app/services/JSON/json.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -10,15 +12,22 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./inicio-sesion.component.css'],
 })
 export class InicioSesionComponent implements OnInit {
-  userEmail: string = '';
-  userPass: string = '';
+  loginError: string = '';
   userList: Usuario[] = [];
+
+  loginForm = this.formBuilder.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required]],
+  });
+
   suscription = new Subscription();
   @ViewChild('loginresult') loginResult!: ElementRef;
 
   constructor(
     private servicioUsuario: UsuarioService,
-    private jsonService: JSONService
+    private jsonService: JSONService,
+    private router: Router,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -29,6 +38,14 @@ export class InicioSesionComponent implements OnInit {
     });
   }
 
+  get email() {
+    return this.loginForm.controls.email;
+  }
+
+  get password() {
+    return this.loginForm.controls.password;
+  }
+
   getUsers() {
     this.jsonService.getAll().subscribe((data: Usuario[]) => {
       this.userList = data.filter((item: Usuario) => item.baja !== 1);
@@ -36,12 +53,31 @@ export class InicioSesionComponent implements OnInit {
     });
   }
 
+  login() {
+    console.log(this.loginForm.value);
+    if (this.loginForm.status == 'VALID') {
+      this.verifyUser();
+
+      setTimeout(() => {
+        this.router.navigateByUrl('/inicio');
+      }, 1000);
+
+      this.loginForm.reset();
+    } else {
+      alert('Error al ingresar los datos');
+      this.loginForm.markAllAsTouched();
+    }
+  }
+
   verifyUser() {
     console.log(this.userList);
     let user = new Usuario();
-    user.email = this.userEmail;
-    user.passWord = this.userPass;
-
+    const email = this.loginForm.value.email;
+    const password = this.loginForm.value.password;
+    if (email && password) {
+      user.email = email;
+      user.passWord = password;
+    }
     let userID = this.buscarUsuario(user);
     console.log(userID);
     if (userID !== -1) {

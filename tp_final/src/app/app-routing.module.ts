@@ -6,15 +6,13 @@ import { EditarUsuarioComponent } from './Components/editar-usuario/editar-usuar
 import { RegistroUsuarioComponent } from './Components/registro-usuario/registro-usuario.component';
 import { InicioComponent } from './Components/inicio/inicio.component';
 
-
-
 const routes: Routes = [
-  
-  { path: 'inicioSesion', component: InicioSesionComponent },
-  { path: 'cierreSesion', component: CierreSesionComponent },
-  { path: 'editarUsuario', component: EditarUsuarioComponent },
-  { path: 'registroUsuario', component: RegistroUsuarioComponent },
-  { path: 'inicio', component: InicioComponent }
+  { path: 'inicio', component: InicioComponent },
+  { path: 'inicio-sesion', component: InicioSesionComponent },
+  { path: 'cierre-sesion', component: CierreSesionComponent },
+  { path: 'editar-usuario', component: EditarUsuarioComponent },
+  { path: 'registro-usuario', component: RegistroUsuarioComponent },
+  { path: '', component: InicioComponent },
 ];
 
 @NgModule({

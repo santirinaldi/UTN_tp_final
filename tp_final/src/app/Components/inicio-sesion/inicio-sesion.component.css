@@ -118,3 +118,18 @@
   background-color: #fff;
   color: #000;
 }
+
+.ng-valid:not(form).ng-touched {
+  border-left: 5px solid #42a948; /* green */
+}
+
+.ng-invalid:not(form).ng-touched {
+  border-left: 5px solid #fc0400; /* red */
+}
+
+.alert div {
+  background-color: #e96d6d;
+  color: #ffffff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}

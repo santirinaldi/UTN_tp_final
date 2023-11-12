@@ -8,10 +8,7 @@ import { Subscription } from 'rxjs';
   providedIn: 'root',
 })
 export class UsuarioService {
-
-  constructor(private jsonService: JSONService, private router: Router) {
-    
-  }
+  constructor(private jsonService: JSONService, private router: Router) {}
 
   add(user: Usuario) {
     this.jsonService.add(user).subscribe((response) => {
@@ -27,10 +24,10 @@ export class UsuarioService {
     });
   }
 
-  getUser(id:number, userList: Array<Usuario>):Usuario {
+  getUser(id: number, userList: Array<Usuario>): Usuario {
     let user = new Usuario();
     const aux = userList.find((user) => user.id === id);
-    if(aux !== undefined) {
+    if (aux !== undefined) {
       user = aux;
     }
     //console.log(user);
@@ -44,7 +41,7 @@ export class UsuarioService {
 
   logOut() {
     localStorage.removeItem('userLoggedin');
-    this.router.navigate(['inicioSesion']);
+    this.router.navigate(['/inicio']);
   }
 
   verifyLogged(): boolean {

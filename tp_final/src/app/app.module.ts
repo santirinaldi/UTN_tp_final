@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router'; 
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -18,6 +18,7 @@ import { BibliotecaRutinasComponent } from './Components/biblioteca-rutinas/bibl
 import { BibliotecaRecetasComponent } from './Components/biblioteca-recetas/biblioteca-recetas.component';
 import { ConsultarRecetaComponent } from './Components/consultar-receta/consultar-receta.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,16 +33,17 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
     BibliotecaRutinasComponent,
     BibliotecaRecetasComponent,
     ConsultarRecetaComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
