@@ -1,26 +1,15 @@
-<section class="user-profile">
-    <div class="form">
-        <h3>Completa el formulario y encontra la rutina que necesitas</h3>
-        <form target="_blank">
-                <div class="field-wrapper">
-                    <input type="text" name="name" id="name" [(ngModel)]="userName">
-                    <label for="name">Nombre</label>
-                </div>
-                <div class="field-wrapper">
-                    <input type="text" name="lastname" id="lastname" [(ngModel)]="userLastname">
-                    <label for="userLastame">Apellido</label>
-                </div>
-                <div class="field-wrapper">
-                    <input type="email" name="email" id="email" [(ngModel)]="userEmail">
-                    <label for="userEmail">Email</label>
-                </div>
-                <div class="field-wrapper">
-                    <input type="password" name="password" id="password" [(ngModel)]="userPassword">
-                    <label for="userPassword">Password</label>
-                </div>
-
-                <button type="button" class="btn primary" (click)="editUser()">Registrarme</button>
-           
-        </form>
+<section id="user-profile" *ngIf="userLogged">
+    <app-editar-usuario style="width: 100%"></app-editar-usuario>
+    <div class="user-libraries">
+        <h3>Mis bibliotecas</h3>
+        <div>
+            <a href="" class="btn primary" *ngIf="userRoutines">Rutinas</a>
+            <a href="" class="btn primary" *ngIf="userRecipes">Recetas</a>
+            <a class="btn disabled" *ngIf="!userRoutines">No posee rutinas en su biblioteca</a>
+            <a class="btn disabled" *ngIf="!userRecipes">No posee recetas en su biblioteca</a>
+        </div>
+    </div>
+    <div class="user-delete">
+        <app-borrar-usuario></app-borrar-usuario>
     </div>
 </section>

@@ -9,14 +9,14 @@
     transition: .35s ease-in-out;
 }
 
-
-.btn.primary:hover {
-    background-color: #406b89;
+.btn.delete {
+    display: block;
+    width: 100%;
+    background: #b73f3f;
     color: #fff;
 }
 
-
-.btn.primary {
+.btn.delete:hover {
     background-color: #000;
     color: #fff;
 }

@@ -41,13 +41,14 @@
             "texto": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
           }
         ]
-      }
+      },
+      "lastName": "Test"
     },
     {
       "id": 2,
-      "name": "test",
-      "lastName": "test",
-      "email": "test",
+      "name": "Santiago",
+      "lastName": "Rinaldi",
+      "email": "santiago@mail.com",
       "passWord": "12345",
       "baja": 0,
       "bibliotecaRutinas": {
