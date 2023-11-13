@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class PerfilUsuarioComponent {
 
+  userName: string = '';
+  userLastname: string = '';
+  userEmail: string = '';
+  userPassword: string = '';
+
+  editUser() {
+    
+  }
+
 }

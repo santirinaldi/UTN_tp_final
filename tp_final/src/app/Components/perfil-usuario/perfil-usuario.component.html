@@ -1,1 +1,26 @@
-<p>perfil-usuario works!</p>
+<section class="user-profile">
+    <div class="form">
+        <h3>Completa el formulario y encontra la rutina que necesitas</h3>
+        <form target="_blank">
+                <div class="field-wrapper">
+                    <input type="text" name="name" id="name" [(ngModel)]="userName">
+                    <label for="name">Nombre</label>
+                </div>
+                <div class="field-wrapper">
+                    <input type="text" name="lastname" id="lastname" [(ngModel)]="userLastname">
+                    <label for="userLastame">Apellido</label>
+                </div>
+                <div class="field-wrapper">
+                    <input type="email" name="email" id="email" [(ngModel)]="userEmail">
+                    <label for="userEmail">Email</label>
+                </div>
+                <div class="field-wrapper">
+                    <input type="password" name="password" id="password" [(ngModel)]="userPassword">
+                    <label for="userPassword">Password</label>
+                </div>
+
+                <button type="button" class="btn primary" (click)="editUser()">Registrarme</button>
+           
+        </form>
+    </div>
+</section>
