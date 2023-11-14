@@ -7,6 +7,8 @@ import { RegistroUsuarioComponent } from './Components/registro-usuario/registro
 import { InicioComponent } from './Components/inicio/inicio.component';
 import { BibliotecaRecetasComponent } from './Components/biblioteca-recetas/biblioteca-recetas.component';
 import { BibliotecaRutinasComponent } from './Components/biblioteca-rutinas/biblioteca-rutinas.component';
+import { VerRutinaComponent } from './Components/ver-rutina/ver-rutina.component';
+import { VerRecetaComponent } from './Components/ver-receta/ver-receta.component';
 
 
 
@@ -18,7 +20,9 @@ const routes: Routes = [
   { path: 'registroUsuario', component: RegistroUsuarioComponent },
   { path: 'inicio', component: InicioComponent },
   {path: 'bibliotecaRecetas', component: BibliotecaRecetasComponent},
-  {path: 'bibliotecaRutinas', component: BibliotecaRutinasComponent}
+  {path: 'bibliotecaRutinas', component: BibliotecaRutinasComponent},
+  {path: 'verRutina', component: VerRutinaComponent},
+  {path: 'verReceta', component: VerRecetaComponent}
 ];
 
 @NgModule({
