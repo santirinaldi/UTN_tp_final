@@ -22,7 +22,10 @@ const routes: Routes = [
   {path: 'bibliotecaRecetas', component: BibliotecaRecetasComponent},
   {path: 'bibliotecaRutinas', component: BibliotecaRutinasComponent},
   {path: 'verRutina', component: VerRutinaComponent},
-  {path: 'verReceta', component: VerRecetaComponent}
+  {path: 'verReceta', component: VerRecetaComponent},
+  {path: '**', redirectTo: '404'},
+  {path: '', redirectTo: 'inicioSesion', pathMatch: 'full'}
+
 ];
 
 @NgModule({

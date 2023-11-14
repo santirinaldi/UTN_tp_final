@@ -10,9 +10,7 @@ import { Usuario } from 'src/app/Models/usuario';
 })
 export class BibliotecaRecetasComponent implements OnInit {
   protected user: Usuario= new Usuario();
-  constructor (private servicioUsuario: UsuarioService) {
-    
-  }
+  constructor (private servicioUsuario: UsuarioService) {}
 
   @ViewChild('lista')lista!:ElementRef;
   @ViewChild('popupItem')popupItem!:ElementRef;

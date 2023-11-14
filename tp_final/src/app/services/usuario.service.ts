@@ -8,9 +8,9 @@ import { Observable, map, of, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class UsuarioService {
-  //private userList = new Array<Usuario>();
-  // private userId = 0;
-  private userList: any;
+//private userList = new Array<Usuario>();
+//private userId = 0;
+ private userList: any;
 
   constructor(private jsonService: JSONService, private router: Router) {
     this.pedidoAPI();
