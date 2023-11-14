@@ -1,7 +1,17 @@
-.form {
+#user-profile {
+    min-height: 100vh;
+    width: 100%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#user-profile>.form {
     width: 100%;
     padding: 2rem;
-    position: relative;
 }
 
 .form input {
@@ -11,7 +21,6 @@
     border: 1px solid #000;
     background: transparent;
     color: #000;
-    font-weight: 700;
 }
 
 .form input:focus-visible {
@@ -63,36 +72,59 @@
     color: #fff;
 }
 
-.form>h3 {
+#user-profile>.form>h3 {
     margin-bottom: 0.5rem;
     font-size: 1.75rem;
     text-transform: uppercase;
 }
 
-.form>p {
+#user-profile>.form>p {
     margin-top: 0;
     margin-bottom: 2rem;
     font-weight: 700;
 }
 
-.modify-result {
-    position: absolute;
-    top: 0;
-    left: 0;
+.user-libraries {
     width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    background: #fff;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+    border-top: 1px solid;
+}
+
+.user-libraries>h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.75rem;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.user-libraries a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.user-delete {
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+    border-top: 1px solid;
+    padding-top: 2rem;
+}
+
+.btn.delete {
+    display: block;
+    width: 100%;
+    background: #b73f3f;
+    color: #fff;
+}
+
+.btn.disabled {
+    background-color: #a1a1a1;
     color: #000;
-    z-index: 1;
-    display: none;
-}
-
-.modify-result.show {
-    display: flex;
-}
-
-.form input[readonly] {
-    color: #bdbdbd!important;
+    cursor: auto;
 }

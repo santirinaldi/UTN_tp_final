@@ -1,0 +1,58 @@
+<nav class="navbar">
+    <a href="/" class="logo" id="logo">
+        <div class="g-circle first"></div>
+        <div class="g-circle second"></div>
+        <div class="g-circle third"></div>
+    </a>
+    <div id="menu-button" (click)="toggleMenu()" #menuBtn>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <a id="user" #userBtn *ngIf="!isLogged" href="">
+        <svg xmlns="http://www.w3.org/2000/svg" width="168" height="170" viewBox="0 0 168 170" fill="none">
+            <path d="M84.5 80.5C105.487 80.5 122.5 63.4868 122.5 42.5C122.5 21.5132 105.487 4.5 84.5 4.5C63.5132 4.5 46.5 21.5132 46.5 42.5C46.5 63.4868 63.5132 80.5 84.5 80.5Z" stroke="white" stroke-width="9"/>
+            <path d="M89.3555 95.9121L136.84 112.378C159.95 120.391 155.426 164 131.485 164H36.515C12.5741 164 8.04982 120.391 31.1597 112.378L78.6446 95.9121C82.1518 94.696 85.8483 94.696 89.3555 95.9121Z" stroke="white" stroke-width="9"/>
+        </svg>
+    </a>
+    <a id="user" #userBtn *ngIf="isLogged" href="">
+        <svg xmlns="http://www.w3.org/2000/svg" width="168" height="170" viewBox="0 0 168 170" fill="#406b89">
+            <path d="M84.5 80.5C105.487 80.5 122.5 63.4868 122.5 42.5C122.5 21.5132 105.487 4.5 84.5 4.5C63.5132 4.5 46.5 21.5132 46.5 42.5C46.5 63.4868 63.5132 80.5 84.5 80.5Z" stroke="white" stroke-width="9" />
+            <path d="M89.3555 95.9121L136.84 112.378C159.95 120.391 155.426 164 131.485 164H36.515C12.5741 164 8.04982 120.391 31.1597 112.378L78.6446 95.9121C82.1518 94.696 85.8483 94.696 89.3555 95.9121Z" stroke="white" stroke-width="9"/>
+        </svg>
+    </a>
+
+    <div class="menu" #menu>
+        <ul>
+            <li>
+                <a href="/#first-section">Rutinas</a>
+            </li>
+            <li>
+                <a href="/#second-section">Recetas</a>
+            </li>
+        </ul>
+        <ul class="user-menu">
+            <li *ngIf="isLogged">
+                <a href="">Mi perfil</a>
+            </li>
+            <li *ngIf="isLogged">
+                <a href="">Mis rutinas</a>
+            </li>
+            <li *ngIf="isLogged">
+                <a href="">Mis recetas</a>
+            </li>
+            <li *ngIf="isLogged">
+                <a href="">Cerrar sesion</a>
+            </li>
+            <li *ngIf="!isLogged">
+                <a href="">Iniciar sesion</a>
+            </li>
+            <li *ngIf="!isLogged">
+                <a href="">Registrarme</a>
+            </li>
+        </ul>
+    </div>
+</nav>

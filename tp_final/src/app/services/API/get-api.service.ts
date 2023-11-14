@@ -11,17 +11,12 @@ export class GetAPIService {
   //private rapidApiKey = "ad44ee4ad8msh759cec7c25fc2cap1368b5jsn3d6d200336c1";
   //private rapidApiHost = "simple-chatgpt-api.p.rapidapi.com";
 
-  private rapidApiKey = "f46e139634msh1a9d58d2c185f52p1bba68jsn64f299cc2865";
-  private rapidApiHost = "simple-chatgpt-api.p.rapidapi.com";
+  private rapidApiKey = "0bbe18f9c0mshde92c5b78883950p12db0djsn4bdf3ebaf74e";
+  private rapidApiHost = "chatgpt-api8.p.rapidapi.com";
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getAll(): Promise<any> { /// EJEMPLO GET
-    return fetch(this.apiURL); /// RETORNA UNA PROMESA A CAPTURAR EN EL COMPONENTE QUE LO REQUIERA
-  }
-
-
-  apiRequest(message: string) {  
+  apiRequest(message: string) {
 
     const url = 'https://simple-chatgpt-api.p.rapidapi.com/ask';
     const options = {
@@ -33,11 +28,29 @@ export class GetAPIService {
       },
       body: JSON.stringify({
         question: message
-      }) 
+      })
     };
 
     return fetch(url, options);
 
   };
-    
+
+  _apiRequest(message: string) {
+
+    const url = 'https://simple-chatgpt-api.p.rapidapi.com/ask';
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'content-type': 'application/json',
+        'X-RapidAPI-Key': this.rapidApiKey,
+        'X-RapidAPI-Host': this.rapidApiHost
+      }),
+      body: JSON.stringify({
+        question: message
+      })
+    };
+
+
+    return this.http.post(url, httpOptions.body, httpOptions);
+  };
+
 }
