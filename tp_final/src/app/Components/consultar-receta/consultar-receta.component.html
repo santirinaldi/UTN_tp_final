@@ -47,29 +47,4 @@
     <div class="data" #result>
         <div #queryResult class="query-result"></div>
     </div>
-
-    <div class="popup-login" #popupLogin>
-
-        <div class="form">
-
-            <form target="_blank">
-
-                <div class="field-wrapper">
-                    <input type="email" name="email" id="userEmail" [(ngModel)]="userEmail">
-                    <label for="userEmail">Email</label>
-                </div>
-
-                <div class="field-wrapper">
-                    <input type="text" name="pass" id="userPass" [(ngModel)]="userPass">
-                    <label for="userPass">Contraseña</label>
-                </div>
-
-                <button type="button" class="btn primary" (click)="login()">Iniciar Sesion</button>
-
-            </form>
-        </div>
-
-        <div #loginResult class="login-result"></div>
-
-    </div>
 </section>

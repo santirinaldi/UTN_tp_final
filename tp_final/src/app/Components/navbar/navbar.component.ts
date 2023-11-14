@@ -19,7 +19,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class NavbarComponent implements OnInit, OnDestroy {
   loggedInStatus!: Number;
   userLogged!: Usuario;
-  public isLogged: string | null = '';
+  // public isLogged: string | null = '';
   public isOpen: boolean = false;
   @ViewChild('menuBtn') menuBtn!: ElementRef;
   @ViewChild('userBtn') userBtn!: ElementRef;
@@ -27,10 +27,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   constructor(
     private servicioUsuario: UsuarioService,
-    loginService: LoginService,
+    private loginService: LoginService,
     private jsonService: JSONService
-  ) {
-    loginService.getisLoggedIn().subscribe((value) => {
+  ) {}
+
+  ngOnInit(): void {
+    // this.isLogged = this.servicioUsuario.checkLoggedIn();
+
+    this.loginService.getisLoggedIn().subscribe((value) => {
       this.loggedInStatus = value;
       if (this.loggedInStatus != -1) {
         this.jsonService.getUserByID(this.loggedInStatus).subscribe((user) => {
@@ -41,10 +45,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
         console.log('nada');
       }
     });
-  }
-
-  ngOnInit(): void {
-    this.isLogged = this.servicioUsuario.checkLoggedIn();
   }
 
   ngOnDestroy(): void {}

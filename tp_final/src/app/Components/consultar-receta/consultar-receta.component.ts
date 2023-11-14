@@ -7,6 +7,9 @@ import { JSONService } from 'src/app/services/JSON/json.service';
 
 import { Lista } from 'src/app/Models/lista';
 import { Subscription } from 'rxjs';
+import { LoginRequest } from 'src/app/services/auth/loginRequest';
+import { LoginService } from 'src/app/services/auth/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-consultar-receta',
@@ -21,49 +24,50 @@ export class ConsultarRecetaComponent implements OnInit {
   objetives: Array<string> = [];
   foodLimits: Array<string> = [];
   maxCalories: number = 0;
-  userList: Usuario[] = [];
   suscription = new Subscription();
   userEmail: string = '';
   userPass: string = '';
 
+  loggedInStatus!: Number;
+  userLogged!: Usuario;
+
   recipeText: string = '';
   @ViewChild('result') result!: ElementRef;
-  @ViewChild('popupLogin') popupLogin!: ElementRef;
   @ViewChild('loginResult') loginResult!: ElementRef;
   @ViewChild('queryResult') queryResult!: ElementRef;
 
   constructor(
     private servicioUsuario: UsuarioService,
     private jsonService: JSONService,
-    private apiservice: GetAPIService
+    private apiservice: GetAPIService,
+    private loginService: LoginService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.getUsers();
-
-    this.suscription = this.jsonService.refresh$.subscribe(() => {
-      this.getUsers();
-    });
-  }
-
-  getUsers() {
-    this.jsonService.getAll().subscribe((data: Usuario[]) => {
-      this.userList = data.filter((item: Usuario) => item.baja !== 1);
-      console.log(this.userList);
+    this.loginService.getisLoggedIn().subscribe((value) => {
+      this.loggedInStatus = value;
+      if (this.loggedInStatus != -1) {
+        this.jsonService.getUserByID(this.loggedInStatus).subscribe((user) => {
+          this.userLogged = user;
+          console.log(this.userLogged);
+        });
+      } else {
+        console.log('nada');
+      }
     });
   }
 
   createMessage() {
-    const log = this.servicioUsuario.checkLoggedIn();
     console.log(this.food.toString());
     const message = ` Quiero una receta con estas caracteristicas: Tipo de comida: ${this.food.toString()} . Objetivos: ${this.objetives.toString()}. Calorias Maximas: ${
       this.maxCalories
     }. Limitaciones: ${this.foodLimits.toString()}.`;
     console.log(message);
-    this.apiservice._apiRequest(message).subscribe((response) => {
-      console.log(response);
-    });
-    this.createView(Number(log));
+    // this.apiservice._apiRequest(message).subscribe((response) => {
+    //   console.log(response);
+    // });
+    this.createView();
   }
 
   // pedidoAPI(message: string) {
@@ -78,17 +82,12 @@ export class ConsultarRecetaComponent implements OnInit {
   // }
 
   agregarReceta() {
-    const log = this.servicioUsuario.checkLoggedIn();
-    const user: Usuario = this.servicioUsuario.getUser(
-      Number(log),
-      this.userList
-    );
-    if (user) {
+    if (this.userLogged) {
       let lista = new Lista();
       lista.nombre = 'Mi receta';
       lista.texto = this.apiResponse;
-      user.bibliotecaRecetas.listaRecetas.push(lista);
-      this.jsonService.putUser(user).subscribe((response) => {
+      this.userLogged.bibliotecaRecetas.listaRecetas.push(lista);
+      this.jsonService.putUser(this.userLogged).subscribe((response) => {
         console.log(response);
       });
 
@@ -97,7 +96,6 @@ export class ConsultarRecetaComponent implements OnInit {
       qrh4.innerHTML = 'Receta cargada correctamente';
       this.queryResult.nativeElement.appendChild(qrh4);
       this.queryResult.nativeElement.style.visibility = 'visible';
-      this.popupLogin.nativeElement.style.display = 'none';
       setTimeout(() => {
         this.result.nativeElement.style.display = 'none';
         this.queryResult.nativeElement.style.visibility = 'hidden';
@@ -113,7 +111,6 @@ export class ConsultarRecetaComponent implements OnInit {
       qrh4.innerHTML = 'Error al cargar la receta a la biblioteca!';
       this.queryResult.nativeElement.appendChild(qrh4);
       this.queryResult.nativeElement.style.visibility = 'visible';
-      this.popupLogin.nativeElement.style.display = 'none';
       setTimeout(() => {
         this.result.nativeElement.style.display = 'none';
         this.queryResult.nativeElement.style.visibility = 'hidden';
@@ -126,7 +123,7 @@ export class ConsultarRecetaComponent implements OnInit {
     }
   }
 
-  createView(log: number) {
+  createView() {
     this.result.nativeElement.style.display = 'flex';
     const p = document.createElement('p');
     const btn = document.createElement('button');
@@ -165,7 +162,7 @@ export class ConsultarRecetaComponent implements OnInit {
     btnReturn.textContent = 'Volver';
     //fin estilos btn
 
-    if (log) {
+    if (this.loggedInStatus != -1) {
       btn.style.backgroundColor = '#fff';
       btn.style.color = '#000';
       btn.textContent = 'Guardar receta';
@@ -178,7 +175,7 @@ export class ConsultarRecetaComponent implements OnInit {
       btn.innerHTML =
         'Necesita estar logueado para poder guardar esta rutina. Pulse aqui para iniciar sesion';
       btn.onclick = () => {
-        this.openLoginModal();
+        this.router.navigateByUrl('/inicio-sesion');
       };
     }
 
@@ -195,61 +192,57 @@ export class ConsultarRecetaComponent implements OnInit {
     };
   }
 
-  login() {
-    //let userList = this.jsonService.getAll();
-    let userID = -1;
-    let lrMsg = document.createElement('h4');
+  // login() {
+  //   //let userList = this.jsonService.getAll();
+  //   let userID = -1;
+  //   let lrMsg = document.createElement('h4');
 
-    this.userList.forEach((user) => {
-      console.log('US: ', this.userList);
-      if (user.email == this.userEmail && user.passWord == this.userPass) {
-        console.log('encontro');
-        userID = user.id;
-      }
-    });
+  //   this.userList.forEach((user) => {
+  //     console.log('US: ', this.userList);
+  //     if (user.email == this.userEmail && user.passWord == this.userPass) {
+  //       console.log('encontro');
+  //       userID = user.id;
+  //     }
+  //   });
 
-    if (userID !== -1) {
-      localStorage.setItem('userLoggedin', `${userID}`);
+  //   if (userID !== -1) {
+  //     localStorage.setItem('userLoggedin', `${userID}`);
 
-      let button: HTMLElement | null = document.querySelector('.data>button');
-      let pRecipe: HTMLElement | null = document.querySelector('.data>p');
-      let routine = '';
+  //     let button: HTMLElement | null = document.querySelector('.data>button');
+  //     let pRecipe: HTMLElement | null = document.querySelector('.data>p');
+  //     let routine = '';
 
-      if (pRecipe != null) {
-        routine = pRecipe.innerHTML;
-      }
+  //     if (pRecipe != null) {
+  //       routine = pRecipe.innerHTML;
+  //     }
 
-      if (button != null) {
-        button.innerHTML = 'Guardar receta';
-        button.style.backgroundColor = '#000';
-        button.style.color = '#fff';
+  //     if (button != null) {
+  //       button.innerHTML = 'Guardar receta';
+  //       button.style.backgroundColor = '#000';
+  //       button.style.color = '#fff';
 
-        button.addEventListener('click', () => {
-          this.agregarReceta();
-        });
-      }
+  //       button.addEventListener('click', () => {
+  //         this.agregarReceta();
+  //       });
+  //     }
 
-      lrMsg.innerHTML = 'Inicio de sesion exitoso!';
-      lrMsg.style.color = '#fff';
-      this.loginResult.nativeElement.appendChild(lrMsg);
-      this.loginResult.nativeElement.style.visibility = 'visible';
-      setTimeout(() => {
-        this.popupLogin.nativeElement.style.display = 'none';
-        this.loginResult.nativeElement.removeChild(lrMsg);
-      }, 2000);
-    } else {
-      lrMsg.innerHTML = 'Error! Email o password incorrectos.';
-      lrMsg.style.color = '#fff';
-      this.loginResult.nativeElement.appendChild(lrMsg);
-      this.loginResult.nativeElement.style.visibility = 'visible';
-      setTimeout(() => {
-        this.loginResult.nativeElement.style.visibility = 'hidden';
-        this.loginResult.nativeElement.removeChild(lrMsg);
-      }, 2000);
-    }
-  }
-
-  openLoginModal() {
-    this.popupLogin.nativeElement.style.display = 'block';
-  }
+  //     lrMsg.innerHTML = 'Inicio de sesion exitoso!';
+  //     lrMsg.style.color = '#fff';
+  //     this.loginResult.nativeElement.appendChild(lrMsg);
+  //     this.loginResult.nativeElement.style.visibility = 'visible';
+  //     setTimeout(() => {
+  //       this.popupLogin.nativeElement.style.display = 'none';
+  //       this.loginResult.nativeElement.removeChild(lrMsg);
+  //     }, 2000);
+  //   } else {
+  //     lrMsg.innerHTML = 'Error! Email o password incorrectos.';
+  //     lrMsg.style.color = '#fff';
+  //     this.loginResult.nativeElement.appendChild(lrMsg);
+  //     this.loginResult.nativeElement.style.visibility = 'visible';
+  //     setTimeout(() => {
+  //       this.loginResult.nativeElement.style.visibility = 'hidden';
+  //       this.loginResult.nativeElement.removeChild(lrMsg);
+  //     }, 2000);
+  //   }
+  // }
 }

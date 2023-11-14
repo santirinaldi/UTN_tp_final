@@ -15,7 +15,7 @@ import { LoginRequest } from 'src/app/services/auth/loginRequest';
 })
 export class InicioSesionComponent implements OnInit {
   loginError: string = '';
-  userList: Usuario[] = [];
+  // userList: Usuario[] = [];
 
   loginForm = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
@@ -34,11 +34,10 @@ export class InicioSesionComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getUsers();
-
-    this.suscription = this.jsonService.refresh$.subscribe(() => {
-      this.getUsers();
-    });
+    // this.getUsers();
+    // this.suscription = this.jsonService.refresh$.subscribe(() => {
+    //   this.getUsers();
+    // });
   }
 
   get email() {
@@ -49,12 +48,11 @@ export class InicioSesionComponent implements OnInit {
     return this.loginForm.controls.passWord;
   }
 
-  getUsers() {
-    this.jsonService.getAll().subscribe((data: Usuario[]) => {
-      this.userList = data.filter((item: Usuario) => item.baja !== 1);
-      console.log(this.userList);
-    });
-  }
+  // getUsers() {
+  //   this.jsonService.getAll().subscribe((data: Usuario[]) => {
+  //     this.userList = data.filter((item: Usuario) => item.baja !== 1);
+  //     console.log(this.userList);
+  //   });
 
   login() {
     console.log(this.loginForm.value);
@@ -62,63 +60,66 @@ export class InicioSesionComponent implements OnInit {
       //this.verifyUser();
       this.loginService
         .getUserDetail(this.loginForm.value as LoginRequest)
-        .subscribe((response) => {
-          this.loginService.setLoggedIn(response[0].id);
+        .subscribe({
+          next: (response) => {
+            if (response) {
+              this.loginService.setLoggedIn(response[0].id);
+              setTimeout(() => {
+                this.router.navigateByUrl('/inicio');
+              }, 1000);
+
+              this.loginForm.reset();
+            }
+          },
+          error: () => {
+            console.log('Los datos ingresado no coinciden con ningun usuario');
+          },
+          complete: () => {},
         });
-
-      setTimeout(() => {
-        this.router.navigateByUrl('/inicio');
-      }, 1000);
-
-      this.loginForm.reset();
     } else {
       alert('Error al ingresar los datos');
       this.loginForm.markAllAsTouched();
     }
   }
 
-  verifyUser() {
-    console.log(this.userList);
-    let user = new Usuario();
-    const email = this.loginForm.value.email;
-    const password = this.loginForm.value.passWord;
-    if (email && password) {
-      user.email = email;
-      user.passWord = password;
-    }
-    let userID = this.buscarUsuario(user);
-    console.log(userID);
-    if (userID !== -1) {
-      localStorage.setItem('userLoggedin', `${userID}`);
-      const h5 = document.createElement('h5');
-      h5.textContent = 'Logeado exitosamente!';
-      //const text = document.createTextNode("Logeado exitosamente!");
-      this.loginResult.nativeElement.appendChild(h5);
-      //this.refresh();
-    } else {
-      console.log('No encontrado', userID);
-    }
-  }
+  // verifyUser() {
+  //   console.log(this.userList);
+  //   let user = new Usuario();
+  //   const email = this.loginForm.value.email;
+  //   const password = this.loginForm.value.passWord;
+  //   if (email && password) {
+  //     user.email = email;
+  //     user.passWord = password;
+  //   }
+  //   let userID = this.buscarUsuario(user);
+  //   console.log(userID);
+  //   if (userID !== -1) {
+  //     localStorage.setItem('userLoggedin', `${userID}`);
+  //     const h5 = document.createElement('h5');
+  //     h5.textContent = 'Logeado exitosamente!';
+  //     //const text = document.createTextNode("Logeado exitosamente!");
+  //     this.loginResult.nativeElement.appendChild(h5);
+  //     //this.refresh();
+  //   } else {
+  //     console.log('No encontrado', userID);
+  //   }
+  // }
 
-  buscarUsuario(userBuscado: Usuario) {
-    console.log(this.userList);
-    let userID = -1;
+  // buscarUsuario(userBuscado: Usuario) {
+  //   console.log(this.userList);
+  //   let userID = -1;
 
-    this.userList.forEach((user) => {
-      console.log(user.passWord);
-      if (
-        user.passWord == userBuscado.passWord &&
-        user.email == userBuscado.email
-      ) {
-        console.log('encontro');
-        userID = user.id;
-      }
-    });
+  //   this.userList.forEach((user) => {
+  //     console.log(user.passWord);
+  //     if (
+  //       user.passWord == userBuscado.passWord &&
+  //       user.email == userBuscado.email
+  //     ) {
+  //       console.log('encontro');
+  //       userID = user.id;
+  //     }
+  //   });
 
-    return userID;
-  }
-
-  refresh(): void {
-    window.location.reload();
-  }
+  //   return userID;
+  // }
 }

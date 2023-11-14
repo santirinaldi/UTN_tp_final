@@ -32,7 +32,7 @@ export class LoginService {
 
   getUserDetail(credenciales: LoginRequest) {
     return this.http.get<Usuario[]>(
-      `${this.apiURL}?email=${credenciales.email}&passWord=${credenciales.passWord}`
+      `${this.apiURL}?email=${credenciales.email}&passWord=${credenciales.passWord}&baja=0`
     );
   }
 
