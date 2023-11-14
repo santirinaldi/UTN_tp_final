@@ -5,6 +5,8 @@ import { Usuario } from 'src/app/Models/usuario';
 import { JSONService } from 'src/app/services/JSON/json.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { LoginService } from 'src/app/services/auth/login.service';
+import { LoginRequest } from 'src/app/services/auth/loginRequest';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -17,7 +19,7 @@ export class InicioSesionComponent implements OnInit {
 
   loginForm = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]],
+    passWord: ['', [Validators.required]],
   });
 
   suscription = new Subscription();
@@ -27,7 +29,8 @@ export class InicioSesionComponent implements OnInit {
     private servicioUsuario: UsuarioService,
     private jsonService: JSONService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private loginService: LoginService
   ) {}
 
   ngOnInit(): void {
@@ -43,7 +46,7 @@ export class InicioSesionComponent implements OnInit {
   }
 
   get password() {
-    return this.loginForm.controls.password;
+    return this.loginForm.controls.passWord;
   }
 
   getUsers() {
@@ -56,7 +59,12 @@ export class InicioSesionComponent implements OnInit {
   login() {
     console.log(this.loginForm.value);
     if (this.loginForm.status == 'VALID') {
-      this.verifyUser();
+      //this.verifyUser();
+      this.loginService
+        .getUserDetail(this.loginForm.value as LoginRequest)
+        .subscribe((response) => {
+          this.loginService.setLoggedIn(response[0].id);
+        });
 
       setTimeout(() => {
         this.router.navigateByUrl('/inicio');
@@ -73,7 +81,7 @@ export class InicioSesionComponent implements OnInit {
     console.log(this.userList);
     let user = new Usuario();
     const email = this.loginForm.value.email;
-    const password = this.loginForm.value.password;
+    const password = this.loginForm.value.passWord;
     if (email && password) {
       user.email = email;
       user.passWord = password;

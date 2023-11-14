@@ -76,6 +76,10 @@ export class JSONService {
     });
   }
 
+  getUserByID(userID: Number) {
+    return this.http.get<Usuario>(`${this.apiURL}/${userID}`);
+  }
+
   /*
     getAll(): Promise<any> { /// EJEMPLO GET
     return fetch('http://localhost:3000/users'); /// RETORNA UNA PROMESA A CAPTURAR EN EL COMPONENTE QUE LO REQUIERA

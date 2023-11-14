@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/auth/login.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -10,7 +11,10 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class CierreSesionComponent {
   router!: Router;
 
-  constructor(private servicioUsuario: UsuarioService) {}
+  constructor(
+    private servicioUsuario: UsuarioService,
+    private loginService: LoginService
+  ) {}
 
   // ngOnInit(): void {
   //   if (this.servicioUsuario.verifyLogged()) {
@@ -19,6 +23,6 @@ export class CierreSesionComponent {
   // }
 
   onLogout(): void {
-    this.servicioUsuario.logOut();
+    this.loginService.logOut();
   }
 }

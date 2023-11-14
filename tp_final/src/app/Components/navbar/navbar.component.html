@@ -33,20 +33,23 @@
             </li>
         </ul>
         <ul class="user-menu">
-            <li *ngIf="isLogged">
+            <li *ngIf="loggedInStatus != -1">
                 <a routerLink="">Mi perfil</a>
             </li>
-            <li *ngIf="isLogged">
+            <li *ngIf="loggedInStatus != -1">
                 <a routerLink="">Mis rutinas</a>
             </li>
-            <li *ngIf="isLogged">
+            <li *ngIf="loggedInStatus != -1">
                 <a routerLink="">Mis recetas</a>
             </li>
-            <li *ngIf="!isLogged">
+            <li *ngIf="loggedInStatus == -1">
                 <a routerLink="/inicio-sesion">Iniciar sesion</a>
             </li>
-            <li *ngIf="!isLogged">
+            <li *ngIf="loggedInStatus == -1">
                 <a routerLink="/registro-usuario">Registrarme</a>
+            </li>
+            <li *ngIf="loggedInStatus != -1">
+                <a routerLink=""><app-cierre-sesion></app-cierre-sesion></a>
             </li>
         </ul>
     </div>
