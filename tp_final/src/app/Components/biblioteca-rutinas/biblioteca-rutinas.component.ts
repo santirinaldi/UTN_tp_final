@@ -12,6 +12,7 @@ import { JSONService } from 'src/app/services/JSON/json.service';
 export class BibliotecaRutinasComponent implements OnInit {
   protected user: Usuario= new Usuario();
   protected rutinaActual?: Lista;
+  protected mostrarEditar: boolean=false;
   constructor (private servicioUsuario: UsuarioService, private jsonService: JSONService){}
 
     
@@ -36,15 +37,27 @@ export class BibliotecaRutinasComponent implements OnInit {
     }
 
     nombreListaActualizar(nombre: string){
-      console.log(nombre);
       const usuarioActualizado: Usuario={
         ...this.user,
       bibliotecaRutinas: {...this.user.bibliotecaRutinas, nombre: nombre}
       };
-      console.log(usuarioActualizado);
       this.jsonService.putUser(usuarioActualizado).subscribe((response) => {
         this.user=response;
       })
+    }
+
+    descripcionListaActualizar(descripcion: string){
+      const usuarioActualizado: Usuario={
+        ...this.user,
+      bibliotecaRutinas: {...this.user.bibliotecaRutinas, descripcion: descripcion}
+      };
+      this.jsonService.putUser(usuarioActualizado).subscribe((response) => {
+        this.user=response;
+      })
+    }
+
+    modificarMostrarEditar (){
+      this.mostrarEditar=!this.mostrarEditar;
     }
 
     

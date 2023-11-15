@@ -1,10 +1,13 @@
 <div>
     <div class="popup-item" #popupItem></div>
-    <h1>Recetas</h1>
+    <h1>{{user.bibliotecaRecetas.nombre}}</h1>
+    <app-e-biblioteca-recetas (editarNombreLista)="nombreListaActualizar($event)"></app-e-biblioteca-recetas>
     <ul #lista>
-        <li *ngFor="let receta of user.bibliotecaRecetas.listaRecetas">
+        <li *ngFor="let receta of user.bibliotecaRecetas.listaRecetas" (click)="mostrarReceta(receta)">
             {{receta.nombre}}
         </li>
 
+
     </ul>
+    <app-ver-receta [recetaActual]="recetaActual"></app-ver-receta>
 </div>

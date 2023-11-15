@@ -11,14 +11,24 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./e-biblioteca-rutinas.component.css']
 })
 export class EBibliotecaRutinasComponent implements OnInit {
+  @Input () nombreRutina: string = '';
+  @Input () descripcionRutina: string = '';
+  @Output () editarDescripcionLista: EventEmitter<string>= new EventEmitter();
   @Output () editarNombreLista: EventEmitter<string>= new EventEmitter();
   ngOnInit(): void {
   }
 
-  nombreRutina: string = '';  
+    
+  
   editarNombreRutina (){
     console.log(this.nombreRutina);
     this.editarNombreLista.emit(this.nombreRutina);
   }
+
+  editarDescripcionRutina (){
+    console.log(this.descripcionRutina);
+    this.editarDescripcionLista.emit(this.descripcionRutina);
+  }
+  
 
 }

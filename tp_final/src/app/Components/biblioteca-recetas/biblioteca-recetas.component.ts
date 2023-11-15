@@ -1,7 +1,8 @@
 import { Component,ViewChild,ElementRef,OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from 'src/app/Models/usuario';
-
+import { Lista } from 'src/app/Models/lista';
+import { JSONService } from 'src/app/services/JSON/json.service';
 
 @Component({
   selector: 'app-biblioteca-recetas',
@@ -10,21 +11,41 @@ import { Usuario } from 'src/app/Models/usuario';
 })
 export class BibliotecaRecetasComponent implements OnInit {
   protected user: Usuario= new Usuario();
-  constructor (private servicioUsuario: UsuarioService) {}
+  protected recetaActual?: Lista;
+  constructor (private servicioUsuario: UsuarioService, private jsonService: JSONService){}
 
-  @ViewChild('lista')lista!:ElementRef;
-  @ViewChild('popupItem')popupItem!:ElementRef;
-
-  //const user: Usuario ; 
-  ngOnInit(): void {
-    const log = this.servicioUsuario.checkLoggedIn();
-    this.servicioUsuario.getUser2(1).subscribe((usuario: Usuario)=>{
-      console.log(usuario);
-      this.user=usuario
-      console.log(this.user);
-      
-    });
-  } 
-
+    
   
+    @ViewChild('lista')lista!:ElementRef;
+    @ViewChild('popupItem')popupItem!:ElementRef;
+  
+  
+    ngOnInit(): void {
+      const log = this.servicioUsuario.checkLoggedIn();
+      this.servicioUsuario.getUser2(1).subscribe((usuario: Usuario)=>{
+        console.log(usuario);
+        this.user=usuario
+        console.log(this.user);
+        
+      });
+    } 
+
+    mostrarReceta(receta: Lista) {
+      console.log(receta);
+      this.recetaActual=receta;
+    }
+
+    nombreListaActualizar(nombre: string){
+      console.log(nombre);
+      const usuarioActualizado: Usuario={
+        ...this.user,
+      bibliotecaRecetas: {...this.user.bibliotecaRecetas, nombre: nombre}
+      };
+      console.log(usuarioActualizado);
+      this.jsonService.putUser(usuarioActualizado).subscribe((response) => {
+        this.user=response;
+      })
+    }
+
+    
 }

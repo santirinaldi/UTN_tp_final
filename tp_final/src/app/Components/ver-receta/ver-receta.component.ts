@@ -10,12 +10,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class VerRecetaComponent implements OnInit {
   protected user: Usuario= new Usuario();
-  @Input()rutinaActual?: Lista;
+  @Input()recetaActual?: Lista;
   constructor (private servicioUsuario: UsuarioService){}
 
     
   
-    @ViewChild('rutina')rutina!:ElementRef;
+    @ViewChild('receta')rutina!:ElementRef;
     @ViewChild('popupItem')popupItem!:ElementRef;
     
   
