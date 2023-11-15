@@ -5,8 +5,8 @@
   <button type="button" (click)="modificarMostrarEditar()">Editar</button>
   <app-e-biblioteca-recetas
     *ngIf="mostrarEditar"
-    [nombreRutina]="user.bibliotecaRecetas.nombre"
-    [descripcionRutina]="user.bibliotecaRecetas.descripcion"
+    [nombreReceta]="user.bibliotecaRecetas.nombre"
+    [descripcionReceta]="user.bibliotecaRecetas.descripcion"
     (editarNombreLista)="nombreListaActualizar($event)"
     (editarDescripcionLista)="descripcionListaActualizar($event)"
     
@@ -19,5 +19,5 @@
       {{ receta.nombre }}
     </li>
   </ul>
-  <app-ver-receta[recetaaActual]="recetaActual"></app-ver-receta>
+  <app-ver-receta [recetaActual]="recetaActual"></app-ver-receta>
 </div>
