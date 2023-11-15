@@ -1,47 +1,45 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Usuario } from 'src/app/Models/usuario';
 import { JSONService } from 'src/app/services/JSON/json.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { LoginService } from 'src/app/services/auth/login.service';
 
 @Component({
   selector: 'app-borrar-usuario',
   templateUrl: './borrar-usuario.component.html',
-  styleUrls: ['./borrar-usuario.component.css']
+  styleUrls: ['./borrar-usuario.component.css'],
 })
-export class BorrarUsuarioComponent {
+export class BorrarUsuarioComponent implements OnInit {
+  loggedInStatus!: Number;
+  userLogged!: Usuario;
 
-  userList: Usuario[] = [];
-  suscription = new Subscription();
-
-  constructor(private servicioUsuario: UsuarioService, private jsonService: JSONService) {}
+  constructor(
+    private servicioUsuario: UsuarioService,
+    private loginService: LoginService,
+    private jsonService: JSONService
+  ) {}
 
   ngOnInit(): void {
-    this.getUsers();
-    
-    this.suscription = this.jsonService.refresh$.subscribe(() => {
-      this.getUsers();
+    this.loginService.getisLoggedIn().subscribe((value) => {
+      this.loggedInStatus = value;
+      if (this.loggedInStatus != -1) {
+        this.jsonService.getUserByID(this.loggedInStatus).subscribe((user) => {
+          this.userLogged = user;
+          console.log(this.userLogged);
+        });
+      } else {
+        console.log('nada');
+      }
     });
   }
 
-  getUsers() {
-    this.jsonService.getAll().subscribe((data: Usuario[]) => {
-      this.userList = data.filter((item:Usuario) => item.baja !== 1);
-      console.log(this.userList);
-    });
-  }
-  
   borrarUsuario() {
-    const log = this.servicioUsuario.checkLoggedIn();
-    if(log !== null) {
-      const user = this.servicioUsuario.getUser(Number(log),this.userList);
-      if(user) {
-        this.servicioUsuario.baja(user);
-        console.log("Eliminando..");
-        this.servicioUsuario.logOut();
-      }
-    }
-    else {
+    if (this.loggedInStatus != -1) {
+      this.servicioUsuario.baja(this.userLogged);
+      console.log('Eliminando..');
+      this.servicioUsuario.logOut();
+    } else {
       ///No se tiene que ver el boton
     }
   }
