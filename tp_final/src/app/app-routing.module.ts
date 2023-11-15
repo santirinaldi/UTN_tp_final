@@ -5,6 +5,7 @@ import { CierreSesionComponent } from './Components/cierre-sesion/cierre-sesion.
 import { EditarUsuarioComponent } from './Components/editar-usuario/editar-usuario.component';
 import { RegistroUsuarioComponent } from './Components/registro-usuario/registro-usuario.component';
 import { InicioComponent } from './Components/inicio/inicio.component';
+import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'editar-usuario', component: EditarUsuarioComponent },
   { path: 'registro-usuario', component: RegistroUsuarioComponent },
   { path: '', component: InicioComponent },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

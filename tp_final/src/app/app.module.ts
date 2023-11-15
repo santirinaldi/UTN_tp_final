@@ -19,6 +19,7 @@ import { BibliotecaRecetasComponent } from './Components/biblioteca-recetas/bibl
 import { ConsultarRecetaComponent } from './Components/consultar-receta/consultar-receta.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BibliotecaRecetasComponent,
     ConsultarRecetaComponent,
     NavbarComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
