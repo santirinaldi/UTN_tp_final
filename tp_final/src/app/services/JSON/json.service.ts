@@ -58,7 +58,7 @@ export class JSONService {
     const user = {
       id: usuario.id,
       name: usuario.name,
-      lastname: usuario.lastName,
+      lastName: usuario.lastName,
       email: usuario.email,
       passWord: usuario.passWord,
       baja: usuario.baja,

@@ -42,6 +42,9 @@
             <li *ngIf="loggedInStatus != -1">
                 <a routerLink="">Mis recetas</a>
             </li>
+            <li *ngIf="loggedInStatus != -1">
+                <a routerLink="/editar-usuario">Editar usuario</a>
+            </li>
             <li *ngIf="loggedInStatus == -1">
                 <a routerLink="/inicio-sesion">Iniciar sesion</a>
             </li>

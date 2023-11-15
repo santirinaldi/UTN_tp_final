@@ -36,14 +36,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
     this.loginService.getisLoggedIn().subscribe((value) => {
       this.loggedInStatus = value;
-      if (this.loggedInStatus != -1) {
-        this.jsonService.getUserByID(this.loggedInStatus).subscribe((user) => {
-          this.userLogged = user;
-          console.log(this.userLogged);
-        });
-      } else {
-        console.log('nada');
-      }
     });
   }
 

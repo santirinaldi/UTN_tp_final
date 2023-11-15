@@ -18,6 +18,7 @@ export class EditarUsuarioComponent implements OnInit {
 
   loggedInStatus!: Number;
   userLogged!: Usuario;
+  subcripcion!: Subscription;
 
   @ViewChild('modifyResult') modifyResult!: ElementRef;
 
@@ -31,13 +32,21 @@ export class EditarUsuarioComponent implements OnInit {
     this.loginService.getisLoggedIn().subscribe((value) => {
       this.loggedInStatus = value;
       if (this.loggedInStatus != -1) {
-        this.jsonService.getUserByID(this.loggedInStatus).subscribe((user) => {
-          this.userLogged = user;
-          console.log(this.userLogged);
-        });
+        this.getUser();
       } else {
         console.log('nada');
       }
+    });
+
+    this.subcripcion = this.jsonService.refresh$.subscribe(() => {
+      this.getUser();
+    });
+  }
+
+  getUser() {
+    this.jsonService.getUserByID(this.loggedInStatus).subscribe((user) => {
+      this.userLogged = user;
+      console.log(this.userLogged);
     });
   }
 
@@ -58,7 +67,6 @@ export class EditarUsuarioComponent implements OnInit {
 
       this.jsonService.putUser(this.userLogged).subscribe((response) => {
         //que pase algo o no
-        console.log('respuesta: ', response);
       });
       console.log('Actualizando..');
       //this.router.navigate(['inicio']);

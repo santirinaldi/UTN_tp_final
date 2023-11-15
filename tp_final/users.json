@@ -2,7 +2,8 @@
   "users": [
     {
       "id": 1,
-      "name": "Agustin",
+      "name": "Agus",
+      "lastName": "Appollonio",
       "email": "appollonioagustin@gmail.com",
       "passWord": "123",
       "baja": 0,
@@ -10,6 +11,10 @@
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
         "listaRutinas": [
+          {
+            "nombre": "Mi rutina",
+            "texto": "Rutina de ejemplo 4"
+          },
           {
             "nombre": "Mi rutina",
             "texto": "Rutina de ejemplo 4"

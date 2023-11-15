@@ -136,9 +136,7 @@ export class AgregarRutinaComponent implements OnInit {
       lista.nombre = 'Mi rutina';
       lista.texto = message;
       this.userLogged.bibliotecaRutinas.listaRutinas.push(lista);
-      this.jsonService.putUser(this.userLogged).subscribe((response) => {
-        console.log(response);
-      });
+      this.jsonService.putUser(this.userLogged).subscribe((response) => {});
 
       let qrh4 = document.createElement('h4');
       qrh4.style.color = '#fff';
