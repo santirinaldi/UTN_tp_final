@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'verRutina', component: VerRutinaComponent},
   {path: 'verReceta', component: VerRecetaComponent},
   {path: '**', redirectTo: '404'},
-  {path: '', redirectTo: 'inicioSesion', pathMatch: 'full'}
+ {path: '', redirectTo: 'inicioSesion', pathMatch: 'full'}
 
 ];
 

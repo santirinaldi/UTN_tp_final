@@ -21,6 +21,8 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { PerfilUsuarioComponent } from './Components/perfil-usuario/perfil-usuario.component';
 import { VerRutinaComponent } from './Components/ver-rutina/ver-rutina.component';
 import { VerRecetaComponent } from './Components/ver-receta/ver-receta.component';
+import { EBibliotecaRecetasComponent } from './Components/e-biblioteca-recetas/e-biblioteca-recetas.component';
+import { EBibliotecaRutinasComponent } from './Components/e-biblioteca-rutinas/e-biblioteca-rutinas.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { VerRecetaComponent } from './Components/ver-receta/ver-receta.component
     NavbarComponent,
     PerfilUsuarioComponent,
     VerRutinaComponent,
-    VerRecetaComponent
+    VerRecetaComponent,
+    EBibliotecaRecetasComponent,
+    EBibliotecaRutinasComponent
   ],
   imports: [
     BrowserModule,

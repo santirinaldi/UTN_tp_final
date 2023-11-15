@@ -28,7 +28,7 @@ export class UsuarioService {
 
   getUser2(id: number): Observable<Usuario> {
     let user = new Usuario();
-    const aux = this.userList.find((user: Usuario) => user.id === id);
+    const aux = this.userList?.find((user: Usuario) => user.id === id);
     if (aux !== undefined) {
       user = aux;
     }
@@ -67,6 +67,14 @@ export class UsuarioService {
     //console.log(user);
     return user;
   }
+
+  getById(userId: number){
+    let users = this.userList.filter((user: { userId: number; }) => {
+      return user.userId == userId;
+    });
+
+    return (users.length > 0) ? users[0] : null;
+  }  
 
 
   // getUser3(id: number): Observable<Usuario> {

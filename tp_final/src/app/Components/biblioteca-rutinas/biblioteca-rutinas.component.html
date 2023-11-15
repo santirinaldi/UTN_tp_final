@@ -1,10 +1,13 @@
 <div>
     <div class="popup-item" #popupItem></div>
-    <h1>Rutinas</h1>
+    <h1>{{user.bibliotecaRutinas.nombre}}</h1>
+    <app-e-biblioteca-rutinas (editarNombreLista)="nombreListaActualizar($event)"></app-e-biblioteca-rutinas>
     <ul #lista>
-        <li *ngFor="let rutina of user.bibliotecaRutinas.listaRutinas">
+        <li *ngFor="let rutina of user.bibliotecaRutinas.listaRutinas" (click)="mostrarRutina(rutina)">
             {{rutina.nombre}}
         </li>
 
+
     </ul>
+    <app-ver-rutina [rutinaActual]="rutinaActual"></app-ver-rutina>
 </div>

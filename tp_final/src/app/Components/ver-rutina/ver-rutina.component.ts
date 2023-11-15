@@ -1,6 +1,7 @@
-import { Component,ViewChild,ElementRef,OnInit } from '@angular/core';
+import { Component,ViewChild,ElementRef,OnInit, Input} from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from 'src/app/Models/usuario';
+import { Lista } from 'src/app/Models/lista';
 
 @Component({
   selector: 'app-ver-rutina',
@@ -9,22 +10,20 @@ import { Usuario } from 'src/app/Models/usuario';
 })
 export class VerRutinaComponent implements OnInit {
   protected user: Usuario= new Usuario();
+  @Input()rutinaActual?: Lista;
   constructor (private servicioUsuario: UsuarioService){}
 
     
   
     @ViewChild('rutina')rutina!:ElementRef;
     @ViewChild('popupItem')popupItem!:ElementRef;
+    
   
   
     ngOnInit(): void {
-      const log = this.servicioUsuario.checkLoggedIn();
-      this.servicioUsuario.getUser2(1).subscribe((usuario: Usuario)=>{
-        console.log(usuario);
-        this.user=usuario
-        console.log(this.user);
+      
         
-      });
+      };
     }  
 
-}
+
