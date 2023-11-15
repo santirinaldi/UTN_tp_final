@@ -19,7 +19,7 @@ import { LoginService } from 'src/app/services/auth/login.service';
 })
 export class AgregarRutinaComponent implements OnInit {
   private apiResponse: string = '';
-  suscription = new Subscription();
+
   objetives: Array<string> = [];
   physicalCondition: string = '';
   availableDays: string = '';
@@ -31,6 +31,7 @@ export class AgregarRutinaComponent implements OnInit {
 
   loggedInStatus!: Number;
   userLogged!: Usuario;
+  subcripcion!: Subscription;
 
   @ViewChild('routinemessage') routineMessage!: ElementRef;
   @ViewChild('popupLogin') popupLogin!: ElementRef;
@@ -48,13 +49,21 @@ export class AgregarRutinaComponent implements OnInit {
     this.loginService.getisLoggedIn().subscribe((value) => {
       this.loggedInStatus = value;
       if (this.loggedInStatus != -1) {
-        this.jsonService.getUserByID(this.loggedInStatus).subscribe((user) => {
-          this.userLogged = user;
-          console.log(this.userLogged);
-        });
+        this.getUser();
       } else {
         console.log('nada');
       }
+    });
+
+    this.subcripcion = this.jsonService.refresh$.subscribe(() => {
+      this.getUser();
+    });
+  }
+
+  getUser() {
+    this.jsonService.getUserByID(this.loggedInStatus).subscribe((user) => {
+      this.userLogged = user;
+      console.log(this.userLogged);
     });
   }
 
