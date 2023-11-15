@@ -15,7 +15,7 @@ export class VerRecetaComponent implements OnInit {
 
     
   
-    @ViewChild('receta')rutina!:ElementRef;
+    @ViewChild('receta')receta!:ElementRef;
     @ViewChild('popupItem')popupItem!:ElementRef;
     
   

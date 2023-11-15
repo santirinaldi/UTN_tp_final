@@ -6,14 +6,24 @@ import { Component,ViewChild,ElementRef,OnInit, Input, Output, EventEmitter } fr
   styleUrls: ['./e-biblioteca-recetas.component.css']
 })
 export class EBibliotecaRecetasComponent implements OnInit {
+  @Input () nombreReceta: string = '';
+  @Input () descripcionReceta: string = '';
+  @Output () editarDescripcionLista: EventEmitter<string>= new EventEmitter();
   @Output () editarNombreLista: EventEmitter<string>= new EventEmitter();
   ngOnInit(): void {
   }
 
-  nombreReceta: string = '';  
+    
+  
   editarNombreReceta (){
     console.log(this.nombreReceta);
     this.editarNombreLista.emit(this.nombreReceta);
   }
+
+  editarDescripcionReceta (){
+    console.log(this.descripcionReceta);
+    this.editarDescripcionLista.emit(this.descripcionReceta);
+  }
+  
 
 }
