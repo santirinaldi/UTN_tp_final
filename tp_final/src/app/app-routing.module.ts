@@ -5,6 +5,10 @@ import { CierreSesionComponent } from './Components/cierre-sesion/cierre-sesion.
 import { EditarUsuarioComponent } from './Components/editar-usuario/editar-usuario.component';
 import { RegistroUsuarioComponent } from './Components/registro-usuario/registro-usuario.component';
 import { InicioComponent } from './Components/inicio/inicio.component';
+import { BibliotecaRecetasComponent } from './Components/biblioteca-recetas/biblioteca-recetas.component';
+import { BibliotecaRutinasComponent } from './Components/biblioteca-rutinas/biblioteca-rutinas.component';
+import { VerRutinaComponent } from './Components/ver-rutina/ver-rutina.component';
+import { VerRecetaComponent } from './Components/ver-receta/ver-receta.component';
 
 
 
@@ -14,7 +18,14 @@ const routes: Routes = [
   { path: 'cierreSesion', component: CierreSesionComponent },
   { path: 'editarUsuario', component: EditarUsuarioComponent },
   { path: 'registroUsuario', component: RegistroUsuarioComponent },
-  { path: 'inicio', component: InicioComponent }
+  { path: 'inicio', component: InicioComponent },
+  {path: 'bibliotecaRecetas', component: BibliotecaRecetasComponent},
+  {path: 'bibliotecaRutinas', component: BibliotecaRutinasComponent},
+  {path: 'verRutina', component: VerRutinaComponent},
+  {path: 'verReceta', component: VerRecetaComponent},
+  {path: '**', redirectTo: '404'},
+ {path: '', redirectTo: 'inicioSesion', pathMatch: 'full'}
+
 ];
 
 @NgModule({

@@ -1,6 +1,23 @@
 <div>
-    <div class="popup-item" #popupItem></div>
-    <ul #lista>
-        <li><p>dsdasdasd</p></li>
-    </ul>
+  <div class="popup-item" #popupItem></div>
+  <h1>{{ user.bibliotecaRecetas.nombre }}</h1>
+  <h2>{{ user.bibliotecaRecetas.descripcion }}</h2>
+  <button type="button" (click)="modificarMostrarEditar()">Editar</button>
+  <app-e-biblioteca-recetas
+    *ngIf="mostrarEditar"
+    [nombreReceta]="user.bibliotecaRecetas.nombre"
+    [descripcionReceta]="user.bibliotecaRecetas.descripcion"
+    (editarNombreLista)="nombreListaActualizar($event)"
+    (editarDescripcionLista)="descripcionListaActualizar($event)"
+    
+  ></app-e-biblioteca-recetas>
+  <ul #lista>
+    <li
+      *ngFor="let receta of user.bibliotecaRecetas.listaRecetas"
+      (click)="mostrarReceta(receta)"
+    >
+      {{ receta.nombre }}
+    </li>
+  </ul>
+  <app-ver-receta [recetaActual]="recetaActual"></app-ver-receta>
 </div>

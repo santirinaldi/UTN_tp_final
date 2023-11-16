@@ -1,1 +1,23 @@
-<p>biblioteca-rutinas works!</p>
+<div>
+  <div class="popup-item" #popupItem></div>
+  <h1>{{ user.bibliotecaRutinas.nombre }}</h1>
+  <h2>{{ user.bibliotecaRutinas.descripcion }}</h2>
+  <button type="button" (click)="modificarMostrarEditar()">Editar</button>
+  <app-e-biblioteca-rutinas
+    *ngIf="mostrarEditar"
+    [nombreRutina]="user.bibliotecaRutinas.nombre"
+    [descripcionRutina]="user.bibliotecaRutinas.descripcion"
+    (editarNombreLista)="nombreListaActualizar($event)"
+    (editarDescripcionLista)="descripcionListaActualizar($event)"
+    
+  ></app-e-biblioteca-rutinas>
+  <ul #lista>
+    <li
+      *ngFor="let rutina of user.bibliotecaRutinas.listaRutinas"
+      (click)="mostrarRutina(rutina)"
+    >
+      {{ rutina.nombre }}
+    </li>
+  </ul>
+  <app-ver-rutina [rutinaActual]="rutinaActual"></app-ver-rutina>
+</div>

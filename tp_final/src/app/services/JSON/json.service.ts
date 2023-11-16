@@ -34,8 +34,8 @@ export class JSONService {
       email: usuario.email,
       passWord: usuario.passWord,
       baja: usuario.baja,
-      bibliotecaRutina: usuario.bibliotecaRutinas,
-      bibliotecaReceta: usuario.bibliotecaRecetas
+      bibliotecaRutinas: usuario.bibliotecaRutinas,
+      bibliotecaRecetas: usuario.bibliotecaRecetas
     };
 
     return this.http.post(this.apiURL, this.user)
