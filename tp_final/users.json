@@ -8,8 +8,8 @@
       "passWord": "123",
       "baja": 0,
       "bibliotecaRutinas": {
-        "nombre": "saludable",
-        "descripcion": "descripcion",
+        "nombre": "Biblioteca de rutinas",
+        "descripcion": "Rutinas de funcional",
         "listaRutinas": [
           {
             "nombre": "Mi rutina",
@@ -22,8 +22,8 @@
         ]
       },
       "bibliotecaRecetas": {
-        "nombre": "Mi lista",
-        "descripcion": "Mi descripcion",
+        "nombre": "Mi biblioteca de recetas",
+        "descripcion": "Recetas saludables",
         "listaRecetas": [
           {
             "nombre": "Mi receta",
