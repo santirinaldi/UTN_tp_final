@@ -14,7 +14,7 @@ export class BibliotecaRutinasComponent implements OnInit {
   protected rutinaActual?: Lista;
   protected mostrarEditar: boolean=false;
   constructor (private servicioUsuario: UsuarioService, private jsonService: JSONService){}
-
+  filterPost = '';
     
   
     @ViewChild('lista')lista!:ElementRef;

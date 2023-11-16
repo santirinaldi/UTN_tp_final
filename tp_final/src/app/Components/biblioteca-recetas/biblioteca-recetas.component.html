@@ -11,9 +11,19 @@
     (editarDescripcionLista)="descripcionListaActualizar($event)"
     
   ></app-e-biblioteca-recetas>
+  <div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <input type="text" class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]
+          ="filterPost">
+        </div>
+      </div>
+    </div>
+  </div>
   <ul #lista>
     <li
-      *ngFor="let receta of user.bibliotecaRecetas.listaRecetas"
+      *ngFor="let receta of user.bibliotecaRecetas.listaRecetas | filtro:filterPost "
       (click)="mostrarReceta(receta)"
     >
       {{ receta.nombre }}

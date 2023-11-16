@@ -11,9 +11,19 @@
     (editarDescripcionLista)="descripcionListaActualizar($event)"
     
   ></app-e-biblioteca-rutinas>
+  <div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <input type="text" class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]
+          ="filterPost">
+        </div>
+      </div>
+    </div>
+  </div>
   <ul #lista>
     <li
-      *ngFor="let rutina of user.bibliotecaRutinas.listaRutinas"
+      *ngFor="let rutina of user.bibliotecaRutinas.listaRutinas | filtro:filterPost "
       (click)="mostrarRutina(rutina)"
     >
       {{ rutina.nombre }}

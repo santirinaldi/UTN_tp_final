@@ -13,7 +13,9 @@ export class BibliotecaRecetasComponent implements OnInit {
   protected user: Usuario= new Usuario();
   protected recetaActual?: Lista;
   protected mostrarEditar: boolean=false;
+  
   constructor (private servicioUsuario: UsuarioService, private jsonService: JSONService){}
+  filterPost = '';
 
     
   
