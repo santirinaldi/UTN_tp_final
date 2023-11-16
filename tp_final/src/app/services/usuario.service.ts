@@ -13,6 +13,8 @@ export class UsuarioService {
 
   constructor(private jsonService: JSONService, private router: Router) {}
 
+
+  private userList = new Array<Usuario>();
   /*
     //private userList = new Array<Usuario>();
     //private userId = 0;
@@ -79,13 +81,29 @@ export class UsuarioService {
     return user;
   }
 
-  getById(userId: number){
+  /*getById(userId: number){
     let users = this.userList.filter((user: { userId: number; }) => {
       return user.userId == userId;
     });
 
     return (users.length > 0) ? users[0] : null;
+<<<<<<< Updated upstream
   }
+=======
+  }  */
+
+
+  // getUser3(id: number): Observable<Usuario> {
+  //   let user = new Usuario();
+  //   if (this.userList) {
+  //     const aux = this.userList.find((user: Usuario) => user.id === id);
+  //     if (aux !== undefined) {
+  //       user = aux;
+  //     }
+  //   }
+  //   return of(user);
+  // }
+>>>>>>> Stashed changes
 
   checkLoggedIn() {
     const log = localStorage.getItem('userLoggedin');
