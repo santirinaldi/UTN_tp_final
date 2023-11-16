@@ -10,25 +10,14 @@ import { JSONService } from 'src/app/services/JSON/json.service';
   styleUrls: ['./biblioteca-recetas.component.css'],
 })
 export class BibliotecaRecetasComponent implements OnInit {
-<<<<<<< Updated upstream
-  protected user: Usuario= new Usuario();
-  protected recetaActual?: Lista;
-  protected mostrarEditar: boolean=false;
-  
-  constructor (private servicioUsuario: UsuarioService, private jsonService: JSONService){}
+
+
   filterPost = '';
-
-    
-=======
-
-
-
   protected user: Usuario= new Usuario();
   protected recetaActual?: Lista;
   protected mostrarEditar: boolean=false;
 
   constructor (private servicioUsuario: UsuarioService, private jsonService: JSONService){}
->>>>>>> Stashed changes
   
   @ViewChild('lista')lista!:ElementRef;
   @ViewChild('popupItem')popupItem!:ElementRef;
@@ -69,13 +58,6 @@ export class BibliotecaRecetasComponent implements OnInit {
     })
   }
 
-<<<<<<< Updated upstream
-    modificarMostrarEditar (){
-      this.mostrarEditar=!this.mostrarEditar;
-    }
-
-    
-=======
   modificarMostrarEditar (){
     this.mostrarEditar=!this.mostrarEditar;
   }
@@ -133,5 +115,4 @@ export class BibliotecaRecetasComponent implements OnInit {
   // //   })
   // // }
   // }
->>>>>>> Stashed changes
 }
