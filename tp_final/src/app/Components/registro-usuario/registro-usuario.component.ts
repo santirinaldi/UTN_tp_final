@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../Models/usuario';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
@@ -8,10 +8,9 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-registro-usuario',
   templateUrl: './registro-usuario.component.html',
-  styleUrls: ['./registro-usuario.component.css']
+  styleUrls: ['./registro-usuario.component.css'],
 })
 export class RegistroUsuarioComponent implements OnInit {
-
   userList: Usuario[] = [];
   userName: string = '';
   userLastname: string = '';
@@ -19,9 +18,11 @@ export class RegistroUsuarioComponent implements OnInit {
   userPass: string = '';
   suscription = new Subscription();
 
-
-  constructor(private servicioUsuario: UsuarioService, private jsonService: JSONService, private router: Router) {
-  }
+  constructor(
+    private servicioUsuario: UsuarioService,
+    private jsonService: JSONService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getUsers();
@@ -33,7 +34,7 @@ export class RegistroUsuarioComponent implements OnInit {
 
   getUsers() {
     this.jsonService.getAll().subscribe((data: Usuario[]) => {
-      this.userList = data.filter((item:Usuario) => item.baja !== 1);
+      this.userList = data.filter((item: Usuario) => item.baja !== 1);
       console.log(this.userList);
     });
   }
@@ -46,5 +47,4 @@ export class RegistroUsuarioComponent implements OnInit {
     user.passWord = this.userPass;
     this.servicioUsuario.add(user);
   }
-
 }

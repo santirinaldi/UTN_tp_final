@@ -8,7 +8,10 @@ import { Observable, map, of, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class UsuarioService {
-//private userList = new Array<Usuario>();
+  constructor(private jsonService: JSONService, private router: Router) {}
+
+  /*
+    //private userList = new Array<Usuario>();
 //private userId = 0;
  private userList: any;
 
@@ -25,6 +28,7 @@ export class UsuarioService {
       }
     });
   }
+  */
 
   getUser2(id: number): Observable<Usuario> {
     let user = new Usuario();
@@ -53,15 +57,19 @@ export class UsuarioService {
     });
   }
 
-  getUsers() {
+  /*
+    getUsers() {
     return this.userList;
 
   }
 
   getUser(id:number, userList: Array<Usuario>):Usuario {
+  */
+
+  getUser(id: number, userList: Array<Usuario>): Usuario {
     let user = new Usuario();
     const aux = userList.find((user) => user.id === id);
-    if(aux !== undefined) {
+    if (aux !== undefined) {
       user = aux;
     }
     //console.log(user);
@@ -95,7 +103,7 @@ export class UsuarioService {
 
   logOut() {
     localStorage.removeItem('userLoggedin');
-    this.router.navigate(['inicioSesion']);
+    this.router.navigate(['/inicio']);
   }
 
   verifyLogged(): boolean {

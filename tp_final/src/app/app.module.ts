@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router'; 
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -18,6 +18,9 @@ import { BibliotecaRutinasComponent } from './Components/biblioteca-rutinas/bibl
 import { BibliotecaRecetasComponent } from './Components/biblioteca-recetas/biblioteca-recetas.component';
 import { ConsultarRecetaComponent } from './Components/consultar-receta/consultar-receta.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
+
 import { PerfilUsuarioComponent } from './Components/perfil-usuario/perfil-usuario.component';
 import { VerRutinaComponent } from './Components/ver-rutina/ver-rutina.component';
 import { VerRecetaComponent } from './Components/ver-receta/ver-receta.component';
@@ -38,6 +41,7 @@ import { EBibliotecaRutinasComponent } from './Components/e-biblioteca-rutinas/e
     BibliotecaRecetasComponent,
     ConsultarRecetaComponent,
     NavbarComponent,
+    PageNotFoundComponent,
     PerfilUsuarioComponent,
     VerRutinaComponent,
     VerRecetaComponent,
@@ -49,9 +53,10 @@ import { EBibliotecaRutinasComponent } from './Components/e-biblioteca-rutinas/e
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

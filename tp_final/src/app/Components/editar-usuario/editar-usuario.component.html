@@ -2,31 +2,30 @@
     <div #modifyResult></div>
     <div class="form">
         <form target="_blank">
-           
-                <div class="field-wrapper">
-                    <input type="text" name="name" id="userName" [(ngModel)]="userName">
-                    <label for="userName">Nombre</label>
-                </div>
-                <div class="field-wrapper">
-                    <input type="text" name="lastname" id="userLastname" [(ngModel)]="userLastname">
-                    <label for="userLastname">Apellido</label>
-                </div>
-                <div class="field-wrapper">
-                    <input type="email" name="email" id="userEmail" [(ngModel)]="userEmail">
-                    <label for="userEmail">Email</label>
-                </div>
-                <div class="field-wrapper">
-                    <input type="text" name="pass" id="userPass" [(ngModel)]="userPass">
-                    <label for="userPass">Contraseña</label>
-                </div>
-                <button type="button" class="btn primary" (click)="editarUsuario()">Modificar</button>
-        </form>
 
-        <app-cierre-sesion></app-cierre-sesion>
+            <div class="field-wrapper">
+                <input type="text" name="name" id="userName" [(ngModel)]="userName">
+                <label for="userName">Nombre</label>
+            </div>
+            <div class="field-wrapper">
+                <input type="text" name="lastname" id="userLastname" [(ngModel)]="userLastname">
+                <label for="userLastname">Apellido</label>
+            </div>
+            <div class="field-wrapper">
+                <input type="email" name="email" id="userEmail" [(ngModel)]="userEmail">
+                <label for="userEmail">Email</label>
+            </div>
+            <div class="field-wrapper">
+                <input type="text" name="pass" id="userPass" [(ngModel)]="userPass">
+                <label for="userPass">Contraseña</label>
+            </div>
+            <button type="button" class="btn primary" (click)="editarUsuario()">Modificar</button>
+        </form>
         <app-borrar-usuario></app-borrar-usuario>
 
     </div>
-</section> -->
+</section>
+-->
 
 <div class="form">
     <div #modifyResult class="modify-result"></div>
@@ -55,5 +54,3 @@
        
     </form>
 </div>
-
-

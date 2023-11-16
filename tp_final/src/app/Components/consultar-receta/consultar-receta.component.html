@@ -1,12 +1,12 @@
-<section id="user-RecipeForm">
-    <div class="data" #result>
-        
-    </div>
+<section id="get-recipe">
+
+
     <div class="form">
+        <h3>Completa el formulario y encontra la receta que necesitas</h3>
         <form target="_blank">
 
             <div class="field-wrapper">
-                <select name="food" id="food" multiple [(ngModel)]="food">
+                <select name="food" id="food" multiple [(ngModel)]="food" class="s-multiple">
                     <option value="desayuno">Desayuno</option>
                     <option value="almuerzo">Almuerzo</option>
                     <option value="merienda">Merienda</option>
@@ -19,7 +19,7 @@
                 <label for="maxCalories">Calorias maximas</label>
             </div>
             <div class="field-wrapper">
-                <select name="objetives" id="objetives" multiple [(ngModel)]="objetives">
+                <select name="objetives" id="objetives" multiple [(ngModel)]="objetives" class="s-multiple-objetives">
                     <option value="perder peso">Perder peso</option>
                     <option value="ganar musculatura">Ganar musculatura</option>
                     <option value="mejorar resistencia">Mejorar resistencia</option>
@@ -29,7 +29,7 @@
                 <label for="objetives">Objetivos</label>
             </div>
             <div class="field-wrapper">
-                <select name="foodLimits" id="foodLimits" multiple [(ngModel)]="foodLimits">
+                <select name="foodLimits" id="foodLimits" multiple [(ngModel)]="foodLimits" class="s-multiple-limits">
                     <option value="celiaco">Celiaco</option>
                     <option value="lactosa">Intolerante a la lactosa</option>
                     <option value="diabetico">Diabetico</option>
@@ -41,6 +41,10 @@
                 <label for="foodLimits">Limitaciones</label>
             </div>
             <button type="button" class="btn primary" (click)="createMessage()">Consultar</button>
-        </form>        
+        </form>
+    </div>
+
+    <div class="data" #result>
+        <div #queryResult class="query-result"></div>
     </div>
 </section>

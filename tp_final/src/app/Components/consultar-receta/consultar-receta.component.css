@@ -1,126 +1,234 @@
-#user-RecipeForm {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    display: flex;
+#get-recipe {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-#user-RecipeForm>.data {
-    height: 100%;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 2.5rem;
+#get-recipe > .data {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  background: #000;
+  color: #fff;
+  z-index: 1;
 }
 
-
-#user-RecipeForm h3 {
-    font-size: 2.5rem;
-    line-height: 110%;
-    font-style: italic;
-    text-transform: uppercase;
-    margin-top: 0;
-    margin-bottom: 1rem;
+#get-recipe > .data p {
+  padding: 2.5rem;
 }
 
+.data > button {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: 0.83rem;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: 0.35s ease-in-out;
+  background: #000;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+#get-recipe h3 {
+  font-size: 2.5rem;
+  line-height: 110%;
+  font-style: italic;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
 
 .underline {
-    background-image: linear-gradient(to top, rgba(35,189,255,0) 0%, rgba(35,189,255,0) 7%, #406b89 7%, #406b89 30%, rgba(35,189,255,0) 30%);
-    font-family: 'Roboto Condensed', sans-serif;
+  background-image: linear-gradient(
+    to top,
+    rgba(35, 189, 255, 0) 0%,
+    rgba(35, 189, 255, 0) 7%,
+    #406b89 7%,
+    #406b89 30%,
+    rgba(35, 189, 255, 0) 30%
+  );
+  font-family: "Roboto Condensed", sans-serif;
 }
 
-
-#user-RecipeForm>.form {
-    height: 100%;
-    width: 50%;
-    background-color: #000;
+#get-recipe > .form {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #000;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
-
 
 .form form {
-    height: 100%;
-    width: 100%;
-    padding: 0 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 100%;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-
 .form input {
-    font-family: 'Quicksand', sans-serif;
-    width: 100%;
-    padding: 1rem 3rem 1rem 1rem;
-    border: 1px solid #fff;
-    background: transparent;
-    color: #fff;
+  font-family: "Quicksand", sans-serif;
+  width: 100%;
+  padding: 1rem 3rem 1rem 1rem;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
 }
 
 .form input:focus-visible {
-    outline: none;
+  outline: none;
 }
 
 .form input:-webkit-autofill,
 .form input:-webkit-autofill:focus {
-    background: transparent!important;
+  background: transparent !important;
 }
 
-
-.form textarea {
-    font-family: 'Quicksand', sans-serif;
-    width: 100%;
-    padding: 1rem 1rem 1rem 1rem;
-    border: 1px solid #fff;
-    background: transparent;
-    color: #fff;
-    height: 10rem;
+.field-wrapper select {
+  font-family: "Quicksand", sans-serif;
+  width: 100%;
+  padding: 1rem 3rem 1rem 1rem;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
 }
 
+.field-wrapper select.s-multiple {
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+  overflow: hidden;
+}
+
+.field-wrapper select.s-multiple option {
+  color: #fff;
+}
+
+.field-wrapper select option {
+  color: #000;
+}
+
+.field-wrapper select.s-multiple-limits {
+  padding-bottom: 4rem;
+  padding-right: 1rem;
+  overflow: hidden;
+}
+
+.field-wrapper select.s-multiple-limits option {
+  color: #fff;
+}
+
+.field-wrapper select.s-multiple-objetives {
+  padding-bottom: 2rem;
+  padding-right: 1rem;
+  overflow: hidden;
+}
+
+.field-wrapper select.s-multiple-objetives option {
+  color: #fff;
+}
 
 .field-wrapper {
-    position: relative;
-    margin-bottom: 1rem;
+  position: relative;
+  margin-bottom: 1rem;
 }
-
 
 .field-wrapper label {
-    font-family: 'Roboto Condensed', sans-serif;
-    color: #fff;
-    font-size: 0.75rem;
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background-color: #000;
-    border-left: 5px solid #000;
-    border-right: 5px solid #000;
-    transition: .5s ease-in-out;
+  font-family: "Roboto Condensed", sans-serif;
+  color: #fff;
+  font-size: 0.75rem;
+  position: absolute;
+  top: -7px;
+  left: 1rem;
+  background-color: #000;
+  border-left: 5px solid #000;
+  border-right: 5px solid #000;
+  transition: 0.5s ease-in-out;
 }
-
 
 .field-wrapper.float label {
-    top: -7px;
+  top: -7px;
 }
-
 
 .btn {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 700;
-    font-size: 0.83rem;
-    padding: 1rem;
-    border: none;
-    cursor: pointer;
-    transition: .35s ease-in-out;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: 0.83rem;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: 0.35s ease-in-out;
 }
-
 
 .btn.primary:hover {
-    background-color: #406b89;
-    color: #fff;
+  background-color: #406b89;
+  color: #fff;
 }
 
-
 .btn.primary {
-    background-color: #fff;
-    color: #000;
+  background-color: #fff;
+  color: #000;
+}
+
+.data p {
+  font-size: 14px;
+}
+
+.popup-login {
+  display: none;
+}
+
+.popup-login .form {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 1;
+  display: flex;
+}
+
+.login-result {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #406b89;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  transition: 0.35s ease-in-out;
+}
+
+.query-result {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #406b89;
+  visibility: hidden;
+  transition: 0.35s ease-in-out;
+}
+
+.form > h3 {
+  color: #fff;
+  padding: 1rem 1.5rem;
+  margin-bottom: 3rem !important;
+  font-size: 2rem !important;
 }

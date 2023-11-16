@@ -10,6 +10,7 @@ import { Lista } from 'src/app/Models/lista';
 
 import { Usuario } from 'src/app/Models/usuario';
 import { Subscription } from 'rxjs';
+import { LoginService } from 'src/app/services/auth/login.service';
 
 @Component({
   selector: 'app-agregar-rutina',
@@ -18,8 +19,7 @@ import { Subscription } from 'rxjs';
 })
 export class AgregarRutinaComponent implements OnInit {
   private apiResponse: string = '';
-  suscription = new Subscription();
-  userList: Usuario[] = [];
+
   objetives: Array<string> = [];
   physicalCondition: string = '';
   availableDays: string = '';
@@ -28,6 +28,11 @@ export class AgregarRutinaComponent implements OnInit {
   userEmail: string = '';
   userPass: string = '';
   routineText: string = '';
+
+  loggedInStatus!: Number;
+  userLogged!: Usuario;
+  subcripcion!: Subscription;
+
   @ViewChild('routinemessage') routineMessage!: ElementRef;
   @ViewChild('popupLogin') popupLogin!: ElementRef;
   @ViewChild('loginResult') loginResult!: ElementRef;
@@ -36,36 +41,38 @@ export class AgregarRutinaComponent implements OnInit {
   constructor(
     private apiservice: GetAPIService,
     private servicioUsuario: UsuarioService,
-    private jsonService: JSONService
+    private jsonService: JSONService,
+    private loginService: LoginService
   ) {}
 
   ngOnInit(): void {
-    this.getUsers();
+    this.loginService.getisLoggedIn().subscribe((value) => {
+      this.loggedInStatus = value;
+      if (this.loggedInStatus != -1) {
+        this.getUser();
+      } else {
+        console.log('nada');
+      }
+    });
 
-    this.suscription = this.jsonService.refresh$.subscribe(() => {
-      this.getUsers();
+    this.subcripcion = this.jsonService.refresh$.subscribe(() => {
+      this.getUser();
     });
   }
 
-  getUsers() {
-    this.jsonService.getAll().subscribe((data: Usuario[]) => {
-      this.userList = data.filter((item: Usuario) => item.baja !== 1);
-      console.log(this.userList);
+  getUser() {
+    this.jsonService.getUserByID(this.loggedInStatus).subscribe((user) => {
+      this.userLogged = user;
+      console.log(this.userLogged);
     });
   }
 
   createMessage() {
-    let objetivesString = '';
-
-    this.objetives.forEach((item, index) => {
-      if (index != this.objetives.length - 1) {
-        objetivesString = objetivesString + item + ', ';
-      } else {
-        objetivesString = objetivesString + item;
-      }
-    });
-
-    const message = `Quiero una rutina de ejercicio con estas caracteristicas: objetivos: ${objetivesString}. Mi condicion fisica: ${this.physicalCondition}. Dias disponibles por semana: ${this.availableDays}. Limitaciones ${this.equipment}. ${this.preferences}`;
+    const message = `Quiero una rutina de ejercicio con estas caracteristicas: objetivos: ${this.objetives.toString()}. Mi condicion fisica: ${
+      this.physicalCondition
+    }. Dias disponibles por semana: ${this.availableDays}. Limitaciones ${
+      this.equipment
+    }. ${this.preferences}`;
     //const apiRes = this.pedidoAPI(message);
 
     //console.log("APIRES: ", apiRes);
@@ -104,7 +111,7 @@ export class AgregarRutinaComponent implements OnInit {
       lsItem = '';
     }
 
-    if (localStorage.getItem('userLoggedin')) {
+    if (this.loggedInStatus != -1) {
       //estilos y texto btn activo
       btn.style.backgroundColor = '#000';
       btn.style.color = '#fff';
@@ -128,11 +135,7 @@ export class AgregarRutinaComponent implements OnInit {
   }
 
   addRoutineOnLibrary(message: string, id: string) {
-    let ubid = this.servicioUsuario.getUser(Number(id), this.userList);
-
-    console.log('uL: ', this.userList);
-
-    if (ubid) {
+    if (this.userLogged) {
       // Santiago
       // console.log("ubid: ", ubid);
       // ubid.bibliotecaRutinas.listaRutinas.push({nombre: "Mi rutina", texto: message});
@@ -140,11 +143,9 @@ export class AgregarRutinaComponent implements OnInit {
 
       let lista = new Lista();
       lista.nombre = 'Mi rutina';
-      lista.texto = this.apiResponse;
-      ubid.bibliotecaRutinas.listaRutinas.push(lista);
-      this.jsonService.putUser(ubid).subscribe((response) => {
-        console.log(response);
-      });
+      lista.texto = message;
+      this.userLogged.bibliotecaRutinas.listaRutinas.push(lista);
+      this.jsonService.putUser(this.userLogged).subscribe((response) => {});
 
       let qrh4 = document.createElement('h4');
       qrh4.style.color = '#fff';
@@ -184,59 +185,59 @@ export class AgregarRutinaComponent implements OnInit {
     this.popupLogin.nativeElement.style.display = 'block';
   }
 
-  login() {
-    //let userList = this.jsonService.getAll();
-    let userID = -1;
-    let lrMsg = document.createElement('h4');
+  // login() {
+  //   //let userList = this.jsonService.getAll();
+  //   let userID = -1;
+  //   let lrMsg = document.createElement('h4');
 
-    this.userList.forEach((user) => {
-      console.log('US: ', this.userList);
-      if (user.email == this.userEmail && user.passWord == this.userPass) {
-        console.log('encontro');
-        userID = user.id;
-      }
-    });
+  //   this.userList.forEach((user) => {
+  //     console.log('US: ', this.userList);
+  //     if (user.email == this.userEmail && user.passWord == this.userPass) {
+  //       console.log('encontro');
+  //       userID = user.id;
+  //     }
+  //   });
 
-    if (userID !== -1) {
-      localStorage.setItem('userLoggedin', `${userID}`);
+  //   if (userID !== -1) {
+  //     localStorage.setItem('userLoggedin', `${userID}`);
 
-      let button: HTMLElement | null = document.querySelector('.data>button');
-      let pRoutine: HTMLElement | null = document.querySelector('.data>p');
-      let routine = '';
+  //     let button: HTMLElement | null = document.querySelector('.data>button');
+  //     let pRoutine: HTMLElement | null = document.querySelector('.data>p');
+  //     let routine = '';
 
-      if (pRoutine != null) {
-        routine = pRoutine.innerHTML;
-      }
+  //     if (pRoutine != null) {
+  //       routine = pRoutine.innerHTML;
+  //     }
 
-      if (button != null) {
-        button.innerHTML = 'Guardar rutina';
-        button.style.backgroundColor = '#000';
-        button.style.color = '#fff';
+  //     if (button != null) {
+  //       button.innerHTML = 'Guardar rutina';
+  //       button.style.backgroundColor = '#000';
+  //       button.style.color = '#fff';
 
-        button.addEventListener('click', () => {
-          this.addRoutineOnLibrary(routine, `${userID}`);
-        });
-      }
+  //       button.addEventListener('click', () => {
+  //         this.addRoutineOnLibrary(routine, `${userID}`);
+  //       });
+  //     }
 
-      lrMsg.innerHTML = 'Inicio de sesion exitoso!';
-      lrMsg.style.color = '#fff';
-      this.loginResult.nativeElement.appendChild(lrMsg);
-      this.loginResult.nativeElement.style.visibility = 'visible';
-      setTimeout(() => {
-        this.popupLogin.nativeElement.style.display = 'none';
-        this.loginResult.nativeElement.removeChild(lrMsg);
-      }, 2000);
-    } else {
-      lrMsg.innerHTML = 'Error! Email o password incorrectos.';
-      lrMsg.style.color = '#fff';
-      this.loginResult.nativeElement.appendChild(lrMsg);
-      this.loginResult.nativeElement.style.visibility = 'visible';
-      setTimeout(() => {
-        this.loginResult.nativeElement.style.visibility = 'hidden';
-        this.loginResult.nativeElement.removeChild(lrMsg);
-      }, 2000);
-    }
-  }
+  //     lrMsg.innerHTML = 'Inicio de sesion exitoso!';
+  //     lrMsg.style.color = '#fff';
+  //     this.loginResult.nativeElement.appendChild(lrMsg);
+  //     this.loginResult.nativeElement.style.visibility = 'visible';
+  //     setTimeout(() => {
+  //       this.popupLogin.nativeElement.style.display = 'none';
+  //       this.loginResult.nativeElement.removeChild(lrMsg);
+  //     }, 2000);
+  //   } else {
+  //     lrMsg.innerHTML = 'Error! Email o password incorrectos.';
+  //     lrMsg.style.color = '#fff';
+  //     this.loginResult.nativeElement.appendChild(lrMsg);
+  //     this.loginResult.nativeElement.style.visibility = 'visible';
+  //     setTimeout(() => {
+  //       this.loginResult.nativeElement.style.visibility = 'hidden';
+  //       this.loginResult.nativeElement.removeChild(lrMsg);
+  //     }, 2000);
+  //   }
+  // }
 
   pedidoAPI(message: string) {
     const apiRes = this.apiservice.apiRequest(message);
