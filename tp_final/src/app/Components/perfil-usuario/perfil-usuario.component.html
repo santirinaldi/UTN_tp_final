@@ -1,10 +1,11 @@
+<app-navbar></app-navbar>
 <section id="user-profile" *ngIf="userLogged">
     <app-editar-usuario style="width: 100%"></app-editar-usuario>
     <div class="user-libraries">
         <h3>Mis bibliotecas</h3>
         <div>
-            <a href="" class="btn primary" *ngIf="userRoutines">Rutinas</a>
-            <a href="" class="btn primary" *ngIf="userRecipes">Recetas</a>
+            <a routerLink="/bibliotecaRutinas" class="btn primary" *ngIf="userRoutines">Rutinas</a>
+            <a routerLink="/bibliotecaRecetas" class="btn primary" *ngIf="userRecipes">Recetas</a>
             <a class="btn disabled" *ngIf="!userRoutines">No posee rutinas en su biblioteca</a>
             <a class="btn disabled" *ngIf="!userRecipes">No posee recetas en su biblioteca</a>
         </div>

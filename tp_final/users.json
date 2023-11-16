@@ -5,8 +5,8 @@
       "name": "Agus",
       "lastName": "Appollonio",
       "email": "appollonioagustin@gmail.com",
-      "passWord": "123",
-      "baja": 0,
+      "passWord": "12345",
+      "baja": 1,
       "bibliotecaRutinas": {
         "nombre": "Biblioteca de rutinas",
         "descripcion": "Rutinas de funcional",
@@ -22,8 +22,8 @@
         ]
       },
       "bibliotecaRecetas": {
-        "nombre": "Mi biblioteca de recetas",
-        "descripcion": "Recetas saludables",
+        "nombre": "recetas",
+        "descripcion": "saludables",
         "listaRecetas": [
           {
             "nombre": "Mi receta",
@@ -38,7 +38,7 @@
       "lastName": "fructuoso",
       "email": "jose@gmail.com",
       "passWord": "1234",
-      "baja": 0,
+      "baja": 1,
       "bibliotecaRutinas": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
@@ -46,6 +46,10 @@
           {
             "nombre": "Mi rutina",
             "texto": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
+          },
+          {
+            "nombre": "Mi rutina",
+            "texto": "Rutina de ejemplo 4"
           }
         ]
       },

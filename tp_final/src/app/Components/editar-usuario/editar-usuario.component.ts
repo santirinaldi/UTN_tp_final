@@ -16,11 +16,6 @@ export class EditarUsuarioComponent implements OnInit {
   userEmail: string = '';
   userPass: string = '';
 
-
-  /*userLogged!: Usuario;
-
-  @ViewChild('modifyResult')modifyResult!:ElementRef;*/
-
   loggedInStatus!: Number;
   userLogged!: Usuario;
   subcripcion!: Subscription;
@@ -48,64 +43,17 @@ export class EditarUsuarioComponent implements OnInit {
     });
   }
 
-  /*getUsers() {
-    this.jsonService.getAll().subscribe((data: Usuario[]) => {
-      this.userList = data.filter((item:Usuario) => item.baja !== 1);
-      const log = this.servicioUsuario.checkLoggedIn();
-      if(log !== null) {
-        this.userLogged = this.servicioUsuario.getUser(Number(log), this.userList);
-        this.userName = this.userLogged.name;
-        this.userLastname = this.userLogged.lastName;
-        this.userEmail = this.userLogged.email;
-        this.userPass = this.userLogged.passWord;
-      }*/
-
   getUser() {
     this.jsonService.getUserByID(this.loggedInStatus).subscribe((user) => {
       this.userLogged = user;
-      console.log(this.userLogged);
+      this.userName = this.userLogged.name;
+      this.userLastname = this.userLogged.lastName;
+      this.userEmail = this.userLogged.email;
+      this.userPass = this.userLogged.passWord;
     });
   }
 
   editarUsuario() {
-
-    /*
-      const log = this.servicioUsuario.checkLoggedIn();
-    if(log !== null) {
-
-      const user = this.servicioUsuario.getUser(Number(log), this.userList);
-      if(user) {
-        if(this.userName.length > 0 ) {
-          user.name=this.userName;
-        }
-        if(this.userLastname.length > 0 ) {
-          user.lastName=this.userLastname;
-        }
-        if(this.userEmail.length > 0 ) {
-          user.email=this.userEmail;
-        }
-        if(this.userPass.length > 0 ) {
-          user.passWord=this.userPass;
-        }
-        
-        this.jsonService.putUser(user).subscribe((response) => {
-          const h5 = document.createElement("h5");
-          if(response) {
-            h5.textContent = "Cambios aplicados!";
-          }else{
-            h5.textContent = "Error!";
-          }
-          this.modifyResult.nativeElement.appendChild(h5);
-          this.modifyResult.nativeElement.classList.add("show");
-          setTimeout(() => {
-            this.modifyResult.nativeElement.classList.remove("show");
-            this.modifyResult.nativeElement.removeChild(h5);
-          }, 2000);
-
-        });
-    */
-
-
 
     if (this.loggedInStatus != -1) {
       if (this.userName.length > 0) {
@@ -122,14 +70,19 @@ export class EditarUsuarioComponent implements OnInit {
       }
 
       this.jsonService.putUser(this.userLogged).subscribe((response) => {
-        //que pase algo o no
+        const h5 = document.createElement("h5");
+          if(response) {
+            h5.textContent = "Cambios aplicados!";
+          }else{
+            h5.textContent = "Error!";
+          }
+          this.modifyResult.nativeElement.appendChild(h5);
+          this.modifyResult.nativeElement.classList.add("show");
+          setTimeout(() => {
+            this.modifyResult.nativeElement.classList.remove("show");
+            this.modifyResult.nativeElement.removeChild(h5);
+          }, 2000);
       });
-      console.log('Actualizando..');
-      //this.router.navigate(['inicio']);
-      const h5 = document.createElement('h5');
-      h5.textContent = 'editado exitosamente!';
-      //const text = document.createTextNode("Logeado exitosamente!");
-      this.modifyResult.nativeElement.appendChild(h5);
     }
   }
 }

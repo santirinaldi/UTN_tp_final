@@ -14,8 +14,9 @@ export class UsuarioService {
   constructor(private jsonService: JSONService, private router: Router) {}
 
 
-  private userList = new Array<Usuario>();
+  
   /*
+  private userList = new Array<Usuario>();
     //private userList = new Array<Usuario>();
     //private userId = 0;
  
@@ -87,9 +88,6 @@ export class UsuarioService {
     });
 
     return (users.length > 0) ? users[0] : null;
-<<<<<<< Updated upstream
-  }
-=======
   }  */
 
 
@@ -103,20 +101,19 @@ export class UsuarioService {
   //   }
   //   return of(user);
   // }
->>>>>>> Stashed changes
 
   checkLoggedIn() {
-    const log = localStorage.getItem('userLoggedin');
+    const log = localStorage.getItem('loggedIn');
     return log;
   }
 
   logOut() {
-    localStorage.removeItem('userLoggedin');
+    localStorage.removeItem('loggedIn');
     this.router.navigate(['/inicio']);
   }
 
   verifyLogged(): boolean {
-    const token = localStorage.getItem('userLoggegin');
+    const token = localStorage.getItem('loggedIn');
     return token ? true : false;
   }
 }
