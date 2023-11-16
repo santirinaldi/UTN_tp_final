@@ -1,5 +1,6 @@
 <div>
   <div class="popup-item" #popupItem></div>
+  <div class="encabezado">
   <h1>{{ user.bibliotecaRutinas.nombre }}</h1>
   <h2>{{ user.bibliotecaRutinas.descripcion }}</h2>
   <button type="button" (click)="modificarMostrarEditar()">Editar</button>
@@ -9,11 +10,23 @@
     [descripcionRutina]="user.bibliotecaRutinas.descripcion"
     (editarNombreLista)="nombreListaActualizar($event)"
     (editarDescripcionLista)="descripcionListaActualizar($event)"
-    
+   
+  
   ></app-e-biblioteca-rutinas>
+  </div>
+  <div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <input type="text" class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]
+          ="filterPost">
+        </div>
+      </div>
+    </div>
+  </div>
   <ul #lista>
     <li
-      *ngFor="let rutina of user.bibliotecaRutinas.listaRutinas"
+      *ngFor="let rutina of user.bibliotecaRutinas.listaRutinas | filtro:filterPost "
       (click)="mostrarRutina(rutina)"
     >
       {{ rutina.nombre }}

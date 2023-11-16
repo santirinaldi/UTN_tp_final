@@ -8,16 +8,44 @@
       "passWord": "123",
       "baja": 0,
       "bibliotecaRutinas": {
-        "nombre": "saludable",
-        "descripcion": "descripcion",
+        "nombre": "Biblioteca de rutinas",
+        "descripcion": "Rutinas de funcional",
         "listaRutinas": [
           {
             "nombre": "Mi rutina",
-            "texto": "Rutina de ejemplo 4"
+            "texto": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
           },
           {
+            "nombre": "Mi rutina 2",
+            "texto": "Mi rutina 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
+          }
+        ]
+      },
+      "bibliotecaRecetas": {
+        "nombre": "Mi biblioteca de recetas",
+        "descripcion": "Recetas saludables",
+        "listaRecetas": [
+          {
+            "nombre": "Mi receta",
+            "texto": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "name": "josefina",
+      "lastName": "fructuoso",
+      "email": "jose@gmail.com",
+      "passWord": "1234",
+      "baja": 0,
+      "bibliotecaRutinas": {
+        "nombre": "Mi lista",
+        "descripcion": "Mi descripcion",
+        "listaRutinas": [
+          {
             "nombre": "Mi rutina",
-            "texto": "Rutina de ejemplo 4"
+            "texto": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
           }
         ]
       },
@@ -52,34 +80,6 @@
             "texto": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
           }
         ]
-      },
-      "bibliotecaRecetas": {
-        "nombre": "Mi lista",
-        "descripcion": "Mi descripcion",
-        "listaRecetas": [
-          {
-            "nombre": "Mi receta",
-            "texto": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
-          }
-        ]
-      }
-    },
-    {
-      "id": 3,
-      "name": "test3",
-      "lastName": "test3",
-      "email": "test3@gmail.com",
-      "passWord": "123456",
-      "baja": 1,
-      "bibliotecaRutinas": {
-        "nombre": "Mi lista",
-        "descripcion": "Mi descripcion",
-        "listaRutinas": []
-      },
-      "bibliotecaRecetas": {
-        "nombre": "Mi lista",
-        "descripcion": "Mi descripcion",
-        "listaRecetas": []
       }
     }
   ]

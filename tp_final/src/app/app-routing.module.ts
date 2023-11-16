@@ -5,13 +5,12 @@ import { CierreSesionComponent } from './Components/cierre-sesion/cierre-sesion.
 import { EditarUsuarioComponent } from './Components/editar-usuario/editar-usuario.component';
 import { RegistroUsuarioComponent } from './Components/registro-usuario/registro-usuario.component';
 import { InicioComponent } from './Components/inicio/inicio.component';
-
-import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
-
 import { BibliotecaRecetasComponent } from './Components/biblioteca-recetas/biblioteca-recetas.component';
 import { BibliotecaRutinasComponent } from './Components/biblioteca-rutinas/biblioteca-rutinas.component';
 import { VerRutinaComponent } from './Components/ver-rutina/ver-rutina.component';
 import { VerRecetaComponent } from './Components/ver-receta/ver-receta.component';
+
+import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 
 
 
@@ -35,8 +34,14 @@ const routes: Routes = [
   { path: 'cierre-sesion', component: CierreSesionComponent },
   { path: 'editar-usuario', component: EditarUsuarioComponent },
   { path: 'registro-usuario', component: RegistroUsuarioComponent },
-  { path: '', component: InicioComponent },
-  { path: '**', component: PageNotFoundComponent },
+  //{ path: '', component: InicioComponent },
+  //{ path: '**', component: PageNotFoundComponent },
+  {path: 'bibliotecaRecetas', component: BibliotecaRecetasComponent},
+  {path: 'bibliotecaRutinas', component: BibliotecaRutinasComponent},
+  {path: 'verRutina', component: VerRutinaComponent},
+  {path: 'verReceta', component: VerRecetaComponent},
+  {path: '**', redirectTo: '404'},
+  {path: '', redirectTo: 'inicioSesion', pathMatch: 'full'}
 ];
 
 @NgModule({

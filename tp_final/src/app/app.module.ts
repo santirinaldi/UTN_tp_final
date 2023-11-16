@@ -26,6 +26,7 @@ import { VerRutinaComponent } from './Components/ver-rutina/ver-rutina.component
 import { VerRecetaComponent } from './Components/ver-receta/ver-receta.component';
 import { EBibliotecaRecetasComponent } from './Components/e-biblioteca-recetas/e-biblioteca-recetas.component';
 import { EBibliotecaRutinasComponent } from './Components/e-biblioteca-rutinas/e-biblioteca-rutinas.component';
+import { FiltroPipe } from './pipes/filtro.pipe';
 
 @NgModule({
   declarations: [
@@ -41,12 +42,12 @@ import { EBibliotecaRutinasComponent } from './Components/e-biblioteca-rutinas/e
     BibliotecaRecetasComponent,
     ConsultarRecetaComponent,
     NavbarComponent,
-    PageNotFoundComponent,
     PerfilUsuarioComponent,
     VerRutinaComponent,
     VerRecetaComponent,
     EBibliotecaRecetasComponent,
-    EBibliotecaRutinasComponent
+    EBibliotecaRutinasComponent,
+    FiltroPipe
   ],
   imports: [
     BrowserModule,
