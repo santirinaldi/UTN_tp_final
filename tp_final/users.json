@@ -40,7 +40,7 @@
       "passWord": "1234",
       "baja": 0,
       "bibliotecaRutinas": {
-        "nombre": "Mi lista",
+        "nombre": "Mi lista de rutinas",
         "descripcion": "Mi descripcion",
         "listaRutinas": [
           {
@@ -71,5 +71,6 @@
           }
         ]
       }
-    }]}
-  
+    }
+  ]
+}

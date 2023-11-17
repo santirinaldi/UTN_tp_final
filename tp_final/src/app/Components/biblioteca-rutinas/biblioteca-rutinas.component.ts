@@ -84,11 +84,5 @@ export class BibliotecaRutinasComponent implements OnInit {
     this.mostrarEditar = !this.mostrarEditar;
   }
 
-  eliminarRutina(rutina: Lista) {
-    var index = this.userLogged.bibliotecaRutinas.listaRutinas.indexOf(rutina);
-    if (index !== -1) {
-      this.userLogged.bibliotecaRutinas.listaRutinas.splice(index, 1);
-      this.jsonService.putUser(this.userLogged);
-    }
-  }
+
 }

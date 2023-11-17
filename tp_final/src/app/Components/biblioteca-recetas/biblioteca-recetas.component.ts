@@ -48,7 +48,7 @@ export class BibliotecaRecetasComponent implements OnInit {
 
   getUser() {
     this.jsonService.getUserByID(this.loggedInStatus).subscribe((user) => {
-      this.user = user;
+      this.userLogged = user;
     });
   }
 
@@ -59,24 +59,24 @@ export class BibliotecaRecetasComponent implements OnInit {
 
   nombreListaActualizar(nombre: string) {
     const usuarioActualizado: Usuario = {
-      ...this.user,
+      ...this.userLogged,
       bibliotecaRecetas: { ...this.user.bibliotecaRecetas, nombre: nombre },
     };
     this.jsonService.putUser(usuarioActualizado).subscribe((response) => {
-      this.user = response;
+      this.userLogged = response;
     });
   }
 
   descripcionListaActualizar(descripcion: string) {
     const usuarioActualizado: Usuario = {
-      ...this.user,
+      ...this.userLogged,
       bibliotecaRecetas: {
-        ...this.user.bibliotecaRecetas,
+        ...this.userLogged.bibliotecaRecetas,
         descripcion: descripcion,
       },
     };
     this.jsonService.putUser(usuarioActualizado).subscribe((response) => {
-      this.user = response;
+      this.userLogged = response;
     });
   }
 
@@ -84,13 +84,6 @@ export class BibliotecaRecetasComponent implements OnInit {
       this.mostrarEditar=!this.mostrarEditar;
     }
 
-    eliminarReceta(receta: Lista) {
-      var index = this.userLogged.bibliotecaRecetas.listaRecetas.indexOf(receta);
-      if (index !== -1) {
-        this.userLogged.bibliotecaRecetas.listaRecetas.splice(index, 1);
-        this.jsonService.putUser(this.userLogged);
-      }
-    }
 
     
 }
