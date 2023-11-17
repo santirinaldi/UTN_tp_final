@@ -71,12 +71,17 @@ export class EditarUsuarioComponent implements OnInit {
   getUser() {
     this.jsonService.getUserByID(this.loggedInStatus).subscribe((user) => {
       this.userLogged = user;
+      this.name.setValue(this.userLogged.name);
+      this.lastName.setValue(this.userLogged.lastName);
+      this.email.setValue(this.userLogged.email);
+      this.passWord.setValue(this.userLogged.passWord);
       //this.editForm.value.name = this.userLogged.name; 
     });
   }
 
   editarUsuario() {
-    let user!: Usuario;
+    let user: Usuario = this.userLogged;
+    console.log(this.editForm.value)
     if (this.loggedInStatus != -1) {
       if(this.editForm.status == 'VALID') {
         if (this.editForm.value.name) {
@@ -91,7 +96,7 @@ export class EditarUsuarioComponent implements OnInit {
         if (this.editForm.value.passWord) {
           user.passWord = this.editForm.value.passWord;
         }
-        this.jsonService.putUser(this.userLogged).subscribe((response) => {
+        this.jsonService.putUser(user).subscribe((response) => {
           const h5 = document.createElement('h5');
           if (response) {
             h5.textContent = 'Cambios aplicados!';
