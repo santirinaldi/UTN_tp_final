@@ -29,24 +29,42 @@
 
 <div class="form">
     <div #modifyResult class="modify-result"></div>
-    <h3>Hola {{userName}} {{userLastname}}!</h3>
+    <h3 *ngIf = "userLogged">Hola {{userLogged.name}} {{userLogged.lastName}}!</h3>
     <p>A continuacion tus datos, y podras editarlos si lo deseas:</p>
-    <form target="_blank">
+    <form target="_blank" [formGroup] = "editForm">
         <div class="field-wrapper">
-            <input type="text" name="name" id="name" [(ngModel)]="userName">
-            <label for="name">Nombre</label>
+            <input type="text" name="name" id="userName" formControlName = "name" [(ngModel)]="userLogged.name" >
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                <div *ngIf="name.errors?.['required']">El nombre es obligatorio.</div>
+            </div>
+            <label for="userName">Nombre</label>
         </div>
         <div class="field-wrapper">
-            <input type="text" name="lastname" id="lastname" [(ngModel)]="userLastname">
-            <label for="userLastame">Apellido</label>
+            <input type="text" name="lastname" id="userLastname" formControlName = "lastName" [(ngModel)]="userLogged.lastName">
+            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
+                <div *ngIf="lastName.errors?.['required']">El nombre es obligatorio.</div>
+            </div>
+            <label for="userLastname">Apellido</label>
         </div>
         <div class="field-wrapper">
-            <input type="email" name="email" id="email" [(ngModel)]="userEmail" readonly>
+            <input type="email" name="email" id="userEmail" formControlName = "email" [(ngModel)]="userLogged.email">
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                <div *ngIf="email.errors?.['required']">El email es obligatorio.</div>
+                <div *ngIf="email.errors?.['email']">
+                    El email ingresado es invalido.
+                </div>
+            </div>
             <label for="userEmail">Email</label>
         </div>
         <div class="field-wrapper">
-            <input type="password" name="password" id="password" [(ngModel)]="userPass">
-            <label for="userPassword">Password</label>
+            <input type="password" name="pass" id="userPass" formControlName = "passWord" [(ngModel)]="userLogged.passWord">
+            <div *ngIf="passWord.invalid && (passWord.dirty || passWord.touched)" class="alert alert-danger">
+                <div *ngIf="passWord.errors?.['required']">La contraseña es obligatoria.</div>
+                <div *ngIf="passWord.errors?.['minlength']">
+                    La contraseña tiene que tener minimo {{minLength}} caracteres
+                </div>
+            </div>
+            <label for="userPass">Contraseña</label>
         </div>
         <p></p>
 
