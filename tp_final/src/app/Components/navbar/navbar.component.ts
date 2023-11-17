@@ -20,6 +20,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
   loggedInStatus!: Number;
   userLogged!: Usuario;
   // public isLogged: string | null = '';
+export class NavbarComponent implements OnInit, OnDestroy {
+  
+  loggedInStatus!: Number;
+  userLogged!: Usuario;
+  // public isLogged: string | null = '';
   public isOpen: boolean = false;
   @ViewChild('menuBtn') menuBtn!: ElementRef;
   @ViewChild('userBtn') userBtn!: ElementRef;

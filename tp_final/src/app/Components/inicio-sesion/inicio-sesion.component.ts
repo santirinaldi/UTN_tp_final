@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+//import { Router } from '@angular/router';
+import { Route, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Usuario } from 'src/app/Models/usuario';
 import { JSONService } from 'src/app/services/JSON/json.service';
@@ -7,6 +8,8 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { LoginService } from 'src/app/services/auth/login.service';
 import { LoginRequest } from 'src/app/services/auth/loginRequest';
+
+//import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -24,6 +27,8 @@ export class InicioSesionComponent implements OnInit {
 
   suscription = new Subscription();
   @ViewChild('loginresult') loginResult!: ElementRef;
+
+  //constructor(private servicioUsuario: UsuarioService, private jsonService: JSONService, private router: Router) {}
 
   constructor(
     private servicioUsuario: UsuarioService,
@@ -48,6 +53,17 @@ export class InicioSesionComponent implements OnInit {
     return this.loginForm.controls.passWord;
   }
 
+  /*let userID = this.buscarUsuario(user);
+    console.log(userID);
+    if (userID !== -1) {
+      localStorage.setItem('userLoggedin', `${userID}`);
+      const h5 = document.createElement('h5');
+      h5.textContent = 'Logeado exitosamente!';
+      this.router.navigate(['inicio']);
+      //const text = document.createTextNode("Logeado exitosamente!");
+      this.loginResult.nativeElement.appendChild(h5);
+      //this.refresh();*/
+
   // getUsers() {
   //   this.jsonService.getAll().subscribe((data: Usuario[]) => {
   //     this.userList = data.filter((item: Usuario) => item.baja !== 1);
@@ -67,7 +83,7 @@ export class InicioSesionComponent implements OnInit {
               setTimeout(() => {
                 this.router.navigateByUrl('/inicio');
               }, 1000);
-              /// Mostrar mensaje logueo existoso
+
               this.loginForm.reset();
             }
           },

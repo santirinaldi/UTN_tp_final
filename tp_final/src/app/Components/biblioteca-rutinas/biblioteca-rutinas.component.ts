@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { LoginService } from 'src/app/services/auth/login.service';
-import { JSONService } from 'src/app/services/JSON/json.service';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from 'src/app/Models/usuario';
+import { Lista } from 'src/app/Models/lista';
+import { JSONService } from 'src/app/services/JSON/json.service';
+
+import { LoginService } from 'src/app/services/auth/login.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -11,15 +13,23 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./biblioteca-rutinas.component.css'],
 })
 export class BibliotecaRutinasComponent implements OnInit {
+  protected user: Usuario = new Usuario();
+  protected rutinaActual?: Lista;
+  protected mostrarEditar: boolean = false;
+
   loggedInStatus!: Number;
-  userLogged!: Usuario;
   subcripcion!: Subscription;
+  userLogged!: Usuario;
 
   constructor(
     private servicioUsuario: UsuarioService,
-    private loginService: LoginService,
-    private jsonService: JSONService
+    private jsonService: JSONService,
+    private loginService: LoginService
   ) {}
+  filterPost = '';
+
+  @ViewChild('lista') lista!: ElementRef;
+  @ViewChild('popupItem') popupItem!: ElementRef;
 
   ngOnInit(): void {
     this.loginService.getisLoggedIn().subscribe((value) => {
@@ -38,8 +48,39 @@ export class BibliotecaRutinasComponent implements OnInit {
 
   getUser() {
     this.jsonService.getUserByID(this.loggedInStatus).subscribe((user) => {
-      this.userLogged = user;
-      console.log(this.userLogged);
+      this.user = user;
     });
+  }
+
+  mostrarRutina(rutina: Lista) {
+    console.log(rutina);
+    this.rutinaActual = rutina;
+  }
+
+  nombreListaActualizar(nombre: string) {
+    const usuarioActualizado: Usuario = {
+      ...this.user,
+      bibliotecaRutinas: { ...this.user.bibliotecaRutinas, nombre: nombre },
+    };
+    this.jsonService.putUser(usuarioActualizado).subscribe((response) => {
+      this.user = response;
+    });
+  }
+
+  descripcionListaActualizar(descripcion: string) {
+    const usuarioActualizado: Usuario = {
+      ...this.user,
+      bibliotecaRutinas: {
+        ...this.user.bibliotecaRutinas,
+        descripcion: descripcion,
+      },
+    };
+    this.jsonService.putUser(usuarioActualizado).subscribe((response) => {
+      this.user = response;
+    });
+  }
+
+  modificarMostrarEditar() {
+    this.mostrarEditar = !this.mostrarEditar;
   }
 }

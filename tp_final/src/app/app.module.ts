@@ -20,7 +20,13 @@ import { ConsultarRecetaComponent } from './Components/consultar-receta/consulta
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
+
 import { PerfilUsuarioComponent } from './Components/perfil-usuario/perfil-usuario.component';
+import { VerRutinaComponent } from './Components/ver-rutina/ver-rutina.component';
+import { VerRecetaComponent } from './Components/ver-receta/ver-receta.component';
+import { EBibliotecaRecetasComponent } from './Components/e-biblioteca-recetas/e-biblioteca-recetas.component';
+import { EBibliotecaRutinasComponent } from './Components/e-biblioteca-rutinas/e-biblioteca-rutinas.component';
+import { FiltroPipe } from './pipes/filtro.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +43,11 @@ import { PerfilUsuarioComponent } from './Components/perfil-usuario/perfil-usuar
     ConsultarRecetaComponent,
     NavbarComponent,
     PerfilUsuarioComponent,
+    VerRutinaComponent,
+    VerRecetaComponent,
+    EBibliotecaRecetasComponent,
+    EBibliotecaRutinasComponent,
+    FiltroPipe,
   ],
   imports: [
     BrowserModule,

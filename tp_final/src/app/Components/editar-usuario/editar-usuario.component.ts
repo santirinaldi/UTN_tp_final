@@ -46,7 +46,10 @@ export class EditarUsuarioComponent implements OnInit {
   getUser() {
     this.jsonService.getUserByID(this.loggedInStatus).subscribe((user) => {
       this.userLogged = user;
-      console.log(this.userLogged);
+      this.userName = this.userLogged.name;
+      this.userLastname = this.userLogged.lastName;
+      this.userEmail = this.userLogged.email;
+      this.userPass = this.userLogged.passWord;
     });
   }
 
