@@ -40,22 +40,22 @@
         </ul>
         <ul class="user-menu">
             <li *ngIf="isLogged">
-                <a routerLink="/editarUsuario">Mi perfil</a>
+                <a routerLink="perfil-usuario">Mi perfil</a>
             </li>
             <li *ngIf="isLogged">
-                <a routerLink="/bibliotecaRutinas">Mis rutinas</a>
+                <a routerLink="bibliotecaRutinas">Mis rutinas</a>
             </li>
             <li *ngIf="isLogged">
-                <a routerLink="/bibliotecaRecetas">Mis recetas</a>
+                <a routerLink="bibliotecaRecetas">Mis recetas</a>
             </li>
             <li *ngIf="isLogged">
-                <a routerLink="/inicioSesion">Cerrar sesion</a>
+                <a routerLink="inicio">Cerrar sesion</a>
             </li>
             <li *ngIf="!isLogged">
-                <a routerLink="/inicioSesion">Iniciar sesion</a>
+                <a routerLink="inicio-sesion">Iniciar sesion</a>
             </li>
             <li *ngIf="!isLogged">
-                <a routerLink="/registroUsuario">Registrarme</a>
+                <a routerLink="registro-usuario">Registrarme</a>
             </li>
         </ul>
     </div>

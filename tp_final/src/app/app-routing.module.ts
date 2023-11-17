@@ -11,22 +11,7 @@ import { VerRutinaComponent } from './Components/ver-rutina/ver-rutina.component
 import { VerRecetaComponent } from './Components/ver-receta/ver-receta.component';
 
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
-
-
-
-/*const routes: Routes = [
-  
-  { path: 'inicioSesion', component: InicioSesionComponent },
-  { path: 'cierreSesion', component: CierreSesionComponent },
-  { path: 'editarUsuario', component: EditarUsuarioComponent },
-  { path: 'registroUsuario', component: RegistroUsuarioComponent },
-  { path: 'inicio', component: InicioComponent },
-  { path: 'bibliotecaRecetas', component: BibliotecaRecetasComponent},
-  { path: 'bibliotecaRutinas', component: BibliotecaRutinasComponent},
-  { path: 'verRutina', component: VerRutinaComponent},
-  { path: 'verReceta', component: VerRecetaComponent},
-  { path: '**', redirectTo: '404'},
-  { path: '', redirectTo: 'inicioSesion', pathMatch: 'full'}*/
+import { PerfilUsuarioComponent } from './Components/perfil-usuario/perfil-usuario.component';
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
@@ -34,14 +19,13 @@ const routes: Routes = [
   { path: 'cierre-sesion', component: CierreSesionComponent },
   { path: 'editar-usuario', component: EditarUsuarioComponent },
   { path: 'registro-usuario', component: RegistroUsuarioComponent },
-  //{ path: '', component: InicioComponent },
-  //{ path: '**', component: PageNotFoundComponent },
   {path: 'bibliotecaRecetas', component: BibliotecaRecetasComponent},
   {path: 'bibliotecaRutinas', component: BibliotecaRutinasComponent},
   {path: 'verRutina', component: VerRutinaComponent},
   {path: 'verReceta', component: VerRecetaComponent},
-  {path: '**', redirectTo: '404'},
-  {path: '', redirectTo: 'inicioSesion', pathMatch: 'full'}
+  {path: 'perfil-usuario', component: PerfilUsuarioComponent},
+  { path: '**', component: PageNotFoundComponent },
+  {path: '', redirectTo: 'inicio', pathMatch: 'full'}
 ];
 
 @NgModule({
