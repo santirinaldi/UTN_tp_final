@@ -31,7 +31,7 @@ import { authGuard, authLogged } from './services/auth/auth.guard';
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
   { path: 'inicio-sesion', component: InicioSesionComponent},
-  { path: 'registro-usuario', component: RegistroUsuarioComponent, canActivate: [authGuard]},
+  { path: 'registro-usuario', component: RegistroUsuarioComponent},
   {
     path: 'cierre-sesion',
     component: CierreSesionComponent,

@@ -88,7 +88,11 @@ export class BibliotecaRecetasComponent implements OnInit {
       this.user.bibliotecaRecetas.listaRecetas.splice(index, 1);
       
       this.jsonService.putUser(this.user).subscribe((response) => {
-
+        const lista: Lista={
+          nombre: '',
+          texto: '',
+        }
+        this.recetaActual=lista;
       });
     }
   }}

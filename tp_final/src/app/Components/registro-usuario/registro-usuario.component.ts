@@ -66,6 +66,8 @@ export class RegistroUsuarioComponent implements OnInit {
           user.email = this.registerForm.value.email;
           user.passWord = this.registerForm.value.passWord;
           this.servicioUsuario.add(user);
+          alert('Registro exitoso');
+          this.registerForm.markAllAsTouched();
         }
       }
     else {
@@ -73,4 +75,6 @@ export class RegistroUsuarioComponent implements OnInit {
       this.registerForm.markAllAsTouched();
     }
   }
+
+
 }
