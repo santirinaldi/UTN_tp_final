@@ -4,121 +4,145 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-}
-
-#get-routine>.data {
-    height: 100%;
+  }
+  
+  #get-routine > .data {
+    min-height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: relative;
+    position: absolute;
     display: none;
-}
-
-#get-routine>.data p {
+    top: 0;
+    left: 0;
+    background: #000;
+    color: #fff;
+    z-index: 1;
+  }
+  
+  #get-routine > .data p {
     padding: 2.5rem;
-}
-
-.data>button {
-    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .data > button {
+    font-family: "Quicksand", sans-serif;
     font-weight: 700;
     font-size: 0.83rem;
     padding: 1rem;
     border: none;
     cursor: pointer;
-    transition: .35s ease-in-out;
+    transition: 0.35s ease-in-out;
     background: #000;
     color: #fff;
     margin-bottom: 2rem;
-}
-
-
-#get-routine h3 {
+  }
+  
+  #get-routine h3 {
     font-size: 2.5rem;
     line-height: 110%;
     font-style: italic;
     text-transform: uppercase;
     margin-top: 0;
     margin-bottom: 1rem;
-}
-
-
-.underline {
-    background-image: linear-gradient(to top, rgba(35,189,255,0) 0%, rgba(35,189,255,0) 7%, #406b89 7%, #406b89 30%, rgba(35,189,255,0) 30%);
-    font-family: 'Roboto Condensed', sans-serif;
-}
-
-
-#get-routine>.form {
-    height: 100vh;
+  }
+  
+  .underline {
+    background-image: linear-gradient(
+      to top,
+      rgba(35, 189, 255, 0) 0%,
+      rgba(35, 189, 255, 0) 7%,
+      #406b89 7%,
+      #406b89 30%,
+      rgba(35, 189, 255, 0) 30%
+    );
+    font-family: "Roboto Condensed", sans-serif;
+  }
+  
+  #get-routine > .form {
+    min-height: 100vh;
     width: 100%;
     background-color: #000;
     padding-top: 2rem;
     padding-bottom: 2rem;
-}
-
-
-.form form {
+  }
+  
+  .form form {
     width: 100%;
     padding: 0 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-
-.form input {
-    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .form input {
+    font-family: "Quicksand", sans-serif;
     width: 100%;
     padding: 1rem 3rem 1rem 1rem;
     border: 1px solid #fff;
     background: transparent;
     color: #fff;
-}
-
-.form input:focus-visible {
+  }
+  
+  .form input:focus-visible {
     outline: none;
-}
-
-.form input:-webkit-autofill,
-.form input:-webkit-autofill:focus {
-    background: transparent!important;
-}
-
-
-.field-wrapper select {
-    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .form input:-webkit-autofill,
+  .form input:-webkit-autofill:focus {
+    background: transparent !important;
+  }
+  
+  .field-wrapper select {
+    font-family: "Quicksand", sans-serif;
     width: 100%;
     padding: 1rem 3rem 1rem 1rem;
     border: 1px solid #fff;
     background: transparent;
     color: #fff;
-}
-
-.field-wrapper select.s-multiple {
+  }
+  
+  .field-wrapper select.s-multiple {
+    padding-bottom: 1rem;
+    padding-right: 1rem;
+    overflow: hidden;
+  }
+  
+  .field-wrapper select.s-multiple option {
+    color: #fff;
+  }
+  
+  .field-wrapper select option {
+    color: #000;
+  }
+  
+  .field-wrapper select.s-multiple-limits {
+    padding-bottom: 4rem;
+    padding-right: 1rem;
+    overflow: hidden;
+  }
+  
+  .field-wrapper select.s-multiple-limits option {
+    color: #fff;
+  }
+  
+  .field-wrapper select.s-multiple-objetives {
     padding-bottom: 2rem;
     padding-right: 1rem;
     overflow: hidden;
-}
-
-.field-wrapper select.s-multiple option {
+  }
+  
+  .field-wrapper select.s-multiple-objetives option {
     color: #fff;
-}
-
-.field-wrapper select option {
-    color: #000;
-}
-
-
-.field-wrapper {
+  }
+  
+  .field-wrapper {
     position: relative;
     margin-bottom: 1rem;
-}
-
-
-.field-wrapper label {
-    font-family: 'Roboto Condensed', sans-serif;
+  }
+  
+  .field-wrapper label {
+    font-family: "Roboto Condensed", sans-serif;
     color: #fff;
     font-size: 0.75rem;
     position: absolute;
@@ -127,46 +151,42 @@
     background-color: #000;
     border-left: 5px solid #000;
     border-right: 5px solid #000;
-    transition: .5s ease-in-out;
-}
-
-
-.field-wrapper.float label {
+    transition: 0.5s ease-in-out;
+  }
+  
+  .field-wrapper.float label {
     top: -7px;
-}
-
-
-.btn {
-    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .btn {
+    font-family: "Quicksand", sans-serif;
     font-weight: 700;
     font-size: 0.83rem;
     padding: 1rem;
     border: none;
     cursor: pointer;
-    transition: .35s ease-in-out;
-}
-
-
-.btn.primary:hover {
+    transition: 0.35s ease-in-out;
+  }
+  
+  .btn.primary:hover {
     background-color: #406b89;
     color: #fff;
-}
-
-
-.btn.primary {
+  }
+  
+  .btn.primary {
     background-color: #fff;
     color: #000;
-}
-
-.data p {
+  }
+  
+  .data p {
     font-size: 14px;
-}
-
-.popup-login {
+  }
+  
+  .popup-login {
     display: none;
-}
-
-.popup-login .form {
+  }
+  
+  .popup-login .form {
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -175,10 +195,10 @@
     background: #000;
     z-index: 1;
     display: flex;
-}
-
-.login-result {
-    position: absolute;
+  }
+  
+  .login-result {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -189,10 +209,10 @@
     justify-content: center;
     align-items: center;
     visibility: hidden;
-    transition: .35s ease-in-out;
-}
-
-.query-result {
+    transition: 0.35s ease-in-out;
+  }
+  
+  .query-result {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -203,12 +223,13 @@
     align-items: center;
     background: #406b89;
     visibility: hidden;
-    transition: .35s ease-in-out;
-}
-
-.form>h3 {
+    transition: 0.35s ease-in-out;
+  }
+  
+  .form > h3 {
     color: #fff;
     padding: 1rem 1.5rem;
-    margin-bottom: 3rem!important;
-    font-size: 2rem!important;
-}
+    margin-bottom: 3rem !important;
+    font-size: 2rem !important;
+  }
+  
