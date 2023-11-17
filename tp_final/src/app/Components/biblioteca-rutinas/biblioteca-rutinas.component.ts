@@ -7,6 +7,8 @@ import { JSONService } from 'src/app/services/JSON/json.service';
 import { LoginService } from 'src/app/services/auth/login.service';
 import { Subscription } from 'rxjs';
 
+import { Rutina } from 'src/app/Models/rutina';
+
 @Component({
   selector: 'app-biblioteca-rutinas',
   templateUrl: './biblioteca-rutinas.component.html',
@@ -19,7 +21,7 @@ export class BibliotecaRutinasComponent implements OnInit {
 
   loggedInStatus!: Number;
   subcripcion!: Subscription;
-  userLogged!: Usuario;
+  //userLogged!: Usuario;
 
   constructor(
     private servicioUsuario: UsuarioService,
@@ -49,6 +51,7 @@ export class BibliotecaRutinasComponent implements OnInit {
   getUser() {
     this.jsonService.getUserByID(this.loggedInStatus).subscribe((user) => {
       this.user = user;
+      console.log(user)
     });
   }
 
@@ -63,7 +66,6 @@ export class BibliotecaRutinasComponent implements OnInit {
       bibliotecaRutinas: { ...this.user.bibliotecaRutinas, nombre: nombre },
     };
     this.jsonService.putUser(usuarioActualizado).subscribe((response) => {
-      this.user = response;
     });
   }
 
@@ -76,7 +78,6 @@ export class BibliotecaRutinasComponent implements OnInit {
       },
     };
     this.jsonService.putUser(usuarioActualizado).subscribe((response) => {
-      this.user = response;
     });
   }
 
@@ -84,5 +85,16 @@ export class BibliotecaRutinasComponent implements OnInit {
     this.mostrarEditar = !this.mostrarEditar;
   }
 
+  eliminarRutina(rutina: Lista) {
+    //console.log("rutina entrante" , rutina)
+    //console.log("antes de",this.user.bibliotecaRutinas.listaRutinas);
+    var index = this.user.bibliotecaRutinas.listaRutinas.indexOf(rutina);
+    if (index !== -1) {
+      this.user.bibliotecaRutinas.listaRutinas.splice(index, 1);
+      //console.log("nueva",this.user.bibliotecaRutinas.listaRutinas);
+      this.jsonService.putUser(this.user).subscribe((response) => {
 
+      });
+    }
+  }
 }

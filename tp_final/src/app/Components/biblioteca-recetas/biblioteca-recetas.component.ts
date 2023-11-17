@@ -63,7 +63,6 @@ export class BibliotecaRecetasComponent implements OnInit {
       bibliotecaRecetas: { ...this.user.bibliotecaRecetas, nombre: nombre },
     };
     this.jsonService.putUser(usuarioActualizado).subscribe((response) => {
-      this.userLogged = response;
     });
   }
 
@@ -76,7 +75,6 @@ export class BibliotecaRecetasComponent implements OnInit {
       },
     };
     this.jsonService.putUser(usuarioActualizado).subscribe((response) => {
-      this.userLogged = response;
     });
   }
 
@@ -84,6 +82,21 @@ export class BibliotecaRecetasComponent implements OnInit {
       this.mostrarEditar=!this.mostrarEditar;
     }
 
+  eliminarReceta(receta: Lista) {
+    //console.log("receta entrante" , receta)
+    //console.log("antes de",this.user.bibliotecarecetas.listarecetas);
+    var index = this.user.bibliotecaRecetas.listaRecetas.indexOf(receta);
+    if (index !== -1) {
+      this.user.bibliotecaRecetas.listaRecetas.splice(index, 1);
+      //console.log("nueva",this.user.bibliotecarecetas.listarecetas);
+      this.jsonService.putUser(this.user).subscribe((response) => {
+
+      });
+    }
+  }
+  /*loggedInStatus!: Number;
+  userLogged!: Usuario;
+  subcripcion!: Subscription;
 
     
 }
