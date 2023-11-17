@@ -47,7 +47,6 @@ export class BorrarUsuarioComponent implements OnInit {
     if (this.loggedInStatus != -1) {
       this.servicioUsuario.baja(this.userLogged);
       console.log('Eliminando..');
-      //this.servicioUsuario.logOut();
       this.loginService.logOut();
     } else {
       ///No se tiene que ver el boton

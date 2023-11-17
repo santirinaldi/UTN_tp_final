@@ -10,6 +10,7 @@ import { Observable, map, of, tap } from 'rxjs';
 export class UsuarioService {
 
   private userList: any;
+  user: any;
 
   constructor(private jsonService: JSONService, private router: Router) {}
 
@@ -97,5 +98,10 @@ export class UsuarioService {
   verifyLogged(): boolean {
     const token = localStorage.getItem('loggedIn');
     return token ? true : false;
-  }}
+  }
+
+
+
+
+}
 

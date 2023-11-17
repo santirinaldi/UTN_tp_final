@@ -38,7 +38,7 @@
       "lastName": "fructuoso",
       "email": "jose@gmail.com",
       "passWord": "1234",
-      "baja": 1,
+      "baja": 0,
       "bibliotecaRutinas": {
         "nombre": "Mi lista",
         "descripcion": "Mi descripcion",
@@ -46,6 +46,10 @@
           {
             "nombre": "Mi rutina",
             "texto": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
+          },
+          {
+            "nombre": "Mi rutina",
+            "texto": "Rutina de ejemplo 4"
           },
           {
             "nombre": "Mi rutina",
@@ -67,24 +71,5 @@
           }
         ]
       }
-    },
-    {
-      "id": 2,
-      "name": "josefina",
-      "lastName": "fructuoso",
-      "email": "jose@gmail.com",
-      "passWord": "1234",
-      "baja": 0,
-      "bibliotecaRutinas": {
-        "nombre": "Mi lista",
-        "descripcion": "Mi descripcion",
-        "listaRutinas": [
-          {
-            "nombre": "Mi rutina",
-            "texto": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
-          }
-        ]
-      }
-    }
-  ]
-}
+    }]}
+  

@@ -81,5 +81,14 @@ export class BibliotecaRutinasComponent implements OnInit {
       this.mostrarEditar=!this.mostrarEditar;
     }
 
+    eliminarRutina(nombreRutina: string): void {
+      this.user.bibliotecaRutinas.listaRutinas = this.user.bibliotecaRutinas.listaRutinas.filter(
+        rutina => rutina.nombre !== nombreRutina
+      );
+    }
+
+
+
+
     
 }
