@@ -47,7 +47,7 @@ import { FiltroPipe } from './pipes/filtro.pipe';
     VerRecetaComponent,
     EBibliotecaRecetasComponent,
     EBibliotecaRutinasComponent,
-    FiltroPipe
+    FiltroPipe,
   ],
   imports: [
     BrowserModule,

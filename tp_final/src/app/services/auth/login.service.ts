@@ -16,7 +16,6 @@ export class LoginService {
   private loggedInStatus: BehaviorSubject<Number> = new BehaviorSubject<Number>(
     Number(localStorage.getItem('loggedIn')) || -1
   );
-
   private apiURL = 'http://localhost:3000/users';
 
   constructor(private http: HttpClient, private router: Router) {}

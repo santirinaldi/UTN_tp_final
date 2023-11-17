@@ -4,6 +4,7 @@ import { Usuario } from 'src/app/Models/usuario';
 import { JSONService } from 'src/app/services/JSON/json.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { LoginService } from 'src/app/services/auth/login.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -25,7 +26,8 @@ export class EditarUsuarioComponent implements OnInit {
   constructor(
     private servicioUsuario: UsuarioService,
     private loginService: LoginService,
-    private jsonService: JSONService
+    private jsonService: JSONService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -34,7 +36,7 @@ export class EditarUsuarioComponent implements OnInit {
       if (this.loggedInStatus != -1) {
         this.getUser();
       } else {
-        console.log('nada');
+        //this.router.navigateByUrl('inicio-sesion');
       }
     });
 
@@ -54,7 +56,6 @@ export class EditarUsuarioComponent implements OnInit {
   }
 
   editarUsuario() {
-
     if (this.loggedInStatus != -1) {
       if (this.userName.length > 0) {
         this.userLogged.name = this.userName;
@@ -70,18 +71,18 @@ export class EditarUsuarioComponent implements OnInit {
       }
 
       this.jsonService.putUser(this.userLogged).subscribe((response) => {
-        const h5 = document.createElement("h5");
-          if(response) {
-            h5.textContent = "Cambios aplicados!";
-          }else{
-            h5.textContent = "Error!";
-          }
-          this.modifyResult.nativeElement.appendChild(h5);
-          this.modifyResult.nativeElement.classList.add("show");
-          setTimeout(() => {
-            this.modifyResult.nativeElement.classList.remove("show");
-            this.modifyResult.nativeElement.removeChild(h5);
-          }, 2000);
+        const h5 = document.createElement('h5');
+        if (response) {
+          h5.textContent = 'Cambios aplicados!';
+        } else {
+          h5.textContent = 'Error!';
+        }
+        this.modifyResult.nativeElement.appendChild(h5);
+        this.modifyResult.nativeElement.classList.add('show');
+        setTimeout(() => {
+          this.modifyResult.nativeElement.classList.remove('show');
+          this.modifyResult.nativeElement.removeChild(h5);
+        }, 2000);
       });
     }
   }

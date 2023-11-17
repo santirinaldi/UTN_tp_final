@@ -8,14 +8,11 @@ import { Observable, map, of, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class UsuarioService {
-
   private userList: any;
   user: any;
 
   constructor(private jsonService: JSONService, private router: Router) {}
 
-
-  
   /*
   private userList = new Array<Usuario>();
     //private userList = new Array<Usuario>();
@@ -37,10 +34,10 @@ export class UsuarioService {
       },
       error: (error) => {
         console.log(error);
-      }
+      },
     });
   }
-  
+
   add(user: Usuario) {
     // user.id = this.userId;
     // this.userList.push(user);
@@ -49,28 +46,13 @@ export class UsuarioService {
       console.log(response);
     });
   }
-  
+
   baja(usuario: Usuario) {
     ///RECIBE USUARIO A ELIMINAR
     usuario.baja = 1;
     this.jsonService.putUser(usuario).subscribe((response) => {
       console.log(response);
     });
-  }
-  
-  getUsers() {
-    return this.userList;
-
-  }
-
-  getUser2(id: number): Observable<Usuario> {
-    let user = new Usuario();
-    const aux = this.userList?.find((user: Usuario) => user.id === id);
-    if (aux !== undefined) {
-      user = aux;
-    }
-
-    return of(user);
   }
 
   getUser(id: number, userList: Array<Usuario>): Usuario {

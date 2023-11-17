@@ -1,4 +1,4 @@
-import { Component,ViewChild,ElementRef,OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from 'src/app/Models/usuario';
 import { Lista } from 'src/app/Models/lista';
@@ -13,82 +13,74 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./biblioteca-rutinas.component.css'],
 })
 export class BibliotecaRutinasComponent implements OnInit {
-
-  protected user: Usuario= new Usuario();
+  protected user: Usuario = new Usuario();
   protected rutinaActual?: Lista;
-  protected mostrarEditar: boolean=false;
+  protected mostrarEditar: boolean = false;
 
   loggedInStatus!: Number;
   subcripcion!: Subscription;
   userLogged!: Usuario;
 
-  constructor (private servicioUsuario: UsuarioService, private jsonService: JSONService, private loginService: LoginService){}
+  constructor(
+    private servicioUsuario: UsuarioService,
+    private jsonService: JSONService,
+    private loginService: LoginService
+  ) {}
   filterPost = '';
-    
-  
-    @ViewChild('lista')lista!:ElementRef;
-    @ViewChild('popupItem')popupItem!:ElementRef;
-  
-  
-    ngOnInit(): void {
 
-      this.loginService.getisLoggedIn().subscribe((value) => {
-        this.loggedInStatus = value;
-        if (this.loggedInStatus != -1) {
-          this.getUser();
-        } else {
-          console.log('nada');
-        }
-      });
+  @ViewChild('lista') lista!: ElementRef;
+  @ViewChild('popupItem') popupItem!: ElementRef;
 
-      this.subcripcion = this.jsonService.refresh$.subscribe(() => {
+  ngOnInit(): void {
+    this.loginService.getisLoggedIn().subscribe((value) => {
+      this.loggedInStatus = value;
+      if (this.loggedInStatus != -1) {
         this.getUser();
-      });
-    } 
+      } else {
+        console.log('nada');
+      }
+    });
 
-    getUser() {
-      this.jsonService.getUserByID(this.loggedInStatus).subscribe((user) => {
-        this.user = user;
-      });
-    }
+    this.subcripcion = this.jsonService.refresh$.subscribe(() => {
+      this.getUser();
+    });
+  }
 
-    mostrarRutina(rutina: Lista) {
-      console.log(rutina);
-      this.rutinaActual=rutina;
-    }
+  getUser() {
+    this.jsonService.getUserByID(this.loggedInStatus).subscribe((user) => {
+      this.user = user;
+    });
+  }
 
-    nombreListaActualizar(nombre: string){
-      const usuarioActualizado: Usuario={
-        ...this.user,
-      bibliotecaRutinas: {...this.user.bibliotecaRutinas, nombre: nombre}
-      };
-      this.jsonService.putUser(usuarioActualizado).subscribe((response) => {
-        this.user=response;
-      })
-    }
+  mostrarRutina(rutina: Lista) {
+    console.log(rutina);
+    this.rutinaActual = rutina;
+  }
 
-    descripcionListaActualizar(descripcion: string){
-      const usuarioActualizado: Usuario={
-        ...this.user,
-      bibliotecaRutinas: {...this.user.bibliotecaRutinas, descripcion: descripcion}
-      };
-      this.jsonService.putUser(usuarioActualizado).subscribe((response) => {
-        this.user=response;
-      })
-    }
+  nombreListaActualizar(nombre: string) {
+    const usuarioActualizado: Usuario = {
+      ...this.user,
+      bibliotecaRutinas: { ...this.user.bibliotecaRutinas, nombre: nombre },
+    };
+    this.jsonService.putUser(usuarioActualizado).subscribe((response) => {
+      this.user = response;
+    });
+  }
 
-    modificarMostrarEditar (){
-      this.mostrarEditar=!this.mostrarEditar;
-    }
+  descripcionListaActualizar(descripcion: string) {
+    const usuarioActualizado: Usuario = {
+      ...this.user,
+      bibliotecaRutinas: {
+        ...this.user.bibliotecaRutinas,
+        descripcion: descripcion,
+      },
+    };
+    this.jsonService.putUser(usuarioActualizado).subscribe((response) => {
+      this.user = response;
+    });
+  }
 
-    eliminarRutina(nombreRutina: string): void {
-      this.user.bibliotecaRutinas.listaRutinas = this.user.bibliotecaRutinas.listaRutinas.filter(
-        rutina => rutina.nombre !== nombreRutina
-      );
-    }
-
-
-
-
-    
+  modificarMostrarEditar() {
+    this.mostrarEditar = !this.mostrarEditar;
+  }
 }

@@ -53,7 +53,6 @@ export class InicioSesionComponent implements OnInit {
     return this.loginForm.controls.passWord;
   }
 
-
   /*let userID = this.buscarUsuario(user);
     console.log(userID);
     if (userID !== -1) {
