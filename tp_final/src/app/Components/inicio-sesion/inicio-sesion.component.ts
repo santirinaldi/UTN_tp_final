@@ -67,7 +67,7 @@ export class InicioSesionComponent implements OnInit {
               setTimeout(() => {
                 this.router.navigateByUrl('/inicio');
               }, 1000);
-
+              /// Mostrar mensaje logueo existoso
               this.loginForm.reset();
             }
           },
