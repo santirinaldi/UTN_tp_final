@@ -9,8 +9,8 @@
 </div>
   <app-e-biblioteca-recetas
     *ngIf="mostrarEditar"
-    [nombreReceta]="userLogged.bibliotecaRecetas.nombre"
-    [descripcionReceta]="userLogged.bibliotecaRecetas.descripcion"
+    [nombreReceta]="user.bibliotecaRecetas.nombre"
+    [descripcionReceta]="user.bibliotecaRecetas.descripcion"
     (editarNombreLista)="nombreListaActualizar($event)"
     (editarDescripcionLista)="descripcionListaActualizar($event)"
     ></app-e-biblioteca-recetas>
@@ -26,7 +26,7 @@
 <div>
   <ul #lista>
     <li
-      *ngFor="let receta of userLogged.bibliotecaRecetas.listaRecetas | filtro:filterPost "
+      *ngFor="let receta of user.bibliotecaRecetas.listaRecetas | filtro:filterPost "
       (click)="mostrarReceta(receta)"
     >
       {{ receta.nombre }}
