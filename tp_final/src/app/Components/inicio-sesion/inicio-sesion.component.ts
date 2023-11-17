@@ -5,7 +5,12 @@ import { Subscription } from 'rxjs';
 import { Usuario } from 'src/app/Models/usuario';
 import { JSONService } from 'src/app/services/JSON/json.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { FormBuilder, Validators, FormGroup, UntypedFormBuilder } from '@angular/forms';
+import {
+  FormBuilder,
+  Validators,
+  FormGroup,
+  UntypedFormBuilder,
+} from '@angular/forms';
 import { LoginService } from 'src/app/services/auth/login.service';
 import { LoginRequest } from 'src/app/services/auth/loginRequest';
 
@@ -25,7 +30,10 @@ export class InicioSesionComponent implements OnInit {
     passWord: ['', [Validators.required]],
   });
 
-  suscription = new Subscription();
+  loggedInStatus: Number = -1;
+  userLogged!: Usuario;
+  subcripcion!: Subscription;
+
   @ViewChild('loginresult') loginResult!: ElementRef;
 
   //constructor(private servicioUsuario: UsuarioService, private jsonService: JSONService, private router: Router) {}
@@ -71,33 +79,28 @@ export class InicioSesionComponent implements OnInit {
   //   });
 
   login() {
-    console.log(this.loginForm.value);
+    //console.log(this.loginForm.value);
     if (this.loginForm.status == 'VALID') {
       //this.verifyUser();
       this.loginService
         .getUserDetail(this.loginForm.value as LoginRequest)
-        .subscribe({
-          next: (response) => {
-            if (response) {
-              console.log(response)
-              this.loginService.setLoggedIn(response[0].id);
-              setTimeout(() => {
-                this.router.navigateByUrl('/inicio');
-              }, 1000);
-
+        .subscribe((response) => {
+          if (response[0] != undefined) {
+            console.log(response);
+            this.loginService.setLoggedIn(response[0].id);
+            this.loggedInStatus = response[0].id;
+            setTimeout(() => {
               this.loginForm.reset();
-            }
-          },
-          error: () => {
-            
-          },
-          complete: () => {},
+              this.router.navigateByUrl('/inicio');
+            }, 1000);
+          } else {
+            alert('Los datos ingresados son invalidos');
+          }
         });
     } else {
       alert('Error al ingresar los datos');
       this.loginForm.markAllAsTouched();
     }
-    
   }
 
   // verifyUser() {

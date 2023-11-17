@@ -5,6 +5,9 @@
 
     </div>
     <div class="form">
+        <div *ngIf="loggedInStatus != -1" class="modify-result">
+            <h4>Logeo Existoso</h4>
+        </div>
         <form target="_blank" [formGroup]="loginForm">
 
             <div class="field-wrapper">
@@ -29,7 +32,5 @@
             <button type="button" class="btn primary" (click)="login()">Iniciar Sesion</button>
 
         </form>
-        <div class="loginresult" #loginresult>
-        </div>
     </div>
 </section>
