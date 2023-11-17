@@ -29,10 +29,21 @@ import { authGuard, authLogged } from './services/auth/auth.guard';
   { path: '', redirectTo: 'inicioSesion', pathMatch: 'full'}*/
 
 const routes: Routes = [
-  { path: 'inicio', component: InicioComponent },
-  { path: '', redirectTo: 'inicio', pathMatch: 'full' },
-  { path: 'inicio-sesion', component: InicioSesionComponent, canActivate: [authLogged] },
-  { path: 'registro-usuario', component: RegistroUsuarioComponent },
+  { path: 'inicio', 
+    component: InicioComponent 
+  },
+  { path: '', 
+    redirectTo: 'inicio', 
+    pathMatch: 'full' 
+  },
+  { path: 'inicio-sesion', 
+    component: InicioSesionComponent, 
+    canActivate: [authLogged] 
+  },
+  { path: 'registro-usuario', 
+    component: RegistroUsuarioComponent, 
+    canActivate: [authLogged] 
+  },
   {
     path: 'cierre-sesion',
     component: CierreSesionComponent,
@@ -43,7 +54,6 @@ const routes: Routes = [
     component: EditarUsuarioComponent,
     canActivate: [authGuard],
   },
-
   //{ path: '', component: InicioComponent },
   {
     path: 'bibliotecaRecetas',
@@ -71,8 +81,9 @@ const routes: Routes = [
     canActivate: [authGuard],
   },
   //{path: '**', redirectTo: '404'},
-
-  { path: '**', component: PageNotFoundComponent },
+  { path: '**', 
+    component: PageNotFoundComponent, 
+  },
 ];
 
 @NgModule({

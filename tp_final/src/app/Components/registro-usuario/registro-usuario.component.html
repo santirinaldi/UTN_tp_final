@@ -32,7 +32,7 @@
                     <label for="userEmail">Email</label>
                 </div>
                 <div class="field-wrapper">
-                    <input type="text" name="pass" id="userPass" formControlName = "passWord">
+                    <input type="password" name="pass" id="userPass" formControlName = "passWord">
                     <div *ngIf="passWord.invalid && (passWord.dirty || passWord.touched)" class="alert alert-danger">
                         <div *ngIf="passWord.errors?.['required']">La contraseña es obligatoria.</div>
                         <div *ngIf="passWord.errors?.['minlength']">
