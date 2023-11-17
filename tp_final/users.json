@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "name": "Agustin",
+      "name": "Agus",
       "lastName": "Appollonio",
       "email": "appollonioagustin@gmail.com",
       "passWord": "12345",
@@ -10,20 +10,19 @@
       "bibliotecaRutinas": {
         "nombre": "Biblioteca de rutinas",
         "descripcion": "Rutinas de funcional",
-        "listaRutinas": [
-          {
-            "nombre": "Mi rutina 2",
-            "texto": "Mi rutina 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
-          }
-        ]
+        "listaRutinas": []
       },
       "bibliotecaRecetas": {
-        "nombre": "recetas",
-        "descripcion": "saludables",
+        "nombre": "Mi biblioteca de recetas",
+        "descripcion": "Recetas saludables",
         "listaRecetas": [
           {
-            "nombre": "Mi receta",
-            "texto": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
+            "nombre": "Mi receta 2",
+            "texto": "Mi receta 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
+          },
+          {
+            "nombre": "Mi receta 3",
+            "texto": "Mi receta 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
           }
         ]
       }
@@ -129,6 +128,24 @@
       "lastName": "perez",
       "email": "claudia@gmail.com",
       "passWord": "claudia",
+      "baja": 0,
+      "bibliotecaRutinas": {
+        "nombre": "Mi biblioteca de rutinas",
+        "descripcion": "Mi descripcion",
+        "listaRutinas": []
+      },
+      "bibliotecaRecetas": {
+        "nombre": "Mi biblioteca de recetas",
+        "descripcion": "Mi descripcion",
+        "listaRecetas": []
+      }
+    },
+    {
+      "id": 7,
+      "name": "nicolas",
+      "lastName": "gonzalez",
+      "email": "nico@gmail.com",
+      "passWord": "12345",
       "baja": 0,
       "bibliotecaRutinas": {
         "nombre": "Mi biblioteca de rutinas",
