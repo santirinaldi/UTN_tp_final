@@ -14,24 +14,11 @@ import { PageNotFoundComponent } from './Components/page-not-found/page-not-foun
 import { PerfilUsuarioComponent } from './Components/perfil-usuario/perfil-usuario.component';
 import { authGuard, authLogged } from './services/auth/auth.guard';
 
-/*const routes: Routes = [
-  
-  { path: 'inicioSesion', component: InicioSesionComponent },
-  { path: 'cierreSesion', component: CierreSesionComponent },
-  { path: 'editarUsuario', component: EditarUsuarioComponent },
-  { path: 'registroUsuario', component: RegistroUsuarioComponent },
-  { path: 'inicio', component: InicioComponent },
-  { path: 'bibliotecaRecetas', component: BibliotecaRecetasComponent},
-  { path: 'bibliotecaRutinas', component: BibliotecaRutinasComponent},
-  { path: 'verRutina', component: VerRutinaComponent},
-  { path: 'verReceta', component: VerRecetaComponent},
-  { path: '**', redirectTo: '404'},
-  { path: '', redirectTo: 'inicioSesion', pathMatch: 'full'}*/
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
-  { path: 'inicio-sesion', component: InicioSesionComponent},
-  { path: 'registro-usuario', component: RegistroUsuarioComponent},
+  { path: 'inicio-sesion', component: InicioSesionComponent,  canActivate: [authLogged] },
+  { path: 'registro-usuario', component: RegistroUsuarioComponent, canActivate: [authLogged] },
   {
     path: 'cierre-sesion',
     component: CierreSesionComponent,
@@ -67,7 +54,10 @@ const routes: Routes = [
     component: PerfilUsuarioComponent,
     canActivate: [authGuard],
   },
-  { path: '', component: InicioComponent },
+  { path: '', 
+    redirectTo: 'inicio', 
+    pathMatch: 'full' 
+  },
   { path: '**', component: PageNotFoundComponent },
 ];
 

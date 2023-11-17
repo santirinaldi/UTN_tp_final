@@ -109,6 +109,42 @@
         "descripcion": "Mi descripcion",
         "listaRecetas": []
       }
+    },
+    {
+      "id": 5,
+      "name": "nicolas",
+      "lastName": "morilla",
+      "email": "nico@gmail.com",
+      "passWord": "12345",
+      "baja": 0,
+      "bibliotecaRutinas": {
+        "nombre": "Mi biblioteca de rutinas",
+        "descripcion": "Mi descripcion",
+        "listaRutinas": []
+      },
+      "bibliotecaRecetas": {
+        "nombre": "Mi biblioteca de recetas",
+        "descripcion": "Mi descripcion",
+        "listaRecetas": []
+      }
+    },
+    {
+      "id": 6,
+      "name": "claudia",
+      "lastName": "perez",
+      "email": "claudia@gmail.com",
+      "passWord": "claudia",
+      "baja": 0,
+      "bibliotecaRutinas": {
+        "nombre": "Mi biblioteca de rutinas",
+        "descripcion": "Mi descripcion",
+        "listaRutinas": []
+      },
+      "bibliotecaRecetas": {
+        "nombre": "Mi biblioteca de recetas",
+        "descripcion": "Mi descripcion",
+        "listaRecetas": []
+      }
     }
   ]
 }
