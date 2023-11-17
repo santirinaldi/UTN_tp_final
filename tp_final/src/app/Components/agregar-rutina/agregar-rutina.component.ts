@@ -84,19 +84,19 @@ export class AgregarRutinaComponent implements OnInit {
 
   }
 
-  agregarRutina() {
+  agregarRutina(listaName: string) {
     if (this.userLogged) {
       let lista = new Lista();
-      lista.nombre = 'Mi receta';
+      lista.nombre = listaName;
       lista.texto = this.apiResponse;
-      this.userLogged.bibliotecaRecetas.listaRecetas.push(lista);
+      this.userLogged.bibliotecaRutinas.listaRutinas.push(lista);
       this.jsonService.putUser(this.userLogged).subscribe((response) => {
         console.log(response);
       });
 
       let qrh4 = document.createElement('h4');
       qrh4.style.color = '#fff';
-      qrh4.innerHTML = 'Receta cargada correctamente';
+      qrh4.innerHTML = 'Rutina cargada correctamente';
       this.queryResult.nativeElement.appendChild(qrh4);
       this.queryResult.nativeElement.style.visibility = 'visible';
       setTimeout(() => {
@@ -111,7 +111,7 @@ export class AgregarRutinaComponent implements OnInit {
     } else {
       let qrh4 = document.createElement('h4');
       qrh4.style.color = '#fff';
-      qrh4.innerHTML = 'Error al cargar la receta a la biblioteca!';
+      qrh4.innerHTML = 'Error al cargar la rutina a la biblioteca!';
       this.queryResult.nativeElement.appendChild(qrh4);
       this.queryResult.nativeElement.style.visibility = 'visible';
       setTimeout(() => {
@@ -120,8 +120,12 @@ export class AgregarRutinaComponent implements OnInit {
         this.queryResult.nativeElement.removeChild(qrh4);
         let rp = document.querySelector('.data p');
         let rb = document.querySelector('.data button');
+        let ri = document.querySelector('.data input');
+        let rl = document.querySelector('.data label');
         this.result.nativeElement.removeChild(rp);
         this.result.nativeElement.removeChild(rb);
+        this.result.nativeElement.removeChild(ri);
+        this.result.nativeElement.removeChild(rl);
       }, 2000);
     }
   }
@@ -133,6 +137,10 @@ export class AgregarRutinaComponent implements OnInit {
     const p = document.createElement('p');
     const btn = document.createElement('button');
     const btnReturn = document.createElement('button');
+    const input = document.createElement('input');
+    const label = document.createElement('label');
+    label.innerHTML = "Ingrese un nombre para esta rutina";
+    input.setAttribute("type", "text");
 
     p.textContent = this.apiResponse;
     //estilos p
@@ -167,14 +175,39 @@ export class AgregarRutinaComponent implements OnInit {
     btnReturn.textContent = 'Volver';
     //fin estilos btn
 
+    //estilos input
+    input.style.fontFamily = "Quicksand, sans-serif";
+    input.style.width = "auto";
+    input.style.padding = "1rem 3rem 1rem 1rem";
+    input.style.border = "1px solid #fff";
+    input.style.background = "transparent";
+    input.style.color = "#fff";
+    input.style.marginLeft = "2rem";
+    input.style.marginRight = "2rem";
+    //fin estilos input
+
+    //estilos label
+    label.style.padding = "2rem 2rem 0.25rem 2rem";
+    label.style.fontSize = "0.75rem";
+    label.style.fontWeight = "700";
+    //fin estilos label
+
     if (this.loggedInStatus != -1) {
       btn.style.backgroundColor = '#fff';
       btn.style.color = '#000';
-      btn.textContent = 'Guardar receta';
+      btn.textContent = 'Guardar rutina';
+
+      input.defaultValue = "Mi rutina";
+      
+
       btn.onclick = () => {
-        this.agregarRutina();
+        this.agregarRutina(input.value);
       };
     } else {
+
+      input.style.display = "none";
+      label.style.display = "none";
+
       btn.style.backgroundColor = '#a1a1a1';
       btn.style.color = '#000';
       btn.innerHTML =
@@ -185,83 +218,22 @@ export class AgregarRutinaComponent implements OnInit {
     }
 
     p.textContent = this.apiResponse;
+    this.result.nativeElement.appendChild(label);
+    this.result.nativeElement.appendChild(input);
     this.result.nativeElement.appendChild(p);
     this.result.nativeElement.appendChild(btn);
     this.result.nativeElement.appendChild(btnReturn);
+    
 
     btnReturn.onclick = () => {
       this.result.nativeElement.style.display = 'none';
       this.result.nativeElement.removeChild(btn);
       this.result.nativeElement.removeChild(btnReturn);
       this.result.nativeElement.removeChild(p);
+      this.result.nativeElement.removeChild(input);
+      this.result.nativeElement.removeChild(label);
     };
 
   }
-
-  /*addRoutineOnLibrary(message: string, id: string) {
-    if (this.userLogged) {
-
-      let lista = new Lista();
-      lista.nombre = 'Mi rutina';
-      lista.texto = message;
-      this.userLogged.bibliotecaRutinas.listaRutinas.push(lista);
-      this.jsonService.putUser(this.userLogged).subscribe((response) => {});
-
-      let qrh4 = document.createElement('h4');
-      qrh4.style.color = '#fff';
-      qrh4.innerHTML = 'Rutina cargada correctamente';
-      this.queryResult.nativeElement.appendChild(qrh4);
-      this.queryResult.nativeElement.style.visibility = 'visible';
-      this.popupLogin.nativeElement.style.display = 'none';
-      setTimeout(() => {
-        this.routineMessage.nativeElement.style.display = 'none';
-        this.queryResult.nativeElement.style.visibility = 'hidden';
-        this.queryResult.nativeElement.removeChild(qrh4);
-        let rp = document.querySelector('.data p');
-        let rb = document.querySelector('.data button');
-        this.routineMessage.nativeElement.removeChild(rp);
-        this.routineMessage.nativeElement.removeChild(rb);
-      }, 2000);
-    } else {
-      let qrh4 = document.createElement('h4');
-      qrh4.style.color = '#fff';
-      qrh4.innerHTML = 'Error al cargar la rutina a la biblioteca!';
-      this.queryResult.nativeElement.appendChild(qrh4);
-      this.queryResult.nativeElement.style.visibility = 'visible';
-      this.popupLogin.nativeElement.style.display = 'none';
-      setTimeout(() => {
-        this.routineMessage.nativeElement.style.display = 'none';
-        this.queryResult.nativeElement.style.visibility = 'hidden';
-        this.queryResult.nativeElement.removeChild(qrh4);
-        let rp = document.querySelector('.data p');
-        let rb = document.querySelector('.data button');
-        this.routineMessage.nativeElement.removeChild(rp);
-        this.routineMessage.nativeElement.removeChild(rb);
-      }, 2000);
-    }
-  }*/
-
-  /*openLoginModal() {
-    this.popupLogin.nativeElement.style.display = 'block';
-  }*/
-
-  
-  /*pedidoAPI(message: string) {
-    const apiRes = this.apiservice.apiRequest(message);
-    apiRes
-      .then((response) => response.json())
-      .then((data) => {
-        // Maneja la respuesta aquí
-        //const answer = data.choices[0].message.content;
-        console.log('Respuesta de ChatGPT: ', data);
-        const p = document.createElement('p');
-        p.textContent = data.answer;
-        this.routineMessage.nativeElement.appendChild(p);
-      })
-      .catch((error) => {
-        console.error('Error al realizar la solicitud a la API: ', error);
-        return null;
-      });
-  }*/
 
 }

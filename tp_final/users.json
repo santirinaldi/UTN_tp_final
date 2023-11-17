@@ -38,12 +38,7 @@
       "bibliotecaRutinas": {
         "nombre": "Biblioteca de rutinas",
         "descripcion": "Rutinas de funcional",
-        "listaRutinas": [
-          {
-            "nombre": "Mi rutina 2",
-            "texto": "Mi rutina 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
-          }
-        ]
+        "listaRutinas": []
       },
       "bibliotecaRecetas": {
         "nombre": "recetas",

@@ -1,5 +1,12 @@
+<div class="edit-b-form">
+    <div class="input-wrapper">
 <input type="text" name="recetaTitulo" id="recetaTitulo" [(ngModel)]="nombreReceta">
+<label for="recetaTitulo">Nombre de biblioteca</label>
 <button type="submit" (click)="editarNombreReceta()">Editar nombre</button>
-
+    </div>
+    <div class="input-wrapper">
 <input type="text" name="recetaDescripcion" id="recetaDescripcion" [(ngModel)]="descripcionReceta">
+<label for="recetaDescripcion">Descripcion de biblioteca</label>
 <button type="submit" (click)="editarDescripcionReceta()">Editar descripcion</button>
+</div>
+</div>

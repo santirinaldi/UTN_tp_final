@@ -91,9 +91,13 @@ export class BibliotecaRutinasComponent implements OnInit {
     var index = this.user.bibliotecaRutinas.listaRutinas.indexOf(rutina);
     if (index !== -1) {
       this.user.bibliotecaRutinas.listaRutinas.splice(index, 1);
-      //console.log("nueva",this.user.bibliotecaRutinas.listaRutinas);
-      this.jsonService.putUser(this.user).subscribe((response) => {
 
+      this.jsonService.putUser(this.user).subscribe((response) => {
+        const lista: Lista={
+          nombre: '',
+          texto: '',
+        }
+        this.rutinaActual=lista;
       });
     }
   }

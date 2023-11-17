@@ -90,10 +90,10 @@ export class ConsultarRecetaComponent implements OnInit {
   //     .catch((error) => console.log(error));
   // }
 
-  agregarReceta() {
+  agregarReceta(listaName: string) {
     if (this.userLogged) {
       let lista = new Lista();
-      lista.nombre = 'Mi receta';
+      lista.nombre = listaName;
       lista.texto = this.apiResponse;
       this.userLogged.bibliotecaRecetas.listaRecetas.push(lista);
       this.jsonService.putUser(this.userLogged).subscribe((response) => {
@@ -111,8 +111,13 @@ export class ConsultarRecetaComponent implements OnInit {
         this.queryResult.nativeElement.removeChild(qrh4);
         let rp = document.querySelector('.data p');
         let rb = document.querySelector('.data button');
+        let ri = document.querySelector('.data input');
+        let rl = document.querySelector('.data label');
         this.result.nativeElement.removeChild(rp);
         this.result.nativeElement.removeChild(rb);
+        this.result.nativeElement.removeChild(ri);
+        this.result.nativeElement.removeChild(rl);
+        
       }, 2000);
     } else {
       let qrh4 = document.createElement('h4');
@@ -126,8 +131,12 @@ export class ConsultarRecetaComponent implements OnInit {
         this.queryResult.nativeElement.removeChild(qrh4);
         let rp = document.querySelector('.data p');
         let rb = document.querySelector('.data button');
+        let ri = document.querySelector('.data input');
+        let rl = document.querySelector('.data label');
         this.result.nativeElement.removeChild(rp);
         this.result.nativeElement.removeChild(rb);
+        this.result.nativeElement.removeChild(ri);
+        this.result.nativeElement.removeChild(rl);
       }, 2000);
     }
   }
@@ -137,6 +146,10 @@ export class ConsultarRecetaComponent implements OnInit {
     const p = document.createElement('p');
     const btn = document.createElement('button');
     const btnReturn = document.createElement('button');
+    const input = document.createElement('input');
+    const label = document.createElement('label');
+    label.innerHTML = "Ingrese un nombre para esta receta";
+    input.setAttribute("type", "text");
 
     p.textContent = this.apiResponse;
     //estilos p
@@ -170,15 +183,34 @@ export class ConsultarRecetaComponent implements OnInit {
     btnReturn.style.color = '#000';
     btnReturn.textContent = 'Volver';
     //fin estilos btn
+       //estilos input
+       input.style.fontFamily = "Quicksand, sans-serif";
+       input.style.width = "auto";
+       input.style.padding = "1rem 3rem 1rem 1rem";
+       input.style.border = "1px solid #fff";
+       input.style.background = "transparent";
+       input.style.color = "#fff";
+       input.style.marginLeft = "2rem";
+       input.style.marginRight = "2rem";
+       //fin estilos input
+   
+       //estilos label
+       label.style.padding = "2rem 2rem 0.25rem 2rem";
+       label.style.fontSize = "0.75rem";
+       label.style.fontWeight = "700";
+       //fin estilos label
 
     if (this.loggedInStatus != -1) {
       btn.style.backgroundColor = '#fff';
       btn.style.color = '#000';
       btn.textContent = 'Guardar receta';
+      input.defaultValue = "Mi receta";
       btn.onclick = () => {
-        this.agregarReceta();
+        this.agregarReceta(input.value);
       };
     } else {
+      input.style.display = "none";
+      label.style.display = "none";
       btn.style.backgroundColor = '#a1a1a1';
       btn.style.color = '#000';
       btn.innerHTML =
@@ -189,6 +221,8 @@ export class ConsultarRecetaComponent implements OnInit {
     }
 
     p.textContent = this.apiResponse;
+    this.result.nativeElement.appendChild(label);
+    this.result.nativeElement.appendChild(input);
     this.result.nativeElement.appendChild(p);
     this.result.nativeElement.appendChild(btn);
     this.result.nativeElement.appendChild(btnReturn);
@@ -198,6 +232,8 @@ export class ConsultarRecetaComponent implements OnInit {
       this.result.nativeElement.removeChild(btn);
       this.result.nativeElement.removeChild(btnReturn);
       this.result.nativeElement.removeChild(p);
+      this.result.nativeElement.removeChild(input);
+      this.result.nativeElement.removeChild(label);
     };
   }
 
