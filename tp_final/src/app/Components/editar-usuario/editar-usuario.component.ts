@@ -66,14 +66,19 @@ export class EditarUsuarioComponent implements OnInit {
       }
 
       this.jsonService.putUser(this.userLogged).subscribe((response) => {
-        //que pase algo o no
+        const h5 = document.createElement('h5');
+        if (response) {
+          h5.textContent = 'Cambios aplicados!';
+        } else {
+          h5.textContent = 'Error!';
+        }
+        this.modifyResult.nativeElement.appendChild(h5);
+        this.modifyResult.nativeElement.classList.add('show');
+        setTimeout(() => {
+          this.modifyResult.nativeElement.classList.remove('show');
+          this.modifyResult.nativeElement.removeChild(h5);
+        }, 2000);
       });
-      console.log('Actualizando..');
-      //this.router.navigate(['inicio']);
-      const h5 = document.createElement('h5');
-      h5.textContent = 'editado exitosamente!';
-      //const text = document.createTextNode("Logeado exitosamente!");
-      this.modifyResult.nativeElement.appendChild(h5);
     }
   }
 }

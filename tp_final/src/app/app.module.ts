@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -20,6 +21,7 @@ import { ConsultarRecetaComponent } from './Components/consultar-receta/consulta
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
+import { PerfilUsuarioComponent } from './Components/perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,7 @@ import { PageNotFoundComponent } from './Components/page-not-found/page-not-foun
     BibliotecaRecetasComponent,
     ConsultarRecetaComponent,
     NavbarComponent,
-    PageNotFoundComponent,
+    PerfilUsuarioComponent,
   ],
   imports: [
     BrowserModule,

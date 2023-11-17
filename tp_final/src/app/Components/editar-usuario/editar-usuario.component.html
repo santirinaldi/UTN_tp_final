@@ -1,4 +1,4 @@
-<section id="editar-usuario">
+<!-- <section id="editar-usuario">
     <div #modifyResult></div>
     <div class="form">
         <form target="_blank">
@@ -24,4 +24,32 @@
         <app-borrar-usuario></app-borrar-usuario>
 
     </div>
-</section>
+</section> -->
+
+<div class="form">
+    <div #modifyResult class="modify-result"></div>
+    <h3>Hola {{userName}} {{userLastname}}!</h3>
+    <p>A continuacion tus datos, y podras editarlos si lo deseas:</p>
+    <form target="_blank">
+        <div class="field-wrapper">
+            <input type="text" name="name" id="name" [(ngModel)]="userName">
+            <label for="name">Nombre</label>
+        </div>
+        <div class="field-wrapper">
+            <input type="text" name="lastname" id="lastname" [(ngModel)]="userLastname">
+            <label for="userLastame">Apellido</label>
+        </div>
+        <div class="field-wrapper">
+            <input type="email" name="email" id="email" [(ngModel)]="userEmail" readonly>
+            <label for="userEmail">Email</label>
+        </div>
+        <div class="field-wrapper">
+            <input type="password" name="password" id="password" [(ngModel)]="userPass">
+            <label for="userPassword">Password</label>
+        </div>
+        <p></p>
+
+        <button type="button" class="btn primary" (click)="editarUsuario()">Editar</button>
+
+    </form>
+</div>
