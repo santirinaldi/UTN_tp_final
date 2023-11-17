@@ -30,7 +30,7 @@ import { authGuard } from './services/auth/auth.guard';
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
-  { path: 'inicio-sesion', component: InicioSesionComponent, canActivate: [authGuard]},
+  { path: 'inicio-sesion', component: InicioSesionComponent},
   { path: 'registro-usuario', component: RegistroUsuarioComponent, canActivate: [authGuard]},
   {
     path: 'cierre-sesion',
