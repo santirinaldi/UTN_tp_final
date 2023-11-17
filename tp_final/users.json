@@ -95,6 +95,24 @@
         "descripcion": "Mi descripcion",
         "listaRecetas": []
       }
+    },
+    {
+      "id": 4,
+      "name": "test6",
+      "lastName": "test6",
+      "email": "test6@gmail.com",
+      "passWord": "1234567",
+      "baja": 0,
+      "bibliotecaRutinas": {
+        "nombre": "Mi lista",
+        "descripcion": "Mi descripcion",
+        "listaRutinas": []
+      },
+      "bibliotecaRecetas": {
+        "nombre": "Mi lista",
+        "descripcion": "Mi descripcion",
+        "listaRecetas": []
+      }
     }
   ]
 }
