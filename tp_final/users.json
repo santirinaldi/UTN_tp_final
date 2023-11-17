@@ -6,7 +6,7 @@
       "lastName": "Appollonio",
       "email": "appollonioagustin@gmail.com",
       "passWord": "12345",
-      "baja": 1,
+      "baja": 0,
       "bibliotecaRutinas": {
         "nombre": "Biblioteca de rutinas",
         "descripcion": "Rutinas de funcional",
