@@ -12,7 +12,7 @@ import { VerRecetaComponent } from './Components/ver-receta/ver-receta.component
 
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 import { PerfilUsuarioComponent } from './Components/perfil-usuario/perfil-usuario.component';
-import { authGuard } from './services/auth/auth.guard';
+import { authGuard, authLogged } from './services/auth/auth.guard';
 
 /*const routes: Routes = [
   
@@ -31,7 +31,7 @@ import { authGuard } from './services/auth/auth.guard';
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
-  { path: 'inicio-sesion', component: InicioSesionComponent },
+  { path: 'inicio-sesion', component: InicioSesionComponent, canActivate: [authLogged] },
   { path: 'registro-usuario', component: RegistroUsuarioComponent },
   {
     path: 'cierre-sesion',

@@ -30,6 +30,7 @@
       (click)="mostrarReceta(receta)"
     >
       {{ receta.nombre }}
+      <button (click) = "eliminarReceta(receta)">Eliminar</button>
     </li>
   </ul>
   <app-ver-receta [recetaActual]="recetaActual"></app-ver-receta>
