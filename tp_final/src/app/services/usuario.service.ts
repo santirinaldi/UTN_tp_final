@@ -14,8 +14,9 @@ export class UsuarioService {
   constructor(private jsonService: JSONService, private router: Router) {}
 
 
-  //private userList = new Array<Usuario>();
+  
   /*
+  private userList = new Array<Usuario>();
     //private userList = new Array<Usuario>();
     //private userId = 0;
  
@@ -84,17 +85,17 @@ export class UsuarioService {
 
 
   checkLoggedIn() {
-    const log = localStorage.getItem('userLoggedin');
+    const log = localStorage.getItem('loggedIn');
     return log;
   }
 
   logOut() {
-    localStorage.removeItem('userLoggedin');
+    localStorage.removeItem('loggedIn');
     this.router.navigate(['/inicio']);
   }
 
   verifyLogged(): boolean {
-    const token = localStorage.getItem('userLoggegin');
+    const token = localStorage.getItem('loggedIn');
     return token ? true : false;
   }}
 

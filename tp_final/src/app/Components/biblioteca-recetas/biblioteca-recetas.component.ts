@@ -4,34 +4,54 @@ import { Usuario } from 'src/app/Models/usuario';
 import { Lista } from 'src/app/Models/lista';
 import { JSONService } from 'src/app/services/JSON/json.service';
 
+import { LoginService } from 'src/app/services/auth/login.service';
+import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-biblioteca-recetas',
   templateUrl: './biblioteca-recetas.component.html',
   styleUrls: ['./biblioteca-recetas.component.css'],
 })
 export class BibliotecaRecetasComponent implements OnInit {
+
+
+  filterPost = '';
   protected user: Usuario= new Usuario();
   protected recetaActual?: Lista;
   protected mostrarEditar: boolean=false;
-  
-  constructor (private servicioUsuario: UsuarioService, private jsonService: JSONService){}
-  filterPost = '';
 
-    
+  loggedInStatus!: Number;
+  subcripcion!: Subscription;
+  userLogged!: Usuario;
+
+  constructor (private servicioUsuario: UsuarioService, private jsonService: JSONService, private loginService: LoginService){}
   
   @ViewChild('lista')lista!:ElementRef;
   @ViewChild('popupItem')popupItem!:ElementRef;
   
   
   ngOnInit(): void {
-    const log = this.servicioUsuario.checkLoggedIn();
-    this.servicioUsuario.getUser2(1).subscribe((usuario: Usuario)=>{
-      console.log(usuario);
-      this.user=usuario
-      console.log(this.user);
-      
+    
+    this.loginService.getisLoggedIn().subscribe((value) => {
+      this.loggedInStatus = value;
+      if (this.loggedInStatus != -1) {
+        this.getUser();
+      } else {
+        console.log('nada');
+      }
     });
+
+    this.subcripcion = this.jsonService.refresh$.subscribe(() => {
+      this.getUser();
+    });
+
   } 
+
+  getUser() {
+    this.jsonService.getUserByID(this.loggedInStatus).subscribe((user) => {
+      this.user = user;
+    });
+  }
 
   mostrarReceta(receta: Lista) {
     console.log(receta);

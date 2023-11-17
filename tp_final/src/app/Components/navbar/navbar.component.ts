@@ -17,6 +17,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
+  
   loggedInStatus!: Number;
   userLogged!: Usuario;
 public isLogged: string | null = '';

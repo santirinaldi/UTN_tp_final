@@ -40,6 +40,7 @@ export class PerfilUsuarioComponent implements OnInit {
     this.jsonService.getAll().subscribe((data: Usuario[]) => {
       this.userList = data.filter((item:Usuario) => item.baja !== 1);
       const log = this.servicioUsuario.checkLoggedIn();
+      console.log("US LOGGED: ", log);
       if(log !== null) {
         this.userLogged = this.servicioUsuario.getUser(Number(log), this.userList);
         if(this.userLogged.bibliotecaRutinas.listaRutinas.length > 0) {
