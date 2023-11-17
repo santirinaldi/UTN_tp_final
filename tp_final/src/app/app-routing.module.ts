@@ -30,9 +30,8 @@ import { authGuard } from './services/auth/auth.guard';
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
-  { path: '', redirectTo: 'inicio', pathMatch: 'full' },
-  { path: 'inicio-sesion', component: InicioSesionComponent },
-  { path: 'registro-usuario', component: RegistroUsuarioComponent },
+  { path: 'inicio-sesion', component: InicioSesionComponent, canActivate: [authGuard]},
+  { path: 'registro-usuario', component: RegistroUsuarioComponent, canActivate: [authGuard]},
   {
     path: 'cierre-sesion',
     component: CierreSesionComponent,
@@ -43,8 +42,6 @@ const routes: Routes = [
     component: EditarUsuarioComponent,
     canActivate: [authGuard],
   },
-
-  //{ path: '', component: InicioComponent },
   {
     path: 'bibliotecaRecetas',
     component: BibliotecaRecetasComponent,
@@ -70,8 +67,7 @@ const routes: Routes = [
     component: PerfilUsuarioComponent,
     canActivate: [authGuard],
   },
-  //{path: '**', redirectTo: '404'},
-
+  { path: '', component: InicioComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

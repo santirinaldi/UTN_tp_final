@@ -84,5 +84,13 @@ export class BibliotecaRecetasComponent implements OnInit {
       this.mostrarEditar=!this.mostrarEditar;
     }
 
+    eliminarReceta(receta: Lista) {
+      var index = this.userLogged.bibliotecaRecetas.listaRecetas.indexOf(receta);
+      if (index !== -1) {
+        this.userLogged.bibliotecaRecetas.listaRecetas.splice(index, 1);
+        this.jsonService.putUser(this.userLogged);
+      }
+    }
+
     
 }
