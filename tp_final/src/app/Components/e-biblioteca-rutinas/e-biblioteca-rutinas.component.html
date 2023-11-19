@@ -1,6 +1,12 @@
-
-<input type="text" name="rutinaTitulo" id="rutinaTitulo" [(ngModel)]="nombreRutina">
-<button type="submit" (click)="editarNombreRutina()">Editar nombre</button>
-
-<input type="text" name="rutinaDescripcion" id="rutinaDescripcion" [(ngModel)]="descripcionRutina">
-<button type="submit" (click)="editarDescripcionRutina()">Editar descripcion</button>
+<div class="edit-b-form">
+    <div class="input-wrapper">
+        <input type="text" name="rutinaTitulo" id="rutinaTitulo" [(ngModel)]="nombreRutina">
+        <label for="rutinaTitulo">Nombre de biblioteca</label>
+        <button type="submit" (click)="editarNombreRutina()">Editar nombre</button>
+    </div>
+    <div class="input-wrapper">
+        <input type="text" name="rutinaDescripcion" id="rutinaDescripcion" [(ngModel)]="descripcionRutina">
+        <label for="rutinaDescripcion">Descripcion de biblioteca</label>
+        <button type="submit" (click)="editarDescripcionRutina()">Editar descripcion</button>
+    </div>
+</div>

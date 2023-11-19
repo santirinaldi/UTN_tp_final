@@ -8,13 +8,11 @@ import { Observable, map, of, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class UsuarioService {
-
   private userList: any;
+  user: any;
 
   constructor(private jsonService: JSONService, private router: Router) {}
 
-
-  
   /*
   private userList = new Array<Usuario>();
     //private userList = new Array<Usuario>();
@@ -36,40 +34,26 @@ export class UsuarioService {
       },
       error: (error) => {
         console.log(error);
-      }
+      },
     });
   }
-  
+
   add(user: Usuario) {
     // user.id = this.userId;
     // this.userList.push(user);
     // this.userId++;
     this.jsonService.add(user).subscribe((response) => {
       console.log(response);
+      this.router.navigateByUrl('/inicio-sesion');
     });
   }
-  
+
   baja(usuario: Usuario) {
     ///RECIBE USUARIO A ELIMINAR
     usuario.baja = 1;
     this.jsonService.putUser(usuario).subscribe((response) => {
       console.log(response);
     });
-  }
-  
-  getUsers() {
-    return this.userList;
-
-  }
-
-  getUser2(id: number): Observable<Usuario> {
-    let user = new Usuario();
-    const aux = this.userList?.find((user: Usuario) => user.id === id);
-    if (aux !== undefined) {
-      user = aux;
-    }
-
-    return of(user);
   }
 
   getUser(id: number, userList: Array<Usuario>): Usuario {
@@ -82,25 +66,7 @@ export class UsuarioService {
     return user;
   }
 
-  /*getById(userId: number){
-    let users = this.userList.filter((user: { userId: number; }) => {
-      return user.userId == userId;
-    });
 
-    return (users.length > 0) ? users[0] : null;
-  }  */
-
-
-  // getUser3(id: number): Observable<Usuario> {
-  //   let user = new Usuario();
-  //   if (this.userList) {
-  //     const aux = this.userList.find((user: Usuario) => user.id === id);
-  //     if (aux !== undefined) {
-  //       user = aux;
-  //     }
-  //   }
-  //   return of(user);
-  // }
 
   checkLoggedIn() {
     const log = localStorage.getItem('loggedIn');
@@ -116,4 +82,9 @@ export class UsuarioService {
     const token = localStorage.getItem('loggedIn');
     return token ? true : false;
   }
+
+
+
+
 }
+

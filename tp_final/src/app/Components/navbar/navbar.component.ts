@@ -17,10 +17,9 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-  
   loggedInStatus!: Number;
   userLogged!: Usuario;
-  // public isLogged: string | null = '';
+public isLogged: string | null = '';
   public isOpen: boolean = false;
   @ViewChild('menuBtn') menuBtn!: ElementRef;
   @ViewChild('userBtn') userBtn!: ElementRef;
@@ -33,7 +32,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    // this.isLogged = this.servicioUsuario.checkLoggedIn();
+this.isLogged = this.servicioUsuario.checkLoggedIn();
 
     this.loginService.getisLoggedIn().subscribe((value) => {
       this.loggedInStatus = value;

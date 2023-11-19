@@ -58,3 +58,18 @@ form input {
   border-right: 5px solid #000;
   transition: 0.5s ease-in-out;
 }
+
+.ng-valid:not(form).ng-touched {
+  border-left: 5px solid #42a948; /* green */
+}
+
+.ng-invalid:not(form).ng-touched {
+  border-left: 5px solid #fc0400; /* red */
+}
+
+.alert div {
+  background-color: #e96d6d;
+  color: #ffffff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}

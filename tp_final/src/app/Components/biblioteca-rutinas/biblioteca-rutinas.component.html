@@ -5,7 +5,7 @@
   <div class="encabezado">
   <h1>{{ user.bibliotecaRutinas.nombre }}</h1>
   <h2>{{ user.bibliotecaRutinas.descripcion }}</h2>
-  <button type="button" (click)="modificarMostrarEditar()">Editar</button>
+  <button type="button" (click)="modificarMostrarEditar()" class="edit-biblioteca">Editar</button>
   <app-e-biblioteca-rutinas
     *ngIf="mostrarEditar"
     [nombreRutina]="user.bibliotecaRutinas.nombre"
@@ -13,25 +13,22 @@
     (editarNombreLista)="nombreListaActualizar($event)"
     (editarDescripcionLista)="descripcionListaActualizar($event)"
    
-  
+ 
   ></app-e-biblioteca-rutinas>
   </div>
-  <div>
-    <div class="row">
-      <div class="col">
-        <div class="form-group">
-          <input type="text" class="form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]
-          ="filterPost">
-        </div>
-      </div>
-    </div>
+
+  <div class="search-wrapper">
+    <input type="text" class="form-control search-ip" name="filterPost" placeholder="Buscar..." [(ngModel)]
+    ="filterPost">
   </div>
-  <ul #lista>
+
+  <ul #lista class="lista">
     <li
       *ngFor="let rutina of user.bibliotecaRutinas.listaRutinas | filtro:filterPost "
       (click)="mostrarRutina(rutina)"
     >
       {{ rutina.nombre }}
+      <button (click) = "eliminarRutina(rutina)">Eliminar</button>
     </li>
   </ul>
   <app-ver-rutina [rutinaActual]="rutinaActual"></app-ver-rutina>

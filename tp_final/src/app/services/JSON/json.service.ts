@@ -25,22 +25,8 @@ export class JSONService {
   }
 
   add(usuario: Usuario): Observable<any> {
-    this.user = {
-      id: usuario.id,
-      name: usuario.name,
-      lastName: usuario.lastName,
-      email: usuario.email,
-      passWord: usuario.passWord,
-      baja: usuario.baja,
-      bibliotecaRutinas: usuario.bibliotecaRutinas,
-      bibliotecaRecetas: usuario.bibliotecaRecetas
-    };
 
-    return this.http.post<Usuario>(this.apiURL, this.user).pipe(
-      tap(() => {
-        this.refresh$.next();
-      })
-    );
+    return this.http.post<Usuario>(this.apiURL, usuario);
   }
 
   putUser(usuario: Usuario): Observable<any> {

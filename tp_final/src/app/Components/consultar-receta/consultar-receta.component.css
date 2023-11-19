@@ -232,3 +232,14 @@
   margin-bottom: 3rem !important;
   font-size: 2rem !important;
 }
+
+#invalid-data {
+  display: none;
+}
+
+#invalid-data h5 {
+  color: #ff9494;
+  text-align: center;
+  font-size: 0.9rem;
+  padding-top: 0.9rem;
+}

@@ -1,0 +1,55 @@
+.edit-b-form {
+    padding: 2rem 0;
+}
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+ 
+  .input-wrapper label {
+    font-family: "Roboto Condensed", sans-serif;
+    color: #fff;
+    font-size: 0.75rem;
+    position: absolute;
+    top: -7px;
+    left: 1rem;
+    background-color: #406b89;
+    border-left: 5px solid #406b89;
+    border-right: 5px solid #406b89;
+  }
+
+.input-wrapper input {
+    font-family: "Quicksand", sans-serif;
+    width: 100%;
+    padding: 1rem 3rem 1rem 1rem;
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+  }
+ 
+  .input-wrapper input:focus-visible {
+    outline: none;
+  }
+ 
+  .input-wrapper input:-webkit-autofill,
+  .input-wrapper input:-webkit-autofill:focus {
+    background: transparent !important;
+  }
+
+  .input-wrapper button {
+    display: block;
+    width: 100%;
+    padding: 1rem 3rem 1rem 1rem;
+    border: none;
+    cursor: pointer;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 700;
+    font-size: 0.83rem;
+    transition: 0.35s ease-in-out;
+}
+
+.input-wrapper button:hover {
+    color: #fff;
+    background-color: #000;
+}
