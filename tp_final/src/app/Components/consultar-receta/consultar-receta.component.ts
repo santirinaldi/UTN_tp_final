@@ -80,17 +80,16 @@ export class ConsultarRecetaComponent implements OnInit {
       }. Limitaciones: ${this.foodLimits.toString()}.`;
       console.log(message);
       this.createView();
+      // this.apiservice._apiRequest(message).subscribe((response) => {
+      //   console.log(response);
+      // this.apiResponse = response;
+      // });
     } else {
       this.invalidData.nativeElement.style.display = 'block';
       setTimeout(() => {
         this.invalidData.nativeElement.style.display = 'none';
       }, 1500);
     }
-
-    // this.apiservice._apiRequest(message).subscribe((response) => {
-    //   console.log(response);
-    // this.apiResponse = response;
-    // });
   }
 
   // pedidoAPI(message: string) {
