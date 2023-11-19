@@ -34,7 +34,7 @@ export class InicioSesionComponent implements OnInit {
   userLogged!: Usuario;
   subcripcion!: Subscription;
 
-  @ViewChild('loginresult') loginResult!: ElementRef;
+  @ViewChild('invalidData') invalidData!: ElementRef;
 
   //constructor(private servicioUsuario: UsuarioService, private jsonService: JSONService, private router: Router) {}
 
@@ -94,7 +94,11 @@ export class InicioSesionComponent implements OnInit {
               this.router.navigateByUrl('/inicio');
             }, 1000);
           } else {
-            alert('Los datos ingresados son invalidos');
+            this.invalidData.nativeElement.style.display = 'block';
+            setTimeout(() => {
+              this.invalidData.nativeElement.style.display = 'none';
+            }, 1000);
+            console.log();
           }
         });
     } else {

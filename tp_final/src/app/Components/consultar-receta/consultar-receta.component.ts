@@ -73,8 +73,10 @@ export class ConsultarRecetaComponent implements OnInit {
       this.maxCalories
     }. Limitaciones: ${this.foodLimits.toString()}.`;
     console.log(message);
+
     // this.apiservice._apiRequest(message).subscribe((response) => {
     //   console.log(response);
+    // this.apiResponse = response;
     // });
     this.createView();
   }
@@ -117,7 +119,6 @@ export class ConsultarRecetaComponent implements OnInit {
         this.result.nativeElement.removeChild(rb);
         this.result.nativeElement.removeChild(ri);
         this.result.nativeElement.removeChild(rl);
-        
       }, 2000);
     } else {
       let qrh4 = document.createElement('h4');
@@ -148,8 +149,8 @@ export class ConsultarRecetaComponent implements OnInit {
     const btnReturn = document.createElement('button');
     const input = document.createElement('input');
     const label = document.createElement('label');
-    label.innerHTML = "Ingrese un nombre para esta receta";
-    input.setAttribute("type", "text");
+    label.innerHTML = 'Ingrese un nombre para esta receta';
+    input.setAttribute('type', 'text');
 
     p.textContent = this.apiResponse;
     //estilos p
@@ -183,34 +184,34 @@ export class ConsultarRecetaComponent implements OnInit {
     btnReturn.style.color = '#000';
     btnReturn.textContent = 'Volver';
     //fin estilos btn
-       //estilos input
-       input.style.fontFamily = "Quicksand, sans-serif";
-       input.style.width = "auto";
-       input.style.padding = "1rem 3rem 1rem 1rem";
-       input.style.border = "1px solid #fff";
-       input.style.background = "transparent";
-       input.style.color = "#fff";
-       input.style.marginLeft = "2rem";
-       input.style.marginRight = "2rem";
-       //fin estilos input
-   
-       //estilos label
-       label.style.padding = "2rem 2rem 0.25rem 2rem";
-       label.style.fontSize = "0.75rem";
-       label.style.fontWeight = "700";
-       //fin estilos label
+    //estilos input
+    input.style.fontFamily = 'Quicksand, sans-serif';
+    input.style.width = 'auto';
+    input.style.padding = '1rem 3rem 1rem 1rem';
+    input.style.border = '1px solid #fff';
+    input.style.background = 'transparent';
+    input.style.color = '#fff';
+    input.style.marginLeft = '2rem';
+    input.style.marginRight = '2rem';
+    //fin estilos input
+
+    //estilos label
+    label.style.padding = '2rem 2rem 0.25rem 2rem';
+    label.style.fontSize = '0.75rem';
+    label.style.fontWeight = '700';
+    //fin estilos label
 
     if (this.loggedInStatus != -1) {
       btn.style.backgroundColor = '#fff';
       btn.style.color = '#000';
       btn.textContent = 'Guardar receta';
-      input.defaultValue = "Mi receta";
+      input.defaultValue = 'Mi receta';
       btn.onclick = () => {
         this.agregarReceta(input.value);
       };
     } else {
-      input.style.display = "none";
-      label.style.display = "none";
+      input.style.display = 'none';
+      label.style.display = 'none';
       btn.style.backgroundColor = '#a1a1a1';
       btn.style.color = '#000';
       btn.innerHTML =
