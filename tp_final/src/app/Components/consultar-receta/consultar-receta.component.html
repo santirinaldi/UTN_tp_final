@@ -39,6 +39,11 @@
                     <option value="Otros">Otros</option>
                 </select>
                 <label for="foodLimits">Limitaciones</label>
+                <div id="invalid-data" #invalidData>
+                    <h5>Tiene que completar los campos para que podamos darle un resultado preciso de lo que requiere
+                    </h5>
+                </div>
+
             </div>
             <button type="button" class="btn primary" (click)="createMessage()">Consultar</button>
         </form>
