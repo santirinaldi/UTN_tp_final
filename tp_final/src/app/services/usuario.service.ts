@@ -44,7 +44,9 @@ export class UsuarioService {
     // this.userId++;
     this.jsonService.add(user).subscribe((response) => {
       console.log(response);
-      this.router.navigateByUrl('/inicio-sesion');
+      setTimeout(() => {
+        this.router.navigateByUrl('/inicio-sesion');
+      }, 1000);
     });
   }
 
@@ -66,8 +68,6 @@ export class UsuarioService {
     return user;
   }
 
-
-
   checkLoggedIn() {
     const log = localStorage.getItem('loggedIn');
     return log;
@@ -82,9 +82,4 @@ export class UsuarioService {
     const token = localStorage.getItem('loggedIn');
     return token ? true : false;
   }
-
-
-
-
 }
-

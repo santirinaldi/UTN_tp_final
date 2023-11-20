@@ -87,16 +87,13 @@ export class AgregarRutinaComponent implements OnInit {
       }. Dias disponibles por semana: ${this.availableDays}. Limitaciones ${
         this.equipment
       }. ${this.preferences}`;
-      
 
       this.apiservice._apiRequest(message).subscribe((response) => {
         console.log(response);
         this.apiResponse = response.answer;
         this.createView();
       });
-
-    }else{
-
+    } else {
       this.invalidData.nativeElement.style.display = 'block';
       setTimeout(() => {
         this.invalidData.nativeElement.style.display = 'none';

@@ -39,8 +39,8 @@
   border-bottom: 1px solid #ccc;
 }
 
-  .search-wrapper {
-    padding: 2rem 0;
+.search-wrapper {
+  padding: 2rem 0;
 }
 
 .search-wrapper input {
@@ -57,36 +57,36 @@
 }
 
 .lista {
-    list-style: none;
-    padding: 0 2rem;
-    margin: 0;
-    width: 50%;
+  list-style: none;
+  padding: 0 2rem;
+  margin: 0;
+  width: 50%;
 }
 
 .lista li {
-    font-weight: 700;
-    margin-bottom: 1rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 }
 
 .lista li button {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 700;
-    font-size: 0.83rem;
-    padding: 0.5rem 1rem;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    transition: .35s ease-in-out;
-    background: #c34242;
-    color: #fff;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: 0.83rem;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: 0.35s ease-in-out;
+  background: #c34242;
+  color: #fff;
 }
 
 .show-data-wrapper {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .data {

@@ -35,14 +35,13 @@
 }
 
 .row {
-    padding: 8px;
-    
-  }
+  padding: 8px;
+}
 
 .search-wrapper {
-    padding: 2rem 0;
-    margin: 0 2rem 2rem;
-    border-bottom: 1px solid #ccc;
+  padding: 2rem 0;
+  margin: 0 2rem 2rem;
+  border-bottom: 1px solid #ccc;
 }
 
 .search-wrapper input {
@@ -59,19 +58,18 @@
 }
 
 .lista {
-    list-style: none;
-    padding: 0 2rem;
-    margin: 0;
-    width: 50%;
+  list-style: none;
+  padding: 0 2rem;
+  margin: 0;
+  width: 50%;
 }
 
 .lista li {
-    font-weight: 700;
-    margin-bottom: 1rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    
+  font-weight: 700;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 }
 
 .lista li button {
@@ -88,9 +86,8 @@
 }
 
 .show-data-wrapper {
-    display: flex;
-    justify-content: space-between;
-  
+  display: flex;
+  justify-content: space-between;
 }
 
 .data {

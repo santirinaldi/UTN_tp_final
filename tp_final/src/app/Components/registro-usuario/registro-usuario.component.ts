@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Usuario } from '../../Models/usuario';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { JSONService } from 'src/app/services/JSON/json.service';
 import { Subscription } from 'rxjs';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-
+import { userExistsValidator } from 'src/app/Common/custom-validators';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -13,13 +13,20 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
   styleUrls: ['./registro-usuario.component.css'],
 })
 export class RegistroUsuarioComponent implements OnInit {
-
-  minLength:number = 5;
+  minLength: number = 5;
+  loggedInStatus: Number = -1;
 
   registerForm = this.formBuilder.group({
     name: ['', [Validators.required]],
     lastName: ['', [Validators.required]],
-    email: ['', [Validators.required, Validators.email]],
+    email: [
+      '',
+      {
+        validators: [Validators.required, Validators.email],
+        asyncValidators: [userExistsValidator(this.jsonService)],
+        updateOn: 'blur',
+      },
+    ],
     passWord: ['', [Validators.required, Validators.minLength(this.minLength)]],
   });
 
@@ -32,15 +39,12 @@ export class RegistroUsuarioComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  
   get name() {
     return this.registerForm.controls.name;
   }
 
-  
   get lastName() {
     return this.registerForm.controls.lastName;
   }
@@ -54,27 +58,23 @@ export class RegistroUsuarioComponent implements OnInit {
   }
 
   addUser() {
-    if(this.registerForm.status == 'VALID') {
-        let user = new Usuario();
-        if(this.registerForm.value.name != null &&
-           this.registerForm.value.lastName != null &&
-           this.registerForm.value.email != null &&
-           this.registerForm.value.passWord != null
-          ) {
-          user.name = this.registerForm.value.name;
-          user.lastName = this.registerForm.value.lastName;
-          user.email = this.registerForm.value.email;
-          user.passWord = this.registerForm.value.passWord;
-          this.servicioUsuario.add(user);
-          alert('Registro exitoso');
-          this.registerForm.markAllAsTouched();
-        }
+    if (this.registerForm.status == 'VALID') {
+      let user = new Usuario();
+      if (
+        this.registerForm.value.name != null &&
+        this.registerForm.value.lastName != null &&
+        this.registerForm.value.email != null &&
+        this.registerForm.value.passWord != null
+      ) {
+        user.name = this.registerForm.value.name;
+        user.lastName = this.registerForm.value.lastName;
+        user.email = this.registerForm.value.email;
+        user.passWord = this.registerForm.value.passWord;
+
+        this.servicioUsuario.add(user);
+        this.loggedInStatus = 1;
+        this.registerForm.markAllAsTouched();
       }
-    else {
-      alert('Error al ingresar los datos');
-      this.registerForm.markAllAsTouched();
     }
   }
-
-
 }
