@@ -90,7 +90,12 @@ export class AgregarRutinaComponent implements OnInit {
         this.equipment
       }. ${this.preferences}`;
       
-      this.createView();
+
+      this.apiservice._apiRequest(message).subscribe((response) => {
+        console.log(response);
+        this.apiResponse = response.answer;
+        this.createView();
+      });
 
     }else{
 
