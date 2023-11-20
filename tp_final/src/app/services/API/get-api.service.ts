@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { responseInterface } from 'src/app/Components/consultar-receta/responseInterface';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ export class GetAPIService {
   //private rapidApiKey = "ad44ee4ad8msh759cec7c25fc2cap1368b5jsn3d6d200336c1";
   //private rapidApiHost = "simple-chatgpt-api.p.rapidapi.com";
 
-  private rapidApiKey = 'f227c0ec34msh4a8be6e6bcf0eb0p136b11jsnb7efbd3eca8b';
+  private rapidApiKey = '0d721e434fmsh928652331228961p11fcb7jsnaa6c4fed3597';
   private rapidApiHost = 'simple-chatgpt-api.p.rapidapi.com';
 
   constructor(private http: HttpClient) {}
@@ -45,6 +46,6 @@ export class GetAPIService {
       }),
     };
 
-    return this.http.post(url, httpOptions.body, httpOptions);
+    return this.http.post<responseInterface>(url, httpOptions.body, httpOptions);
   }
 }

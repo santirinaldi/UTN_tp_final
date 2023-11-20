@@ -25,19 +25,23 @@
       </div>
     </div>
 
-<div>
+<div class="show-data-wrapper">
   <ul #lista class="lista">
     <li
       *ngFor="let receta of user.bibliotecaRecetas.listaRecetas | filtro:filterPost "
       (click)="mostrarReceta(receta)"
+      
+
     >
+
       {{ receta.nombre }}
+
       <button (click)="eliminarReceta(receta)">Eliminar</button>
       
     </li>
     
-  </ul>
-  
-  <app-ver-receta [recetaActual]="recetaActual"></app-ver-receta>
+  </ul> 
+  <app-ver-receta [recetaActual]="recetaActual" class="data"></app-ver-receta>
+
 </div>
 </div>
