@@ -76,29 +76,6 @@
       }
     },
     {
-      "id": 2,
-      "name": "josefina",
-      "lastName": "fructuoso",
-      "email": "jose@gmail.com",
-      "passWord": "1234",
-      "baja": 0,
-      "bibliotecaRutinas": {
-        "nombre": "Biblioteca de rutinas",
-        "descripcion": "Rutinas de funcional",
-        "listaRutinas": []
-      },
-      "bibliotecaRecetas": {
-        "nombre": "recetas",
-        "descripcion": "saludables",
-        "listaRecetas": [
-          {
-            "nombre": "Mi receta 3",
-            "texto": "Mi receta 3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, delectus reprehenderit. Sequi saepe numquam ab, velit possimus debitis."
-          }
-        ]
-      }
-    },
-    {
       "id": 3,
       "name": "Santiago",
       "lastName": "Rinaldi",
