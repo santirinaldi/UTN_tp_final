@@ -25,7 +25,6 @@ export class JSONService {
   }
 
   add(usuario: Usuario): Observable<any> {
-
     return this.http.post<Usuario>(this.apiURL, usuario);
   }
 
@@ -66,6 +65,9 @@ export class JSONService {
     return this.http.get<Usuario>(`${this.apiURL}/${userID}`);
   }
 
+  findUserByEmail(email: string) {
+    return this.http.get<Usuario[]>(`${this.apiURL}?email=${email}&baja=0`);
+  }
   /*
     getAll(): Promise<any> { /// EJEMPLO GET
     return fetch('http://localhost:3000/users'); /// RETORNA UNA PROMESA A CAPTURAR EN EL COMPONENTE QUE LO REQUIERA
