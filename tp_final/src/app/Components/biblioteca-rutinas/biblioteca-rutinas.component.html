@@ -40,10 +40,8 @@
       <button (click) = "eliminarRutina(rutina)">Eliminar</button>
     </li>
   </ul>
-  <div *ngIf="mostrarVer"
-  (click)="modificarMostrarVer()">
 
-  <app-ver-rutina [rutinaActual]="rutinaActual"></app-ver-rutina>
-</div>
+
+  <app-ver-rutina [rutinaActual]="rutinaActual" class="data"></app-ver-rutina>
 </div>
 </div>

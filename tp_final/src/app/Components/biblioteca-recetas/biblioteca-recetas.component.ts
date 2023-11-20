@@ -64,6 +64,9 @@ export class BibliotecaRecetasComponent implements OnInit {
     this.mostrarVer=!this.mostrarVer;
   }
 
+  /*  <div *ngIf="mostrarVer"
+  (click)="modificarMostrarVer()"*/
+
 
   nombreListaActualizar(nombre: string) {
     const usuarioActualizado: Usuario = {
