@@ -105,7 +105,6 @@ export class InicioSesionComponent implements OnInit {
       alert('Error al ingresar los datos');
       this.loginForm.markAllAsTouched();
     }
-    
   }
 
   // verifyUser() {

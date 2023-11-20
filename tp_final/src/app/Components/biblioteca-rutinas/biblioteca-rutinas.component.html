@@ -3,18 +3,12 @@
 <div>
   <div class="popup-item" #popupItem></div>
   <div class="encabezado">
-  <h1>{{ user.bibliotecaRutinas.nombre }}</h1>
-  <h2>{{ user.bibliotecaRutinas.descripcion }}</h2>
-  <button type="button" (click)="modificarMostrarEditar()" class="edit-biblioteca">Editar</button>
-  <app-e-biblioteca-rutinas
-    *ngIf="mostrarEditar"
-    [nombreRutina]="user.bibliotecaRutinas.nombre"
-    [descripcionRutina]="user.bibliotecaRutinas.descripcion"
-    (editarNombreLista)="nombreListaActualizar($event)"
-    (editarDescripcionLista)="descripcionListaActualizar($event)"
-   
- 
-  ></app-e-biblioteca-rutinas>
+    <h1>{{ user.bibliotecaRutinas.nombre }}</h1>
+    <h2>{{ user.bibliotecaRutinas.descripcion }}</h2>
+    <button type="button" (click)="modificarMostrarEditar()" class="edit-biblioteca">Editar</button>
+    <app-e-biblioteca-rutinas *ngIf="mostrarEditar" [nombreRutina]="user.bibliotecaRutinas.nombre"
+      [descripcionRutina]="user.bibliotecaRutinas.descripcion" (editarNombreLista)="nombreListaActualizar($event)"
+      (editarDescripcionLista)="descripcionListaActualizar($event)"></app-e-biblioteca-rutinas>
   </div>
 
 

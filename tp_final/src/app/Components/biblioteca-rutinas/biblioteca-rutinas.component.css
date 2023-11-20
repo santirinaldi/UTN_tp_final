@@ -1,37 +1,37 @@
-.encabezado{
-    background-color: #406b89;
-    padding: 2rem;
+.encabezado {
+  background-color: #406b89;
+  padding: 2rem;
 }
 
-.encabezado>h1 {
-    font-family: 'Roboto Condensed', sans-serif;
-    position: relative;
-    color: #fff;
-    margin-top: 0;
-    text-transform: uppercase;
-    font-size: 2.5rem;
-    margin-bottom: 0;
+.encabezado > h1 {
+  font-family: "Roboto Condensed", sans-serif;
+  position: relative;
+  color: #fff;
+  margin-top: 0;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  margin-bottom: 0;
 }
 
-.encabezado>h2 {
-    font-family: 'Roboto Condensed', sans-serif;
-    position: relative;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    color: #fff;
-    font-weight: 300;
+.encabezado > h2 {
+  font-family: "Roboto Condensed", sans-serif;
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: 300;
 }
 
 .edit-biblioteca {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 700;
-    font-size: 0.83rem;
-    padding: 0.5rem 1rem;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    transition: .35s ease-in-out;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: 0.83rem;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: 0.35s ease-in-out;
 }
 
 .row {
@@ -46,16 +46,16 @@
 }
 
 .search-wrapper input {
-    font-family: "Quicksand", sans-serif;
-    width: 100%;
-    padding: 1rem 3rem 1rem 1rem;
-    border: 1px solid #8b8b8b;
-    background: transparent;
-    color: #000;
+  font-family: "Quicksand", sans-serif;
+  width: 100%;
+  padding: 1rem 3rem 1rem 1rem;
+  border: 1px solid #8b8b8b;
+  background: transparent;
+  color: #000;
 }
 
 .search-wrapper input:focus {
-    outline: none;
+  outline: none;
 }
 
 .lista {
@@ -75,16 +75,16 @@
 }
 
 .lista li button {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 700;
-    font-size: 0.83rem;
-    padding: 0.5rem 1rem;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    transition: .35s ease-in-out;
-    background: #c34242;
-    color: #fff;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: 0.83rem;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: 0.35s ease-in-out;
+  background: #c34242;
+  color: #fff;
 }
 
 .show-data-wrapper {
