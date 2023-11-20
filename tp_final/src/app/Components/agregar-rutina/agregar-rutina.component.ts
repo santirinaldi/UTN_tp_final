@@ -43,6 +43,8 @@ export class AgregarRutinaComponent implements OnInit {
 
   @ViewChild('result') result!: ElementRef;
 
+  @ViewChild('invalidData') invalidData!: ElementRef;
+
   constructor(
     private apiservice: GetAPIService,
     private servicioUsuario: UsuarioService,
@@ -74,13 +76,30 @@ export class AgregarRutinaComponent implements OnInit {
   }
 
   createMessage() {
-    const message = `Quiero una rutina de ejercicio con estas caracteristicas: objetivos: ${this.objetives.toString()}. Mi condicion fisica: ${
-      this.physicalCondition
-    }. Dias disponibles por semana: ${this.availableDays}. Limitaciones ${
-      this.equipment
-    }. ${this.preferences}`;
-    
-    this.createView();
+    if(
+      this.objetives &&
+      this.physicalCondition &&
+      this.availableDays &&
+      this.equipment &&
+      this.preferences
+    ) {
+
+      const message = `Quiero una rutina de ejercicio con estas caracteristicas: objetivos: ${this.objetives.toString()}. Mi condicion fisica: ${
+        this.physicalCondition
+      }. Dias disponibles por semana: ${this.availableDays}. Limitaciones ${
+        this.equipment
+      }. ${this.preferences}`;
+      
+      this.createView();
+
+    }else{
+
+      this.invalidData.nativeElement.style.display = 'block';
+      setTimeout(() => {
+        this.invalidData.nativeElement.style.display = 'none';
+      }, 1500);
+
+    }
 
   }
 
@@ -104,9 +123,14 @@ export class AgregarRutinaComponent implements OnInit {
         this.queryResult.nativeElement.style.visibility = 'hidden';
         this.queryResult.nativeElement.removeChild(qrh4);
         let rp = document.querySelector('.data p');
-        let rb = document.querySelector('.data button');
+        let rb = document.querySelectorAll('.data button');
+        let ri = document.querySelector('.data input');
+        let rl = document.querySelector('.data label');
         this.result.nativeElement.removeChild(rp);
-        this.result.nativeElement.removeChild(rb);
+        this.result.nativeElement.removeChild(rb[0]);
+        this.result.nativeElement.removeChild(rb[1]);
+        this.result.nativeElement.removeChild(ri);
+        this.result.nativeElement.removeChild(rl);
       }, 2000);
     } else {
       let qrh4 = document.createElement('h4');
@@ -119,11 +143,14 @@ export class AgregarRutinaComponent implements OnInit {
         this.queryResult.nativeElement.style.visibility = 'hidden';
         this.queryResult.nativeElement.removeChild(qrh4);
         let rp = document.querySelector('.data p');
-        let rb = document.querySelector('.data button');
+        let rb = document.querySelectorAll('.data button');
         let ri = document.querySelector('.data input');
         let rl = document.querySelector('.data label');
+        console.log("QWE: ", ri);
+        console.log("ASD: ", rl);
         this.result.nativeElement.removeChild(rp);
-        this.result.nativeElement.removeChild(rb);
+        this.result.nativeElement.removeChild(rb[0]);
+        this.result.nativeElement.removeChild(rb[1]);
         this.result.nativeElement.removeChild(ri);
         this.result.nativeElement.removeChild(rl);
       }, 2000);

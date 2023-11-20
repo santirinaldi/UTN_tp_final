@@ -20,9 +20,9 @@ export class ConsultarRecetaComponent implements OnInit {
   apiResponse: string =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan lacus vel facilisis volutpat est velit. Volutpat ac tincidunt vitae semper quis lectus nulla at volutpat. Sodales neque sodales ut etiam sit. Gravida dictum fusce ut placerat orci nulla pellentesque. Turpis massa sed elementum tempus egestas sed. Enim sit amet venenatis urna. Suspendisse interdum consectetur libero id faucibus nisl tincidunt eget. Est ante in nibh mauris cursus mattis molestie. Auctor neque vitae tempus quam. Nisl purus in mollis nunc.Egestas pretium aenean pharetra magna ac. Massa eget egestas purus viverra accumsan in nisl nisi scelerisque. Etiam dignissim diam quis enim. Turpis egestas sed tempus urna. Lacus vestibulum sed arcu non odio euismod lacinia at quis. Tempus egestas sed sed risus. Vitae justo eget magna fermentum iaculis eu non. Id leo in vitae turpis massa. Ultrices in iaculis nunc sed augue lacus. Dolor sit amet consectetur adipiscing. In massa tempor nec feugiat nisl pretium fusce id velit.  Id eu nisl nunc mi ipsum faucibus vitae aliquet. Tellus integer feugiat scelerisque varius. Tortor consequat id porta nibh venenatis cras. Id volutpat lacus laoreet non curabitur gravida arcu ac. Sit amet risus nullam eget felis eget. Leo a diam sollicitudin tempor id eu. Nam libero justo laoreet sit amet cursus sit. Quis imperdiet massa tincidunt nunc pulvinar sapien. Volutpat diam ut venenatis tellus in metus vulputate. Suspendisse faucibus interdum posuere lorem ipsum dolor sit amet consectetur.Nec tincidunt praesent semper feugiat. Sed euismod nisi porta lorem. Ut porttitor leo a diam sollicitudin tempor id. Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit. Viverra justo nec ultrices dui sapien eget. Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis. Cursus turpis massa tincidunt dui ut ornare lectus. Id porta nibh venenatis cras sed felis eget velit. Arcu risus quis varius quam quisque. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Tellus mauris a diam maecenas sed enim. Lectus mauris ultrices eros in.Quam nulla porttitor massa id neque aliquam. Eget gravida cum sociis natoque penatibus. Nisl vel pretium lectus quam id. Tincidunt arcu non sodales neque sodales ut etiam sit. Tempus quam pellentesque nec nam aliquam sem. Sodales neque sodales ut etiam sit amet nisl. Felis donec et odio pellentesque diam. Ac placerat vestibulum lectus mauris ultrices eros. Scelerisque eleifend donec pretium vulputate sapien nec. Nec tincidunt praesent semper feugiat. Consequat mauris nunc congue nisi vitae suscipit tellus. Tincidunt eget nullam non nisi est sit amet facilisis magna. Facilisi etiam dignissim diam quis enim. Purus gravida quis blandit turpis.Lectus sit amet est placerat in egestas. Id eu nisl nunc mi ipsum faucibus vitae aliquet nec. Etiam non quam lacus suspendisse. Blandit volutpat maecenas volutpat blandit aliquam etiam erat velit. Vitae tortor condimentum lacinia quis vel eros donec. Auctor neque vitae tempus quam pellentesque. Et ultrices neque ornare aenean euismod elementum. Aliquet porttitor lacus luctus accumsan. Id neque aliquam vestibulum morbi blandit. Nulla porttitor massa id neque aliquam vestibulum. Id cursus metus aliquam eleifend mi in nulla posuere. Vehicula ipsum a arcu cursus vitae congue mauris rhoncus. Bibendum neque egestas congue quisque egestas diam in. Sit amet justo donec enim diam vulputate ut pharetra. Ut sem viverra aliquet eget sit amet tellus cras. Aliquam id diam maecenas ultricies mi. Arcu cursus vitae congue mauris rhoncus aenean. Nunc mattis enim ut tellus elementum sagittis vitae. Ut ornare lectus sit amet est placerat in.';
 
-  food: Array<string> = [];
-  objetives: Array<string> = [];
-  foodLimits: Array<string> = [];
+  food!: Array<string>;
+  objetives!: Array<string>;
+  foodLimits!: Array<string>;
   maxCalories: number = 0;
   suscription = new Subscription();
   userEmail: string = '';
@@ -36,6 +36,7 @@ export class ConsultarRecetaComponent implements OnInit {
   @ViewChild('result') result!: ElementRef;
   @ViewChild('loginResult') loginResult!: ElementRef;
   @ViewChild('queryResult') queryResult!: ElementRef;
+  @ViewChild('invalidData') invalidData!: ElementRef;
 
   constructor(
     private servicioUsuario: UsuarioService,
@@ -68,15 +69,27 @@ export class ConsultarRecetaComponent implements OnInit {
   }
 
   createMessage() {
-    console.log(this.food.toString());
-    const message = ` Quiero una receta con estas caracteristicas: Tipo de comida: ${this.food.toString()} . Objetivos: ${this.objetives.toString()}. Calorias Maximas: ${
-      this.maxCalories
-    }. Limitaciones: ${this.foodLimits.toString()}.`;
-    console.log(message);
-    // this.apiservice._apiRequest(message).subscribe((response) => {
-    //   console.log(response);
-    // });
-    this.createView();
+    if (
+      this.food &&
+      this.foodLimits &&
+      this.objetives &&
+      this.maxCalories != 0
+    ) {
+      const message = ` Quiero una receta con estas caracteristicas: Tipo de comida: ${this.food.toString()} . Objetivos: ${this.objetives.toString()}. Calorias Maximas: ${
+        this.maxCalories
+      }. Limitaciones: ${this.foodLimits.toString()}.`;
+      console.log(message);
+      this.createView();
+      // this.apiservice._apiRequest(message).subscribe((response) => {
+      //   console.log(response);
+      // this.apiResponse = response;
+      // });
+    } else {
+      this.invalidData.nativeElement.style.display = 'block';
+      setTimeout(() => {
+        this.invalidData.nativeElement.style.display = 'none';
+      }, 1500);
+    }
   }
 
   // pedidoAPI(message: string) {
@@ -110,14 +123,14 @@ export class ConsultarRecetaComponent implements OnInit {
         this.queryResult.nativeElement.style.visibility = 'hidden';
         this.queryResult.nativeElement.removeChild(qrh4);
         let rp = document.querySelector('.data p');
-        let rb = document.querySelector('.data button');
+        let rb = document.querySelectorAll('.data button');
         let ri = document.querySelector('.data input');
         let rl = document.querySelector('.data label');
         this.result.nativeElement.removeChild(rp);
-        this.result.nativeElement.removeChild(rb);
+        this.result.nativeElement.removeChild(rb[0]);
+        this.result.nativeElement.removeChild(rb[1]);
         this.result.nativeElement.removeChild(ri);
         this.result.nativeElement.removeChild(rl);
-        
       }, 2000);
     } else {
       let qrh4 = document.createElement('h4');
@@ -130,11 +143,12 @@ export class ConsultarRecetaComponent implements OnInit {
         this.queryResult.nativeElement.style.visibility = 'hidden';
         this.queryResult.nativeElement.removeChild(qrh4);
         let rp = document.querySelector('.data p');
-        let rb = document.querySelector('.data button');
+        let rb = document.querySelectorAll('.data button');
         let ri = document.querySelector('.data input');
         let rl = document.querySelector('.data label');
         this.result.nativeElement.removeChild(rp);
-        this.result.nativeElement.removeChild(rb);
+        this.result.nativeElement.removeChild(rb[0]);
+        this.result.nativeElement.removeChild(rb[1]);
         this.result.nativeElement.removeChild(ri);
         this.result.nativeElement.removeChild(rl);
       }, 2000);
@@ -148,8 +162,8 @@ export class ConsultarRecetaComponent implements OnInit {
     const btnReturn = document.createElement('button');
     const input = document.createElement('input');
     const label = document.createElement('label');
-    label.innerHTML = "Ingrese un nombre para esta receta";
-    input.setAttribute("type", "text");
+    label.innerHTML = 'Ingrese un nombre para esta receta';
+    input.setAttribute('type', 'text');
 
     p.textContent = this.apiResponse;
     //estilos p
@@ -183,34 +197,34 @@ export class ConsultarRecetaComponent implements OnInit {
     btnReturn.style.color = '#000';
     btnReturn.textContent = 'Volver';
     //fin estilos btn
-       //estilos input
-       input.style.fontFamily = "Quicksand, sans-serif";
-       input.style.width = "auto";
-       input.style.padding = "1rem 3rem 1rem 1rem";
-       input.style.border = "1px solid #fff";
-       input.style.background = "transparent";
-       input.style.color = "#fff";
-       input.style.marginLeft = "2rem";
-       input.style.marginRight = "2rem";
-       //fin estilos input
-   
-       //estilos label
-       label.style.padding = "2rem 2rem 0.25rem 2rem";
-       label.style.fontSize = "0.75rem";
-       label.style.fontWeight = "700";
-       //fin estilos label
+    //estilos input
+    input.style.fontFamily = 'Quicksand, sans-serif';
+    input.style.width = 'auto';
+    input.style.padding = '1rem 3rem 1rem 1rem';
+    input.style.border = '1px solid #fff';
+    input.style.background = 'transparent';
+    input.style.color = '#fff';
+    input.style.marginLeft = '2rem';
+    input.style.marginRight = '2rem';
+    //fin estilos input
+
+    //estilos label
+    label.style.padding = '2rem 2rem 0.25rem 2rem';
+    label.style.fontSize = '0.75rem';
+    label.style.fontWeight = '700';
+    //fin estilos label
 
     if (this.loggedInStatus != -1) {
       btn.style.backgroundColor = '#fff';
       btn.style.color = '#000';
       btn.textContent = 'Guardar receta';
-      input.defaultValue = "Mi receta";
+      input.defaultValue = 'Mi receta';
       btn.onclick = () => {
         this.agregarReceta(input.value);
       };
     } else {
-      input.style.display = "none";
-      label.style.display = "none";
+      input.style.display = 'none';
+      label.style.display = 'none';
       btn.style.backgroundColor = '#a1a1a1';
       btn.style.color = '#000';
       btn.innerHTML =

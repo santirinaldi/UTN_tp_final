@@ -46,6 +46,10 @@
             <div class="field-wrapper">
                 <input type="text" name="preferences" id="preferences" [(ngModel)]="preferences">
                 <label for="preferences">Preferencias y limitaciones</label>
+                <div id="invalid-data" #invalidData>
+                    <h5>Tiene que completar los campos para que podamos darle un resultado preciso de lo que requiere
+                    </h5>
+                </div>
             </div>
 
             <button type="button" class="btn primary" (click)="createMessage()">Consultar</button>
