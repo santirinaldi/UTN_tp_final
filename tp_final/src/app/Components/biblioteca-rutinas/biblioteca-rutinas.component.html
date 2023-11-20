@@ -22,7 +22,8 @@
     ="filterPost">
   </div>
 
-  <ul #lista class="lista">
+<div class="show-data-wrapper">  
+<ul #lista class="lista">
     <li
       *ngFor="let rutina of user.bibliotecaRutinas.listaRutinas | filtro:filterPost "
       (click)="mostrarRutina(rutina)"
@@ -37,5 +38,6 @@
   (click)="modificarMostrarVer()">
 
   <app-ver-rutina [rutinaActual]="rutinaActual"></app-ver-rutina>
+</div>
 </div>
 </div>
