@@ -71,6 +71,7 @@
     cursor: pointer;
     display: flex;
     justify-content: space-between;
+    
 }
 
 .lista li button {
@@ -89,6 +90,7 @@
 .show-data-wrapper {
     display: flex;
     justify-content: space-between;
+  
 }
 
 .data {

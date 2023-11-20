@@ -82,3 +82,13 @@
     background: #c34242;
     color: #fff;
 }
+
+.show-data-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.data {
+    width: 50%;
+    padding-right: 2rem;
+}
