@@ -18,6 +18,7 @@ export class BibliotecaRutinasComponent implements OnInit {
   protected user: Usuario = new Usuario();
   protected rutinaActual?: Lista;
   protected mostrarEditar: boolean = false;
+  protected mostrarVer: boolean = false;
 
   loggedInStatus!: Number;
   subcripcion!: Subscription;
@@ -57,8 +58,15 @@ export class BibliotecaRutinasComponent implements OnInit {
 
   mostrarRutina(rutina: Lista) {
     console.log(rutina);
+    this.mostrarVer=!this.mostrarVer;
     this.rutinaActual = rutina;
   }
+
+  modificarMostrarVer(){
+    this.mostrarVer=!this.mostrarVer;
+  }
+
+
 
   nombreListaActualizar(nombre: string) {
     const usuarioActualizado: Usuario = {

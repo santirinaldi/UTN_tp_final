@@ -36,7 +36,7 @@
 
 .row {
     padding: 8px;
-    border-bottom: 1px solid #ccc;
+    
   }
 
 .search-wrapper {
@@ -71,6 +71,7 @@
     cursor: pointer;
     display: flex;
     justify-content: space-between;
+    
 }
 
 .lista li button {
@@ -89,6 +90,7 @@
 .show-data-wrapper {
     display: flex;
     justify-content: space-between;
+  
 }
 
 .data {

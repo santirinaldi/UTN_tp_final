@@ -24,4 +24,6 @@ export class VerRecetaComponent implements OnInit {
       
         
       };
+
+   
     }  

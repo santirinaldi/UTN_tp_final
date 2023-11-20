@@ -1,0 +1,9 @@
+.titulo{
+    font-family: 'Roboto Condensed', sans-serif;
+    position: relative;
+    color: black;
+    margin-top: 0;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    margin-bottom: 0;
+}
