@@ -28,8 +28,14 @@
       (click)="mostrarRutina(rutina)"
     >
       {{ rutina.nombre }}
+
+      
       <button (click) = "eliminarRutina(rutina)">Eliminar</button>
     </li>
   </ul>
+  <div *ngIf="mostrarVer"
+  (click)="modificarMostrarVer()">
+
   <app-ver-rutina [rutinaActual]="rutinaActual"></app-ver-rutina>
+</div>
 </div>

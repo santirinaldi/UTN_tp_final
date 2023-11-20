@@ -30,14 +30,22 @@
     <li
       *ngFor="let receta of user.bibliotecaRecetas.listaRecetas | filtro:filterPost "
       (click)="mostrarReceta(receta)"
+      
+
     >
+
       {{ receta.nombre }}
+
       <button (click)="eliminarReceta(receta)">Eliminar</button>
       
     </li>
     
   </ul>
-  
+  <div *ngIf="mostrarVer"
+  (click)="modificarMostrarVer()"
+  >
+ 
   <app-ver-receta [recetaActual]="recetaActual"></app-ver-receta>
+</div>
 </div>
 </div>

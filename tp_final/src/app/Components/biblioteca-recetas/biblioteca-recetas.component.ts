@@ -17,6 +17,7 @@ export class BibliotecaRecetasComponent implements OnInit {
   protected user: Usuario = new Usuario();
   protected recetaActual?: Lista;
   protected mostrarEditar: boolean = false;
+  protected mostrarVer: boolean = false;
 
   loggedInStatus!: Number;
   subcripcion!: Subscription;
@@ -54,8 +55,15 @@ export class BibliotecaRecetasComponent implements OnInit {
 
   mostrarReceta(receta: Lista) {
     console.log(receta);
+    this.mostrarVer=!this.mostrarVer;
     this.recetaActual = receta;
+    
   }
+
+  modificarMostrarVer(){
+    this.mostrarVer=!this.mostrarVer;
+  }
+
 
   nombreListaActualizar(nombre: string) {
     const usuarioActualizado: Usuario = {
