@@ -25,7 +25,7 @@
       </div>
     </div>
 
-  <div class="show-data-wrapper">  
+<div class="show-data-wrapper">
   <ul #lista class="lista">
     <li
       *ngFor="let receta of user.bibliotecaRecetas.listaRecetas | filtro:filterPost "
@@ -45,7 +45,7 @@
   (click)="modificarMostrarVer()"
   >
  
-  <app-ver-receta [recetaActual]="recetaActual"></app-ver-receta>
+  <app-ver-receta [recetaActual]="recetaActual" class="data"></app-ver-receta>
 </div>
 </div>
 </div>
