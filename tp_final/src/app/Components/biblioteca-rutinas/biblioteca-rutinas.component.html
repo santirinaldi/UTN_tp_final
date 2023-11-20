@@ -22,14 +22,17 @@
     ="filterPost">
   </div>
 
-  <ul #lista class="lista">
-    <li
-      *ngFor="let rutina of user.bibliotecaRutinas.listaRutinas | filtro:filterPost "
-      (click)="mostrarRutina(rutina)"
-    >
-      {{ rutina.nombre }}
-      <button (click) = "eliminarRutina(rutina)">Eliminar</button>
-    </li>
-  </ul>
-  <app-ver-rutina [rutinaActual]="rutinaActual"></app-ver-rutina>
+  <div class="show-data-wrapper">
+    <ul #lista class="lista">
+      <li
+        *ngFor="let rutina of user.bibliotecaRutinas.listaRutinas | filtro:filterPost "
+        (click)="mostrarRutina(rutina)"
+      >
+        {{ rutina.nombre }}
+        <button (click) = "eliminarRutina(rutina)">Eliminar</button>
+      </li>
+    </ul>
+    <app-ver-rutina [rutinaActual]="rutinaActual" class="data"></app-ver-rutina>
+  </div>
+  
 </div>
