@@ -147,6 +147,62 @@
         "descripcion": "Mi descripcion",
         "listaRecetas": []
       }
+    },
+    {
+      "id": 8,
+      "name": "Santiago",
+      "lastName": "Rinaldi",
+      "email": "santiago2@gmail.com",
+      "passWord": "12345",
+      "baja": 0,
+      "bibliotecaRutinas": {
+        "nombre": "Mi biblioteca de rutinas",
+        "descripcion": "Mi descripcion",
+        "listaRutinas": [
+          {
+            "nombre": "Mi rutina TEST",
+            "texto": "Aquí tienes una rutina de ejercicios para ganar musculatura, considerando que eres de nivel intermedio y solo tienes equipamiento básico en casa. Esta rutina se compone de ejercicios de fuerza y se recomienda realizarla 3 días a la semana, asegurándote de descansar al menos un día entre cada sesión. Recuerda que la calidad del ejercicio y la técnica correcta son más importantes que la cantidad de peso utilizado. Siempre escucha a tu cuerpo y adapta los ejercicios a tus posibilidades:\n\nDía 1: Parte superior del cuerpo\n\n1. Flexiones de pecho: 3 series de 10 repeticiones.\n   Puedes realizarlas en el suelo o con las manos sobre un banco.\n\n2. Dominadas: 3 series de 8 repeticiones.\n   Si no tienes una barra de dominadas en casa, puedes utilizar la parte superior de una puerta y colocar una toalla para mayor comodidad.\n\n3. Press de hombros con mancuernas: 3 series de 10 repeticiones.\n   Si no tienes mancuernas, puedes utilizar botellas llenas de agua u objetos pesados que tengas en casa.\n\n4. Remo con una sola mano: 3 series de 10 repeticiones por cada brazo.\n   Utiliza una botella de agua u objeto pesado en una mano mientras te apoyas con la otra mano en una silla resistente.\n\n5. Flexiones de tríceps: 3 series de 12 repeticiones.\n   Puedes realizarlas en el suelo o apoyando las manos sobre una silla o banco.\n\nDía 2: Parte inferior del cuerpo\n\n1. Sentadillas: 3 series de 12 repeticiones.\n   Puedes realizarlas sin peso o utilizando una mochila con libros u objetos pesados como resistencia.\n\n2. Zancadas: 3 series de 10 repeticiones por cada pierna.\n   Puedes realizarlas sin peso o sosteniendo una botella de agua en cada mano.\n\n3. Puente de glúteos: 3 series de 12 repeticiones.\n   Acuéstate en el suelo, dobla las rodillas y levanta las caderas mientras contraes los glúteos.\n\n4. Elevaciones de pantorrillas: 3 series de 15 repeticiones.\n   Puedes realizarlas en una superficie elevada como una escalera o utilizando una botella de agua en cada mano.\n\nDía 3: Cuerpo completo\n\n1. Plancha: Mantén la posición durante 30 segundos y descansa durante 30 segundos. Repite 3 veces.\n   Apóyate en los antebrazos y las puntas de los pies, manteniendo el cuerpo en línea recta.\n\n2. Curl de bíceps con una sola mano: 3 series de 10 repeticiones por cada brazo.\n   Utiliza una botella de agua u objeto pesado como resistencia.\n\n3. Peso muerto a una pierna: 3 series de 10 repeticiones por cada pierna.\n   Puedes realizarlo sin peso o sosteniendo una botella de agua en una mano mientras elevas la pierna opuesta.\n\n4. Flexiones de hombros: 3 series de 12 repeticiones.\n   Puedes realizarlas con una botella de agua en cada mano o utilizando cualquier objeto pesado que tengas en casa.\n\nRecuerda calentar antes de cada entrenamiento y estirar después de cada sesión para evitar lesiones. También es importante mantener una alimentación balanceada y descansar lo suficiente para permitir que tus músculos se recuperen y crezcan. ¡Buena suerte en tu rutina de ejercicio!"
+          }
+        ]
+      },
+      "bibliotecaRecetas": {
+        "nombre": "Mi biblioteca de recetas",
+        "descripcion": "Mi descripcion",
+        "listaRecetas": [
+          {
+            "nombre": "ENSALADA",
+            "texto": "Aquí tienes una receta que cumple con tus características:\n\nEnsalada de lentejas y vegetales asados\n\nIngredientes:\n- 1 taza de lentejas cocidas\n- 1 pimiento rojo\n- 1 calabacín\n- 1 berenjena\n- 1 cebolla roja\n- 2 cucharadas de aceite de oliva\n- 1 cucharada de vinagre balsámico\n- Sal y pimienta al gusto\n- 1 puñado de hojas de espinaca fresca\n\nInstrucciones:\n1. Precalienta el horno a 200°C.\n2. Corta el pimiento rojo, el calabacín, la berenjena y la cebolla en trozos pequeños.\n3. Coloca las verduras en una bandeja para horno y rocía con aceite de oliva, sal y pimienta al gusto. Mezcla bien.\n4. Hornea las verduras durante unos 25 minutos o hasta que estén tiernas y ligeramente doradas.\n5. Mientras tanto, enjuaga las lentejas cocidas con agua fría y escúrrelas.\n6. En un tazón grande, mezcla las lentejas cocidas con las verduras asadas.\n7. Aliña la ensalada con vinagre balsámico y ajusta la sal y la pimienta al gusto.\n8. Sirve la ensalada sobre una cama de hojas de espinaca fresca.\n\nEsta ensalada de lentejas y vegetales asados es baja en calorías pero llena de nutrientes esenciales. Las lentejas son una excelente fuente de proteínas y fibra, lo que te ayudará a sentirte satisfecho por más tiempo. Los vegetales asados le dan un sabor delicioso a la ensalada, mientras que las hojas de espinaca agregarán frescura y más nutrientes. ¡Disfruta de esta receta saludable mientras pierdes peso!"
+          }
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "name": "Santiago",
+      "lastName": "Rinaldi",
+      "email": "santiago3@gmail.com",
+      "passWord": "12345",
+      "baja": 1,
+      "bibliotecaRutinas": {
+        "nombre": "Mi biblioteca de rutinas",
+        "descripcion": "Mi descripcion",
+        "listaRutinas": [
+          {
+            "nombre": "Mi rutina TEST",
+            "texto": "Aquí tienes una rutina de ejercicios para ganar musculatura, teniendo en cuenta tus características y limitaciones:\n\nDía 1: Enfoque en la parte superior del cuerpo\n- Flexiones de pecho: 3 series de 10 repeticiones.\n- Remo con una mochila cargada: 3 series de 10 repeticiones.\n- Press militar con objetos pesados (por ejemplo, garrafas de agua llenas): 3 series de 10 repeticiones.\n- Fondos de tríceps en el borde de una silla o escalón: 3 series de 10 repeticiones.\n- Curl de bíceps con una mochila cargada: 3 series de 10 repeticiones.\n\nDía 2: Enfoque en la parte inferior del cuerpo\n- Sentadillas con objetos pesados: 3 series de 10 repeticiones.\n- Zancadas caminando con objetos pesados en cada mano: 3 series de 10 repeticiones (5 por pierna).\n- Elevaciones de talones en un escalón o bordillo: 3 series de 10 repeticiones.\n- Peso muerto con objetos pesados: 3 series de 10 repeticiones.\n- Abductores laterales de cadera con una banda elástica: 3 series de 10 repeticiones.\n\nDía 3: Enfoque en el cuerpo en general\n- Burpees: 3 series de 10 repeticiones.\n- Mountain climbers: 3 series de 10 repeticiones por pierna.\n- Plank: 3 series, sosteniendo cada una durante 30 segundos.\n- Russian twists con un objeto pesado: 3 series de 10 repeticiones por lado.\n- Superman: 3 series de 10 repeticiones.\n\nRecuerda descansar al menos un día entre cada sesión de ejercicios y darle el tiempo suficiente a tus músculos para recuperarse. También es importante mantener una alimentación adecuada y consumir suficiente proteína para apoyar el crecimiento muscular. Siempre consulta a un profesional de la salud antes de comenzar cualquier programa de ejercicio."
+          }
+        ]
+      },
+      "bibliotecaRecetas": {
+        "nombre": "Mi biblioteca de recetas de Santi",
+        "descripcion": "Mi descripcion TEST",
+        "listaRecetas": [
+          {
+            "nombre": "Mi receta CEL",
+            "texto": "Aquí tienes una opción apta para celiacos, baja en calorías y perfecta para la cena. Esta receta te ayudará a ganar flexibilidad.\n\nEnsalada de quinua y vegetales\n\nIngredientes:\n- 1 taza de quinua cocida\n- 1 zanahoria grande, rallada\n- 1 pimiento rojo, cortado en cubitos\n- 1 pepino pequeño, cortado en cubitos\n- 1 cebolla morada pequeña, picada finamente\n- 2 cucharadas de aceite de oliva\n- Jugo de 1 limón\n- Sal y pimienta al gusto\n\nPreparación:\n1. En un recipiente grande, combina la quinua cocida, la zanahoria rallada, el pimiento rojo, el pepino y la cebolla morada.\n\n2. En un tazón aparte, mezcla el aceite de oliva, el jugo de limón, la sal y la pimienta. Bate bien para combinar los ingredientes.\n\n3. Vierte la mezcla de aceite de oliva sobre la ensalada de quinua y vegetales. Remueve suavemente para asegurarte de que todos los ingredientes estén bien cubiertos.\n\n4. Deja reposar la ensalada en el refrigerador durante al menos 30 minutos para que los sabores se mezclen.\n\n5. Sirve fría y disfruta de esta deliciosa ensalada como cena.\n\nRecuerda ajustar las porciones de acuerdo a tus necesidades calóricas específicas y consultar con un nutricionista si tienes alguna preocupación adicional sobre tu dieta."
+          }
+        ]
+      }
     }
   ]
 }
