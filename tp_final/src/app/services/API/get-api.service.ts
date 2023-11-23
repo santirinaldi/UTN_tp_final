@@ -11,7 +11,7 @@ export class GetAPIService {
   //private rapidApiKey = "ad44ee4ad8msh759cec7c25fc2cap1368b5jsn3d6d200336c1";
   //private rapidApiHost = "simple-chatgpt-api.p.rapidapi.com";
 
-  private rapidApiKey = '0d721e434fmsh928652331228961p11fcb7jsnaa6c4fed3597';
+  private rapidApiKey = '08248903bfmshd0d75cded371bacp1811ddjsn45c1c90ffbed';
   private rapidApiHost = 'simple-chatgpt-api.p.rapidapi.com';
 
   constructor(private http: HttpClient) {}
